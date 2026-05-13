@@ -1,0 +1,712 @@
+/* --- CLEAN GLOBAL RESET --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #D6D6D6; 
+    overflow-x: hidden; 
+    overflow-y: scroll; 
+    height: 100%;
+}
+
+body {
+    background-color: #D6D6D6; 
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    padding-top: 144px; /* Space for both navbars (80px + 64px) */
+    overflow: visible; 
+    font-family: 'Epilogue', sans-serif;
+}
+
+/* =========================================
+   HEADER / NAVBAR (Standard Size)
+========================================= */
+
+.navbar-bg {
+    width: 100%;
+    height: 80px; /* Standard navbar height */
+    background-color: #0d0d0d; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    z-index: 9999; 
+    border-bottom: 3px solid #ffffff; /* NEW: Thick white horizontal line separating the navbar and hero */
+}
+
+
+/*search button*/
+/* The container for the icon and the hidden bar */
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%; /* Matches navbar height */
+}
+
+.search-trigger {
+    background-color: transparent !important; /* Removes the white background */
+    border: none;                             /* Removes any default button borders */
+    outline: none;                            /* Removes the glow when clicked */
+    padding: 0;                               /* Ensures no extra spacing creates a "box" look */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+/* If the icon itself has a background (like an <img> tag or a <span>) */
+.search-trigger img, .search-trigger i {
+    background: transparent;
+}
+
+/* The actual bar that appears at the bottom */
+.search-bar-dropdown {
+    position: absolute;
+    top: 100%; /* This places it exactly at the bottom of the navbar */
+    right: 0;
+    width: 0;
+    overflow: hidden;
+    background: #111; /* Matches your dark theme */
+    transition: width 0.3s ease, padding 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid #ff9900; /* Primal orange accent */
+}
+
+/* Trigger expansion on hover of the wrapper */
+.search-wrapper:hover .search-bar-dropdown {
+    width: 300px;
+    padding: 10px;
+}
+
+#site-search {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #444;
+    color: white;
+    padding: 8px;
+    outline: none;
+}
+
+/* Style for results appearing under the input */
+#search-results {
+    background: #1a1a1a;
+    color: white;
+    font-size: 0.9rem;
+}
+
+/* --- Flexbox Container --- */
+.navbar-container {
+    width: 100%;
+    max-width: 1200px; /* REDUCED: This pulls the logo and icons closer to the center! */
+    height: 100%;
+    margin: 0 auto; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0 20px; 
+}
+
+/* --- Left Side: Logo --- */
+.logo-link {
+    width: 55px;  
+    height: 55px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 50%;
+    overflow: hidden; 
+    text-decoration: none;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+/* --- Center: Nav Links --- */
+/* OVERWRITING OLD BUGS: No more position: absolute! */
+.nav-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.nav-buttons ul {
+    display: flex;
+    flex-direction: row; 
+    gap: 40px; 
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-buttons a {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 16px; 
+    font-weight: 400;
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.nav-buttons a:hover { opacity: 0.7; }
+
+/* --- Right Side: Group Container --- */
+/* OVERWRITING OLD BUGS: No more position: absolute! */
+.header-right-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 35px; 
+}
+
+/* --- Right Side: Icons --- */
+.nav-icons {
+    display: flex;
+    flex-direction: row; 
+    gap: 20px; 
+    align-items: center;
+}
+
+.nav-icons span {
+    font-size: 20px; 
+    color: #ffffff;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.nav-icons span:hover { opacity: 0.7; }
+
+/* --- Right Side: About Us Button --- */
+.about-us-btn {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px; 
+    font-weight: 400;
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.about-us-btn:hover { opacity: 0.7; }
+
+/* =========================================
+   SECOND NAVBAR 
+========================================= */
+.second-navbar {
+    width: 100%;
+    height: 64px;
+    background-color: rgba(245, 166, 35, 0.91); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); 
+    border-bottom: 3px solid #0D0D0D; 
+    position: fixed;
+    top: 80px; 
+    left: 0;
+    z-index: 9998; 
+    display: flex;
+    justify-content: center; 
+}
+
+
+.second-nav-container {
+    width: 100%;
+    max-width: 1200px;  /* Matches your top navbar and content width */
+    margin: 0 auto;     /* This is the magic that keeps it centered on zoom */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Aligns items to the left of the 1200px limit */
+    gap: 20px;
+    padding-left: 120px;
+}
+
+#lace {
+    padding-right: 230px;
+}
+
+.second-nav-link {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: #0D0D0D; 
+    text-decoration: none;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 1px;
+    transition: color 0.2s ease;
+    /* margin-left: -190px;  <-- DELETE THIS */
+    margin-right: 40px;    /* Use positive margin-right to space them out */
+}
+
+.second-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0; 
+    left: 50%;
+    transform: translateX(-50%); 
+    width: 126px;
+    height: 3px; 
+    background-color: rgba(0, 0, 0, 0.7); 
+    border-radius: 50%; 
+    opacity: 0; 
+    filter: blur(3px); 
+    transition: opacity 0.2s ease;
+}
+
+.second-nav-link:active::after,
+.second-nav-link:focus::after { opacity: 1; }
+.second-nav-link:hover { color: #000000; }
+
+/* =========================================
+   MAIN PAGE CONTENT STYLES
+========================================= */
+.page-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Shared Section Heading Style */
+.section-heading {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: #F5A623;
+    -webkit-text-stroke: 0.4px #0D0D0D; /* Creates the black outline effect */
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
+}
+
+/* --- BROWSE PLANS --- */
+.browse-section {
+    margin-bottom: 50px;
+}
+
+.browse-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.browse-card {
+    background-color: #111111;
+    color: white;
+    padding: 25px;
+    border: 2px solid #0D0D0D;
+    display: flex;
+    flex-direction: column;
+}
+
+.browse-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+.browse-arrow {
+    color: #F5A623;
+    font-weight: bold;
+}
+
+.browse-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    color: #F5A623;
+    font-size: 24px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.browse-card p {
+    font-size: 12px;
+    color: #cccccc;
+    line-height: 1.4;
+}
+
+/* --- ALL WORKOUT PLANS --- */
+
+.all-plans-section {
+    max-width: 1100px;  /* This prevents the cards from getting too wide */
+    margin: 0 auto;     /* This centers the entire section on your screen */
+    margin-bottom: 60px;
+    padding: 0 20px;    /* Adds a little padding so cards don't touch the screen edges */
+}
+
+.plans-grid {
+    display: grid;
+    /* Keeps 3 columns, but they are now restricted by the max-width above */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px 20px; 
+}
+
+.plan-card {
+    background-color: #F5A623;
+    border: 3px solid #0D0D0D;
+    display: flex;
+    flex-direction: column;
+}
+
+/* IMAGES FOR WORKOUT PLANS */
+.plan-image-placeholder {
+    height: 150px;
+    border-bottom: 3px solid #0D0D0D;
+    position: relative;
+    overflow: hidden; /* Ensures the image doesn't spill out of the container */
+    /* Removed the checkerboard background colors and gradients */
+}
+
+/* Add this new rule for the image */
+.plan-image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Keeps aspect ratio while filling the box */
+      object-position: center;
+    display: block;
+}
+
+.plan-price {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #F5A623;
+    color: #0D0D0D;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    padding: 4px 12px;
+    border: 2px solid #0D0D0D;
+}
+
+.plan-content {
+    padding: 20px;
+    flex-grow: 1; /* Pushes button to bottom if heights differ */
+}
+
+.plan-meta {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.plan-badge {
+    background-color: #0D0D0D;
+    color: #ffffff;
+    font-family: 'Bebas Neue', sans-serif;
+    padding: 3px 10px;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.plan-rating {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0D0D0D;
+}
+
+.review-count {
+    font-weight: 400;
+    color: #333;
+}
+
+.plan-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: #0D0D0D;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.plan-desc {
+    font-size: 11px;
+    line-height: 1.4;
+    color: #1a1a1a;
+    margin-bottom: 15px;
+    min-height: 45px;
+}
+
+.plan-details-list p {
+    font-size: 11px;
+    margin-bottom: 5px;
+    color: #0D0D0D;
+}
+
+.plan-details-list strong {
+    font-weight: 700;
+}
+
+.view-btn {
+    width: 100%;
+    background-color: #0D0D0D;
+    color: #ffffff;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    border: none;
+    padding: 12px 0;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: background-color 0.2s;
+}
+
+.view-btn:hover {
+    background-color: #333333;
+}
+
+/* --- WHAT'S INCLUDED SECTION --- */
+.included-section {
+    margin-top: 40px;
+    padding-bottom: 60px;
+}
+
+.divider-line {
+    border: none;
+    border-top: 3px solid #0D0D0D;
+    margin-bottom: 30px;
+}
+
+.included-heading {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: #0D0D0D;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+}
+
+.included-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.included-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.included-number {
+    width: 80px;
+    height: 80px;
+    background-color: #0D0D0D;
+    color: #F5A623;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.included-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    color: #0D0D0D;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.included-desc {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #333333;
+}
+
+/* ========================================== */
+/* FOOTER SECTION                             */
+/* ========================================== */
+
+/* --- MAIN FOOTER CONTAINER --- */
+.footer-section {
+    width: 100%;
+    min-height: auto !important;
+    background-color: #000000;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row; 
+    justify-content: center;
+    
+    /* Forces every column to start at the exact same top line */
+    align-items: flex-start; 
+    /* This handles the top spacing for all columns at once */
+    padding-top: 50px; 
+    padding-left: 50px;
+    padding-bottom: 50px;
+    box-sizing: border-box;
+}
+
+/* --- COLUMN 1: TERMS --- */
+.terms {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.terms-img {
+    width: 104px;
+    height: 104px;
+    border: 2px solid rgba(245, 166, 35, 0.91);
+    box-sizing: border-box;
+    margin-bottom: 22px; 
+    margin-top: 0; /* Ensures the box starts at the very top */
+}
+
+.terms-big-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: #F5A623;
+    margin: 0 0 22px 0; /* Top margin MUST be 0 for alignment */
+}
+
+.terms-small-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: rgba(245, 166, 35, 0.91);
+    margin: 0 0 22px 0; 
+}
+
+/* --- COLUMN 2: CONTACT --- */
+.footer-links-col {
+    display: flex;
+    flex-direction: column;
+    margin-left: 227px; /* EXACT spacing from Column 1 */
+}
+
+/* --- COLUMN 3: ABOUT US --- */
+.footer-about-col {
+    display: flex;
+    flex-direction: column;
+    margin-left: 104px; /* EXACT spacing from Column 2 */
+}
+
+.footer-about-col a {
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
+/* --- SHARED HEADER STYLE (Used in Col 2 & 3) --- */
+.links-big-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: #F5A623;
+    margin: 0 0 26px 0; /* margin-top: 0 aligns it with the image/other text */
+    line-height: 1;
+}
+
+/* --- INNER TEXT STYLES --- */
+.link-group {
+    margin-bottom: 8px; 
+}
+
+.links-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: #F5A623;
+    margin: 0;
+}
+
+.links-small-text {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 16px;
+    color: #F5A623;
+    margin: 4px 0 0 0;
+    line-height: 1.4;
+}
+
+/* Basic Responsiveness */
+@media (max-width: 992px) {
+    .browse-grid, .plans-grid, .included-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .browse-grid, .plans-grid, .included-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================
+   FILTER MENUS STYLING
+   ========================================== */
+
+/* 1. The Outer Box Container */
+.level-filter-container {
+    background-color: #f4f4f4; /* Light grey background */
+    border: 1px solid #000000; /* Solid black border */
+    padding: 25px 30px;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif; /* Ensures a clean font */
+}
+
+/* 2. The Headings ("SELECT GOAL", etc.) */
+.filter-heading {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #000000;
+}
+
+/* 3. The Layout for the Buttons */
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap; /* Allows buttons to wrap to the next line if screen is small */
+    gap: 12px; /* Exact spacing between buttons */
+}
+
+/* 4. The Default Button Style (White with black border) */
+.filter-btn, 
+.goal-filter-btn, 
+.equipment-filter-btn {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+    padding: 12px 20px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* 5. Optional Hover Effect (Slight grey when mouse is over) */
+.filter-btn:hover, 
+.goal-filter-btn:hover, 
+.equipment-filter-btn:hover {
+    background-color: #e8e8e8;
+}
+
+/* 6. The "Active" Button Style (Solid Black) */
+.filter-btn.active, 
+.goal-filter-btn.active, 
+.equipment-filter-btn.active {
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #000000;
+}
+
+/* ==========================================
+   HIDE / SHOW TOGGLE LOGIC
+   ========================================== */
+
+/* 1. Hide all three menus by default when the page loads */
+#levelFilterContainer, 
+#goalFilterContainer, 
+#equipmentFilterContainer {
+    display: none; 
+}
+
+/* 2. The JavaScript adds this '.show' class when you click the buttons! */
+#levelFilterContainer.show, 
+#goalFilterContainer.show, 
+#equipmentFilterContainer.show {
+    display: block; 
+}

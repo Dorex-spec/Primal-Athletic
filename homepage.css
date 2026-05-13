@@ -1,0 +1,1250 @@
+/* --- CLEAN GLOBAL RESET --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    /* Set the requested background color */
+    background-color: #D6D6D6; 
+    
+    /* Force only one scrollbar on the far right */
+    overflow-x: hidden; 
+    overflow-y: scroll; /* Keeps the bar visible so the page doesn't 'jump' */
+    height: 100%;
+}
+
+body {
+    /* Match background and ensure it doesn't create a second scrollbar */
+    background-color: #D6D6D6; 
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    
+    /* padding-top: 80px;  Keep this if your navbar is fixed */
+    padding-top: 80px; 
+    
+    /* CRITICAL: This stops the body from having its own scrollbar */
+    overflow: visible; 
+}
+
+/* =========================================
+   HEADER / NAVBAR (Standard Size)
+========================================= */
+
+.navbar-bg {
+    width: 100%;
+    height: 80px; /* Standard navbar height */
+    background-color: #0d0d0d; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    z-index: 9999; 
+    border-bottom: 3px solid #ffffff; /* NEW: Thick white horizontal line separating the navbar and hero */
+}
+
+
+/*search button*/
+/* The container for the icon and the hidden bar */
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%; /* Matches navbar height */
+}
+
+.search-trigger {
+    background-color: transparent !important; /* Removes the white background */
+    border: none;                             /* Removes any default button borders */
+    outline: none;                            /* Removes the glow when clicked */
+    padding: 0;                               /* Ensures no extra spacing creates a "box" look */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+/* If the icon itself has a background (like an <img> tag or a <span>) */
+.search-trigger img, .search-trigger i {
+    background: transparent;
+}
+
+/* The actual bar that appears at the bottom */
+.search-bar-dropdown {
+    position: absolute;
+    top: 100%; /* This places it exactly at the bottom of the navbar */
+    right: 0;
+    width: 0;
+    overflow: hidden;
+    background: #111; /* Matches your dark theme */
+    transition: width 0.3s ease, padding 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid #ff9900; /* Primal orange accent */
+}
+
+/* Trigger expansion on hover of the wrapper */
+.search-wrapper:hover .search-bar-dropdown {
+    width: 300px;
+    padding: 10px;
+}
+
+#site-search {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #444;
+    color: white;
+    padding: 8px;
+    outline: none;
+}
+
+/* Style for results appearing under the input */
+#search-results {
+    background: #1a1a1a;
+    color: white;
+    font-size: 0.9rem;
+}
+
+/* --- Flexbox Container --- */
+.navbar-container {
+    width: 100%;
+    max-width: 1200px; /* REDUCED: This pulls the logo and icons closer to the center! */
+    height: 100%;
+    margin: 0 auto; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0 20px; 
+}
+
+/* --- Left Side: Logo --- */
+.logo-link {
+    width: 55px;  
+    height: 55px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 50%;
+    overflow: hidden; 
+    text-decoration: none;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+/* --- Center: Nav Links --- */
+/* OVERWRITING OLD BUGS: No more position: absolute! */
+.nav-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.nav-buttons ul {
+    display: flex;
+    flex-direction: row; 
+    gap: 40px; 
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-buttons a {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 16px; 
+    font-weight: 400;
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.nav-buttons a:hover { opacity: 0.7; }
+
+/* --- Right Side: Group Container --- */
+/* OVERWRITING OLD BUGS: No more position: absolute! */
+.header-right-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 35px; 
+}
+
+/* --- Right Side: Icons --- */
+.nav-icons {
+    display: flex;
+    flex-direction: row; 
+    gap: 20px; 
+    align-items: center;
+}
+
+.nav-icons span {
+    font-size: 20px; 
+    color: #ffffff;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.nav-icons span:hover { opacity: 0.7; }
+
+/* --- Right Side: About Us Button --- */
+.about-us-btn {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px; 
+    font-weight: 400;
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.about-us-btn:hover { opacity: 0.7; }
+
+/* =========================================
+   HERO SECTION
+========================================= */
+
+.hero-section {
+    width: 100%;
+    height: 821px; 
+    position: relative;
+    border-bottom: 5px solid #ffffff; /* NEW: Thick horizontal line to separate sections */
+}
+
+.hero-image-container {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: hidden; 
+    z-index: 1; 
+}
+
+.hero-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center; 
+}
+
+/* --- Centered Text Overlay Container --- */
+.hero-content-container {
+    position: relative;
+    width: 100%;
+    max-width: 1440px; 
+    height: 100%;
+    margin: 0 auto; 
+    z-index: 2; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; /* This perfectly centers the text box vertically */
+}
+
+/* --- Main Text Group --- */
+.hero-text-group {
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    gap: 19px; 
+    text-align: center; 
+    margin-top: -80px; /* Slight offset to account for the navbar visually */
+}
+
+/* --- Heading --- */
+.hero-heading {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 130px; /* SCALED DOWN from 165px */
+    line-height: 1; 
+    font-weight: 400;
+    color: #ffffff;
+    margin: 0;
+    white-space: nowrap; 
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); 
+}
+
+/* --- Subheading --- */
+.hero-subheading {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 22px; /* SCALED DOWN from 32px */
+    line-height: 1;
+    font-weight: 400;
+    color: #E6E3E3;
+    margin: 0;
+    letter-spacing: 2px; 
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Action Buttons Container --- */
+.hero-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 50px; /* REDUCED: Brought the buttons closer together */
+    margin-top: 40px; 
+}
+
+/* --- Group 1: Explore Services --- */
+.btn-explore {
+     width: 250px; /* SCALED DOWN from 326px */
+    height: 60px; /* SCALED DOWN from 77px */
+    background-color: #000000; 
+    border: 1px solid #ffffff; 
+    color: #ffffff; 
+    font-family: 'Epilogue', sans-serif;
+    font-size: 16px; /* SCALED DOWN from 20px */
+    font-weight: 600; 
+    letter-spacing: 1px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+
+}
+
+.btn-explore:hover {
+    background-color: #e6e6e6; 
+    transform: translateY(-2px);
+}
+
+/* --- Group 2: Shop Now --- */
+.btn-shop {
+
+     width: 250px; /* SCALED DOWN from 326px */
+    height: 60px; /* SCALED DOWN from 77px */
+    background-color: #ffffff; 
+    color: #000000; 
+    font-family: 'Epilogue', sans-serif;
+    font-size: 16px; /* SCALED DOWN from 20px */
+    font-weight: 600; 
+    letter-spacing: 1px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+   
+}
+
+.btn-shop:hover {
+    background-color: #ffffff; 
+    color: #000000; 
+    transform: translateY(-2px);
+}
+/* =========================================
+   SERVICES SECTION
+========================================= */
+
+/* --- 1st Pic: Service Background Container --- */
+.service-background {
+    width: 100%;
+    min-height: 800px; 
+    background-color: #D6D6D6; /* UPDATED: Exact gray background */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: 100px 20px; 
+    position: relative;
+}
+
+/* --- 2nd Pic: "OUR SERVICES" Text --- */
+.services-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px; 
+    font-weight: 400;
+    color: #000000; 
+    margin: 0;
+    margin-bottom: 47px; /* EXACT GAP: Changed to exactly 47px! */
+    letter-spacing: 4%;
+}
+
+/* --- The Main Service Box Container --- */
+.service-box {
+    width: 970px; 
+    height: 440px; 
+    background-color: #212121; 
+    border: 1px solid #FFFFFF; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    /* THIS IS THE FIX: 20px on Top, 50px on Right, 40px on Bottom, 50px on Left */
+    padding: 20px 50px 40px 50px; 
+}
+
+/* --- Featured Workout Text --- */
+.service-box-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px; /* Your updated size */
+    font-weight: 400; 
+    color: #F5A623; /* UPDATED: Your awesome new orange color! */
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+/* --- Container for the 3 Workout Cards --- */
+.workout-cards-container {
+    display: flex;
+    flex-direction: row; 
+    gap: 40px; 
+    margin-top: 15px; /* THIS IS THE FIX: Pulls the 3 boxes up right under the text */
+    width: 100%;
+}
+
+/* --- The Individual Workout Cards --- */
+.workout-card {
+    width: 271px; 
+    height: 317px; 
+    background-color: #1C1C1C; 
+    
+    /* NEW: Flexbox to perfectly position the image inside */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* This perfectly centers the image left-to-right */
+    padding-top: 10px; /* This gives that "little bit of space" at the top! */
+}
+
+/* --- NEW: Image Placeholder inside the cards --- */
+.card-image {
+    width: 252px; 
+    height: 110px; 
+    border: 2px solid #000000; 
+    object-fit: cover; /* Acts like a background-size: cover but for img tags */
+    display: block; /* Removes tiny extra spacing that HTML sometimes adds below images */
+}
+/* --- NEW: Card Titles --- */
+.card-title {
+    width: 149px; /* Exact width requested */
+    height: 29px; /* Exact height requested */
+    margin-top: 17px; /* EXACT GAP: 17px directly below the image */
+    
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: #F5A623;
+    margin-bottom: 0; 
+    letter-spacing: 1px;
+    
+    /* Alignment rules */
+    display: flex;
+    align-items: center; /* Middle align (vertically) */
+    justify-content: flex-start; /* Left align (horizontally) */
+    
+    /* Pushes the text to the left side of the card, lining it up exactly with the image border */
+    align-self: flex-start; 
+    margin-left: 9.5px; 
+}
+
+/* --- NEW: Card Descriptions --- */
+.card-desc {
+    width: 252px; /* Matches the image width so right-alignment is perfectly flush */
+    margin-top: 10px; /* EXACT GAP: 10px below the title */
+    
+    font-family: 'Epilogue', sans-serif;
+    font-size: 14px; /* Exact size requested */
+    color: rgba(255, 255, 255, 0.97); /* 97% opacity white */
+    
+    text-align: left; /* Aligns the text to the right side */
+    line-height: 1.4; /* Adds a tiny bit of breathing room between the lines of text */
+    margin-bottom: 0;
+}
+
+/* --- UPDATED: Learn More Button Link --- */
+.learn-more-button {
+    width: 127px; 
+    height: 48px; 
+    margin-top: 12px; 
+    background-color: rgba(245, 166, 35, 0.91); 
+    align-self: flex-start;
+    margin-left: 9.5px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; 
+    
+    text-decoration: none; /* Removes the default browser underline for links */
+    transition: background-color 0.3s ease; /* Smooth background color fade */
+}
+
+/* --- NEW: Hover Effect for the Box --- */
+.learn-more-button:hover {
+    background-color: #000000; /* Turns the box black */
+}
+
+/* --- UPDATED: Learn More Text --- */
+.learn-more-text {
+    width: 99px; 
+    height: 26px; 
+    font-family: 'Epilogue', sans-serif;
+    font-size: 14px;
+    color: #000000; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    
+    transition: color 0.3s ease; /* Smooth text color fade */
+}
+
+/* --- NEW: Hover Effect for the Text --- */
+/* When the button is hovered, change the text inside it to white */
+.learn-more-button:hover .learn-more-text {
+    color: #FFFFFF; 
+}
+
+/* --- NEW: Section Separator Line --- */
+.section-separator {
+    width: 100%;
+    border: none;
+    border-top: 3px solid #FFFFFF; /* Change color if your previous lines were different */
+    margin-top: 60px; /* Space above the line */
+    margin-bottom: 60px; /* Space below the line for the next section */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: 8F8F8F;
+  font-family: 'Epilogue', sans-serif;
+}
+
+/* SECTION */
+.classes-section {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+/* CONTAINER */
+.container {
+  background: #2f2f2f;
+  width: 900px;
+  padding: 30px 40px;
+  border: 2px solid #3a3a3a;
+}
+
+/* TITLE */
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  color: #bbb;
+  font-size: 20px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/* CLASS CARD */
+.class-card {
+  background: #c6861a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+}
+
+/* LEFT TEXT */
+.class-left h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.class-left p {
+  font-size: 13px;
+  color: #1a1a1a;
+}
+
+/* RIGHT TEXT */
+.class-right {
+  text-align: right;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.class-right span {
+  display: block;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.class-right small {
+  font-size: 12px;
+  font-family: 'Epilogue', sans-serif;
+}
+
+/* BUTTON */
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.btn {
+  background: #c6861a;
+  padding: 10px 25px;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #a86f14;
+}
+/* =========================================
+   PRODUCT SECTION
+========================================= */
+
+.product-section {
+    width: 100%;
+    height: 737px; /* Exact height from your specs */
+    background-color: #D6D6D6; /* Exact light gray color */
+    
+    /* Pre-setting Flexbox to help center the upcoming content */
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    position: relative;
+}
+
+/* --- NEW: Product Header Container --- */
+.product-header {
+    width: 100%;
+    max-width: 1200px; /* Keeps it aligned with your other sections */
+    display: flex;
+    justify-content: space-between; /* Pushes Title left and Link right */
+    align-items: center; /* Vertically centers them with each other */
+    padding-top: 80px; /* Pushes the header down from the top of the section */
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* --- NEW: "BEST SELLER" Title --- */
+.product-title {
+    width: 218px; /* Exact width requested */
+    height: 58px; /* Exact height requested */
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px; /* Exact size requested */
+    letter-spacing: 0.04em; /* Exactly 4% letter spacing */
+    color: #000000;
+    margin: 0;
+    
+    /* Left and center aligned */
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; 
+}
+
+/* --- NEW: "VIEW ALL" Link --- */
+.view-all-link {
+    font-family: 'Bebas Neue', sans-serif; /* Assuming Bebas to match the title's energy */
+    font-size: 20px; /* Exact size requested */
+    letter-spacing: 0.04em; /* Exactly 4% letter spacing */
+    color: #000000;
+    text-decoration: none; /* Removes the blue underline */
+    
+    /* Right and center aligned */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    
+    transition: opacity 0.2s ease; /* Smooth hover effect */
+}
+
+/* Optional: Slight fade when they hover over the link */
+.view-all-link:hover {
+    opacity: 0.6;
+}
+
+/* --- NEW: Container for the 5 Product Boxes --- */
+.product-boxes-container {
+    display: flex;
+    flex-direction: row; 
+    gap: 32px; /* EXACT GAP: 32px of space between each box */
+    margin-top: 29px; /* EXACT DROP: Pushes the container exactly 29px below the header */
+    
+    /* These match your header settings so the left and right sides align perfectly */
+    width: 100%;
+    max-width: 1200px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* --- UPDATED: Individual Product Box --- */
+.product-box {
+    width: 216px; 
+    height: 269px; 
+    background-color: #FFFFFF; 
+    border: 3px solid #000000; 
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; 
+    position: relative; 
+    
+    /* NEW: Makes the hover animation smooth instead of instant */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; 
+}
+
+/* --- NEW: Product Box Hover Animation --- */
+.product-box:hover {
+    /* Adds a soft, dark shadow around the box */
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.25); 
+    
+    /* Slightly lifts the box up 4px to make it feel interactive */
+    transform: translateY(-4px); 
+}
+
+/* --- NEW: Product Image --- */
+.product-img {
+    width: 100%; /* Automatically fills the 216px width inside the border */
+    height: 157px; /* Exact height requested */
+    object-fit: cover; /* Keeps the image looking sharp without stretching */
+    display: block; /* Removes any weird invisible spacing below images */
+    border-bottom: 3px solid #000000; /* Optional: Adds a line separating the image from the future text area! */
+}
+
+/* --- NEW: Product Category Text --- */
+.product-category {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 12px; /* Exact size requested */
+    letter-spacing: 0.04em; /* Exactly 4% letter spacing */
+    color: #414141; /* Exact color requested */
+    text-transform: uppercase; /* Ensures Bebas Neue looks its best */
+    
+    margin-top: 6px; /* EXACT GAP: 6px below the image */
+    margin-left: 10px; /* Gives it a little breathing room from the left border */
+    margin-bottom: 0;
+}
+
+/* --- NEW: Product Name Text --- */
+.product-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15px; /* Exact size requested */
+    color: #0D0D0D; /* Exact dark color requested */
+    text-transform: uppercase; 
+    
+    margin-top: 3px; /* EXACT GAP: 5px below the category text */
+    margin-left: 10px; /* Aligns perfectly with the text above it */
+    margin-bottom: 0;
+    letter-spacing: 6%;
+}
+/* --- NEW: Product Rating Group --- */
+.product-rating {
+    display: flex;
+    align-items: center; /* Centers the stars and text vertically */
+    gap: 8px; /* The gap to the right of the stars before the text */
+    margin-top: 3px; /* EXACT GAP: 3px below the product name */
+    margin-left: 10px; /* Aligns perfectly with the text above it */
+}
+
+/* --- NEW: Stars Styling --- */
+.stars {
+    color: #000000; /* Makes the first 4 stars solid black */
+    font-size: 16px; /* A good size to match your 13px text */
+    letter-spacing: 2px; /* Adds a tiny bit of space between each star */
+}
+
+.gray-star {
+    color: #A9A9A9; /* Colors the final 5th star gray */
+}
+
+/* --- NEW: Review Count Text --- */
+.review-count {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 13px; /* Exact size requested */
+    color: #414141; /* Exact color requested */
+    margin-top: 2px; /* Tiny adjustment to make it sit perfectly level with the stars */
+}
+
+/* --- NEW: Price Group Container --- */
+.product-price-group {
+    display: flex;
+    align-items: center; /* Ensures the two prices line up perfectly horizontally */
+    gap: 8px; /* Adds a nice gap between the new price and the old price */
+    margin-top: 10px; /* EXACT GAP: 10px below the ratings */
+    margin-left: 10px; /* Aligns with all the text above it */
+}
+
+/* --- NEW: Current Price --- */
+.current-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15px; /* Exact size requested */
+    color: #000000; /* Solid Black */
+}
+
+/* --- NEW: Old Price (Strikethrough) --- */
+.old-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.37); /* Black with 37% opacity */
+    
+    /* Adds the strikethrough line right in the middle */
+    text-decoration: line-through;
+    text-decoration-color: rgba(0, 0, 0, 0.37); /* Matches the text color/opacity */
+    text-decoration-thickness: 2px; /* Makes the horizontal line 2px thick! */
+}
+
+/* --- UPDATED: Product Badge (New/Sale) --- */
+.product-badge {
+    position: absolute; 
+    top: 8px; /* EXACT GAP: Pushes it down 8px from the top border */
+    left: 8px; /* EXACT GAP: Pushes it in 8px from the left border */
+    
+    width: 49px; 
+    height: 25px; 
+    background-color: #F5A623; 
+    
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15px;
+    color: #000000;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* =========================================
+   Newsletter
+========================================= */
+
+/* --- UPDATED: New Section --- */
+.new-section {
+    width: 100%;
+    min-height: 1137px; 
+    background-color: #D6D6D6; 
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; /* <-- NEW: This centers the big black box perfectly from top to bottom! */
+    position: relative;
+    /* NEW: Adds space below the columns to balance the top spacing */
+    padding-bottom: 60px;
+}
+
+/* --- NEW: Newsletter Main Background --- */
+.newsletter-bg {
+    width: 1254px; /* Exact width requested */
+    height: 1005px; /* Exact height requested */
+    background-color: #1C1C1C; /* Dark charcoal */
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Keeps the inner header box centered */
+}
+
+/* --- UPDATED: Newsletter Dark Header Box --- */
+.newsletter-header {
+    width: 1253.45px; 
+    height: 123.94px; 
+    background-color: #0D0D0D; 
+    margin-top: 18px; 
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* <-- CHANGED: Pushes the text up to the top */
+    align-items: flex-start; 
+    padding-top: 15px; /* <-- NEW: Adds just a little bit of gap at the top */
+    padding-left: 20px; /* <-- CHANGED: Shrunk from 40px to bring it closer to the left side */
+    box-sizing: border-box; 
+}
+
+/* --- NEW: "Primal Athletic" Text --- */
+.newsletter-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 40px; /* Exact size requested */
+    letter-spacing:6%; /* Exactly 4% letter spacing */
+    color: #FFFFFF;
+    margin: 0;
+    line-height: 1; /* Keeps the text box tight */
+}
+
+/* --- NEW: "Newsletter" Text --- */
+.newsletter-subtitle {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px; /* Exact size requested */
+    letter-spacing: 6%; /* Exactly 4% letter spacing */
+    color: #FFFFFF;
+    
+    margin: 0;
+    margin-top: 3px; /* EXACT GAP: 3px spacing beneath the title */
+    line-height: 1;
+}
+
+/* --- NEW: Newsletter Date Bar --- */
+/* --- UPDATED: Newsletter Date Bar --- */
+.newsletter-date-bar {
+    width: 1253.45px; 
+    height: 50px; 
+    background-color: #F5A623; 
+    border: 2px solid #000000; 
+    margin-top: 0; /* <-- CHANGED: Removes the gap so it touches the black box perfectly */
+    
+    display: flex;
+    align-items: center; 
+    justify-content: flex-start; 
+    padding-left: 20px; 
+    box-sizing: border-box; 
+}
+
+/* --- NEW: Newsletter Date Text --- */
+.newsletter-date {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px; /* Exact size requested */
+    letter-spacing: 0.06em; /* Exactly 6% letter spacing */
+    color: #000000; /* Solid black */
+    margin: 0; /* Removes default paragraph spacing */
+}
+
+/* --- UPDATED: Newsletter Main Image --- */
+.newsletter-main-img {
+    width: 704.19px; 
+    height: 312.9px; 
+    object-fit: cover; 
+    /* Alignment and margins moved to the split container below */
+}
+
+/* --- UPDATED: Bottom Text Group Container --- */
+.newsletter-bottom-text {
+    margin-top: 37px; 
+    display: flex;
+    flex-direction: column;
+    /* Alignment and margins moved to the split container below */
+}
+
+/* --- NEW: Bottom Text 1 --- */
+.bottom-text-1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px; /* Exact size requested */
+    letter-spacing: 0.04em; /* Exactly 4% letter spacing */
+    color: #F5A623; /* Exact orange color */
+    
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 1; /* Keeps the spacing tight */
+}
+
+/* --- NEW: Bottom Text 2 --- */
+.bottom-text-2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px; /* Exact size requested */
+    letter-spacing: 0.04em; /* Exactly 4% letter spacing */
+    color: #F5A623; 
+    opacity: 0.91; /* EXACT OPACITY: 91% */
+    
+    text-transform: uppercase;
+    margin: 0;
+    margin-top: 18px; /* EXACT GAP: 18px before this second text */
+    line-height: 1;
+}
+
+/* --- NEW: Shared Paragraph Layout --- */
+.bottom-text-3, .bottom-text-4 {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 17px; /* Exact size requested */
+    letter-spacing: 0.04em; /* Exactly 4% letter spacing */
+    color: #FFFFFF; /* White text */
+    
+    /* Layout constraints */
+    max-width: 731px; /* Ensures text never exceeds 731px width */
+    max-height: 165px; /* Ensures text block height limit */
+    overflow: hidden; /* Clips any text if it somehow exceeds the 165px height */
+    
+    line-height: 1.5; /* Adds nice readable spacing between the lines of text */
+    margin-bottom: 0;
+}
+
+/* --- NEW: Paragraph 1 Specific Spacing --- */
+.bottom-text-3 {
+    margin-top: 31px; /* EXACT GAP: 31px below the previous text */
+}
+
+/* --- NEW: Paragraph 2 Specific Spacing --- */
+.bottom-text-4 {
+    margin-top: 30px; /* EXACT GAP: 30px below paragraph 1 */
+}
+
+/* --- NEW: Two-Column Split Wrapper --- */
+.newsletter-content-split {
+    display: flex;
+    flex-direction: row; /* Places the left column and sidebar side-by-side */
+    align-self: flex-start; /* Forces the whole group to the left side */
+    
+    margin-top: 27px; /* EXACT GAP: Dropped from the orange bar */
+    margin-left: 22.72px; /* Aligns perfectly with the left edge of the orange bar */
+}
+
+/* --- NEW: Sidebar Box Background --- */
+.newsletter-sidebar {
+    width: 472px; /* Exact width requested */
+    height: 814px; /* Exact height requested */
+    background-color: #414141; /* Dark gray color requested */
+    
+    border: 2px solid #000000; /* 2px thick black border */
+    box-sizing: border-box; /* Forces the border to sit INSIDE the exact dimensions */
+    
+    margin-left: 36px; /* EXACT GAP: 36px to the right of the left column */
+}
+
+/* --- NEW: Sidebar Text Placeholder --- */
+.sidebar-text {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 18px; /* Exact size requested */
+    letter-spacing: 0.04em; /* Exactly 4% letter spacing */
+    color: #FFFFFF; 
+    
+    /* Layout Constraints */
+    max-width: 428px; /* Box won't get wider than this */
+    max-height: 70px; /* Box won't get taller than this */
+    overflow: hidden; /* Keeps text from spilling out if it gets too long */
+    
+    /* Centers the text box slightly inside the 472px sidebar so it doesn't touch the left border */
+    margin-top: 20px; 
+    margin-left: 20px; 
+}
+
+/* --- Container for the 3 Sidebar Boxes --- */
+.sidebar-boxes-group {
+    margin-top: 8px; 
+    margin-left: 22px; 
+    display: flex;
+    flex-direction: column;
+    gap: 35px; /* EXACT GAP: 35px between each box */
+}
+
+/* --- Individual Sidebar Box --- */
+.sidebar-box {
+    width: 428px; 
+    height: 99px; 
+    
+    /* 54% opacity on #1C1C1C */
+    background-color: rgba(28, 28, 28, 0.54); 
+    
+    border: 2px solid #FFFFFF; 
+    box-sizing: border-box; /* Keeps the 2px border inside the 428x99 dimensions */
+    
+    display: flex;
+    flex-direction: column;
+    
+    /* Pushes the text away from the top and left borders */
+    padding-top: 15px;
+    padding-left: 20px; 
+}
+
+/* --- Sidebar Box "Big Text" (Topic 1, 2, 3) --- */
+.sidebar-box-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px; 
+    letter-spacing: 0.04em; 
+    color: #F5A623;
+    
+    margin: 0;
+    line-height: 1; 
+    text-transform: uppercase;
+}
+
+/* --- UPDATED: Sidebar Box "Small Text" (Descriptions) --- */
+.sidebar-box-desc {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 13px; 
+    letter-spacing: 0.04em; 
+    color: #FFFFFF;
+    
+    margin: 0;
+    margin-top: 10px; 
+    
+    /* --- STRICT LAYOUT CONSTRAINTS --- */
+    width: 388px; /* Locks the box to exactly 388px wide */
+    height: 24px; /* Locks the box to exactly 24px tall */
+    display: block; /* Ensures the width and height are strictly enforced */
+    overflow: hidden; /* Instantly clips any text that tries to cross the border */
+}
+
+/* --- REVERTED: Sidebar Horizontal Line Separator --- */
+.sidebar-separator {
+    width: 428px; 
+    height: 2px; 
+    background-color: #FFFFFF; 
+    margin-top: 41px; 
+    
+}
+
+/* --- NEW: Sidebar Email Input Box --- */
+.sidebar-email-box {
+    width: 428px; /* Exact width requested */
+    height: 56px; /* Exact height requested */
+    
+    /* Box Color: #1C1C1C with 79% opacity */
+    background-color: rgba(28, 28, 28, 0.79); 
+    
+    border: 2px solid #FFFFFF; /* 2px thick white border */
+    box-sizing: border-box; /* Keeps border inside the dimensions */
+    
+    margin-top: 19px; /* EXACT GAP: 19px below the separator line */
+    margin-left: 22px; /* Aligns perfectly with the items above it */
+    
+    /* Layout for the text inside */
+    display: flex;
+    align-items: center; /* Vertically centers the text */
+    padding-left: 20px; /* Keeps text from touching the left border */
+    
+    /* Text Styling */
+    font-family: 'Epilogue', sans-serif;
+    font-size: 20px; /* Exact size requested */
+    
+    /* Text Color: #FFFFFF with 49% opacity */
+    color: rgba(255, 255, 255, 0.49); 
+}
+
+/* --- NEW: Sidebar Subscribe Button --- */
+.sidebar-subscribe-btn {
+    width: 428px; /* Exact width requested */
+    height: 89px; /* Exact height requested */
+    
+    background-color: #000000; /* Black background */
+    border: 2px solid #FFFFFF; /* 2px thick white border */
+    box-sizing: border-box; /* Keeps the border strictly inside the dimensions */
+    
+    margin-top: 19px; /* EXACT GAP: 19px below the email box */
+    margin-left: 22px; /* Keeps it perfectly aligned with everything above it */
+    
+    /* Perfect Centering for the Text */
+    display: flex;
+    justify-content: center; /* Centers text horizontally */
+    align-items: center; /* Centers text vertically */
+    
+    /* Text Styling */
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px; /* Exact size requested */
+    text-align: center; 
+    
+    /* Exact Color and 91% Opacity */
+    color: rgba(245, 166, 35, 0.91); /* #F5A623 converted to RGBA for exactly 91% opacity */
+}
+
+/* --- NEW: Sidebar Footer Text --- */
+.sidebar-footer-text {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 16px; /* Exact size requested */
+    
+    /* Center aligns the text perfectly underneath the 428px button */
+    width: 428px; 
+    margin-left: 22px; 
+    text-align: center; 
+    
+    margin-top: 19px; /* EXACT GAP: 19px below the subscribe button */
+    margin-bottom: 0;
+    
+    /* White color with exactly 56% opacity */
+    color: rgba(255, 255, 255, 0.56); 
+}
+
+/* ========================================== */
+/* FOOTER SECTION                             */
+/* ========================================== */
+
+/* --- MAIN FOOTER CONTAINER --- */
+.footer-section {
+    width: 100%;
+    min-height: auto !important;
+    background-color: #000000;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row; 
+    justify-content: center;
+    
+    /* Forces every column to start at the exact same top line */
+    align-items: flex-start; 
+    /* This handles the top spacing for all columns at once */
+    padding-top: 50px; 
+    padding-left: 50px;
+    box-sizing: border-box;
+    padding-bottom: 50px;
+}
+
+/* --- COLUMN 1: TERMS --- */
+.terms {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.terms-img {
+    width: 104px;
+    height: 104px;
+    border: 2px solid rgba(245, 166, 35, 0.91);
+    box-sizing: border-box;
+    margin-bottom: 22px; 
+    margin-top: 0; /* Ensures the box starts at the very top */
+}
+
+.terms-big-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: #F5A623;
+    margin: 0 0 22px 0; /* Top margin MUST be 0 for alignment */
+}
+
+.terms-small-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: rgba(245, 166, 35, 0.91);
+    margin: 0 0 22px 0; 
+}
+
+/* --- COLUMN 2: CONTACT --- */
+.footer-links-col {
+    display: flex;
+    flex-direction: column;
+    margin-left: 227px; /* EXACT spacing from Column 1 */
+}
+
+/* --- COLUMN 3: ABOUT US --- */
+.footer-about-col {
+    display: flex;
+    flex-direction: column;
+    margin-left: 104px; /* EXACT spacing from Column 2 */
+}
+
+.footer-about-col a {
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
+/* --- SHARED HEADER STYLE (Used in Col 2 & 3) --- */
+.links-big-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: #F5A623;
+    margin: 0 0 26px 0; /* margin-top: 0 aligns it with the image/other text */
+    line-height: 1;
+}
+
+/* --- INNER TEXT STYLES --- */
+.link-group {
+    margin-bottom: 8px; 
+}
+
+.links-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: #F5A623;
+    margin: 0;
+}
+
+.links-small-text {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 16px;
+    color: #F5A623;
+    margin: 4px 0 0 0;
+    line-height: 1.4;
+}

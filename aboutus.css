@@ -1,0 +1,646 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    --bg-color: #d6d6d6;
+    --primary-color: #f7a827;
+    --dark-color: #111111;
+    --font-heading: 'Oswald', sans-serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+
+body {
+    background-color: var(--bg-color);
+    font-family: var(--font-body);
+    color: var(--dark-color);
+    line-height: 1.5;
+    padding: 40px 20px;
+}
+
+/* =========================================
+   HEADER / NAVBAR (Standard Size)
+========================================= */
+
+.navbar-bg {
+    width: 100%;
+    height: 80px; /* Standard navbar height */
+    background-color: #0d0d0d; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    z-index: 9999; 
+    border-bottom: 3px solid #ffffff; /* NEW: Thick white horizontal line separating the navbar and hero */
+}
+
+
+/*search button*/
+/* The container for the icon and the hidden bar */
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%; /* Matches navbar height */
+}
+
+.search-trigger {
+    background-color: transparent !important; /* Removes the white background */
+    border: none;                             /* Removes any default button borders */
+    outline: none;                            /* Removes the glow when clicked */
+    padding: 0;                               /* Ensures no extra spacing creates a "box" look */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+/* If the icon itself has a background (like an <img> tag or a <span>) */
+.search-trigger img, .search-trigger i {
+    background: transparent;
+}
+
+/* The actual bar that appears at the bottom */
+.search-bar-dropdown {
+    position: absolute;
+    top: 100%; /* This places it exactly at the bottom of the navbar */
+    right: 0;
+    width: 0;
+    overflow: hidden;
+    background: #111; /* Matches your dark theme */
+    transition: width 0.3s ease, padding 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid #ff9900; /* Primal orange accent */
+}
+
+/* Trigger expansion on hover of the wrapper */
+.search-wrapper:hover .search-bar-dropdown {
+    width: 300px;
+    padding: 10px;
+}
+
+#site-search {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #444;
+    color: white;
+    padding: 8px;
+    outline: none;
+}
+
+/* Style for results appearing under the input */
+#search-results {
+    background: #1a1a1a;
+    color: white;
+    font-size: 0.9rem;
+}
+
+/* --- Flexbox Container --- */
+.navbar-container {
+    width: 100%;
+    max-width: 1200px; /* REDUCED: This pulls the logo and icons closer to the center! */
+    height: 100%;
+    margin: 0 auto; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0 20px; 
+}
+
+/* --- Left Side: Logo --- */
+.logo-link {
+    width: 55px;  
+    height: 55px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 50%;
+    overflow: hidden; 
+    text-decoration: none;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+/* --- Center: Nav Links --- */
+/* OVERWRITING OLD BUGS: No more position: absolute! */
+.nav-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.nav-buttons ul {
+    display: flex;
+    flex-direction: row; 
+    gap: 40px; 
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-buttons a {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 16px; 
+    font-weight: 400;
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.nav-buttons a:hover { opacity: 0.7; }
+
+/* --- Right Side: Group Container --- */
+/* OVERWRITING OLD BUGS: No more position: absolute! */
+.header-right-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 35px; 
+}
+
+/* --- Right Side: Icons --- */
+.nav-icons {
+    display: flex;
+    flex-direction: row; 
+    gap: 20px; 
+    align-items: center;
+}
+
+.nav-icons span {
+    font-size: 20px; 
+    color: #ffffff;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.nav-icons span:hover { opacity: 0.7; }
+
+/* --- Right Side: About Us Button --- */
+.about-us-btn {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px; 
+    font-weight: 400;
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.about-us-btn:hover { opacity: 0.7; }
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+}
+
+
+
+
+.page-title {
+    text-align: center;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    margin-top: 60px;
+}
+
+
+.our-story {
+    background-color: var(--primary-color);
+    border: 4px solid var(--dark-color);
+    padding: 40px;
+    margin-bottom: 40px;
+}
+
+
+.our-story h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+
+.our-story p {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+
+
+
+.dark-content {
+    background-color: var(--dark-color);
+    padding: 40px;
+    margin-bottom: 40px;
+}
+
+
+.section-block {
+    margin-bottom: 50px;
+}
+
+
+.section-block:last-child {
+    margin-bottom: 0;
+}
+
+
+.section-title {
+    color: var(--primary-color);
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+
+
+
+.coach-card {
+    background-color: var(--primary-color);
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+
+.coach-card:last-child {
+    margin-bottom: 0;
+}
+
+
+.image-placeholder.solid-gray {
+    background-color: #d9d9d9;
+    height: 250px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+
+.coach-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+
+.coach-card p {
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+
+
+
+.checkerboard {
+    background-image:
+      linear-gradient(45deg, #e0e0e0 25%, transparent 25%),
+      linear-gradient(-45deg, #e0e0e0 25%, transparent 25%),
+      linear-gradient(45deg, transparent 75%, #e0e0e0 75%),
+      linear-gradient(-45deg, transparent 75%, #e0e0e0 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    background-color: #ffffff;
+}
+
+
+.facilities-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+
+.facilities-grid .image-placeholder {
+    height: 200px;
+}
+
+
+
+
+.transformations-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+}
+
+
+.transformations-grid .image-placeholder {
+    height: 150px;
+}
+
+
+/* --- TESTIMONIALS --- */
+.testimonials-box {
+    background-color: var(--primary-color);
+    padding: 30px 40px;
+}
+
+
+.testimonials-box .black-title {
+    color: var(--dark-color);
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+
+.testimonial-item {
+    margin-bottom: 25px;
+}
+
+
+.testimonial-item:last-child {
+    margin-bottom: 0;
+}
+
+
+.quote {
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+
+.author {
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+
+
+
+.newsletter-section {
+    display: flex;
+    background-color: var(--bg-color);
+    border: 2px solid var(--bg-color); /* To align nicely */
+    align-items: stretch;
+}
+
+
+.newsletter-left {
+    flex: 1;
+    padding: 40px 30px 40px 0;
+}
+
+
+.newsletter-left h2 {
+    font-size: 3rem;
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+
+.title-line {
+    width: 50px;
+    height: 3px;
+    background-color: var(--dark-color);
+    margin-bottom: 20px;
+}
+
+
+.newsletter-desc {
+    font-size: 0.85rem;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+
+.perks-list {
+    list-style: none;
+}
+
+
+.perks-list li {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+
+.square-icon {
+    width: 25px;
+    height: 25px;
+    background-color: var(--dark-color);
+    margin-right: 15px;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+
+.perk-text h4 {
+    font-size: 1.1rem;
+    margin-bottom: 3px;
+}
+
+
+.perk-text p {
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+
+.newsletter-right {
+    flex: 1;
+    background-color: var(--primary-color);
+    padding: 40px;
+    border-left: 2px solid var(--dark-color);
+}
+
+
+.form-title {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    letter-spacing: 0.5px;
+}
+
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+.form-group label {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+
+.form-group input {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    outline: none;
+}
+
+
+.form-group input::placeholder {
+    color: #999;
+}
+
+
+.submit-btn {
+    width: 100%;
+    background-color: var(--dark-color);
+    color: #fff;
+    border: none;
+    padding: 15px;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    transition: background-color 0.2s ease;
+}
+
+
+.submit-btn:hover {
+    background-color: #333;
+}
+
+
+.disclaimer {
+    font-size: 0.6rem;
+    text-align: center;
+    line-height: 1.4;
+    font-weight: 500;
+}
+
+/* ========================================== */
+/* FOOTER SECTION                             */
+/* ========================================== */
+
+/* --- MAIN FOOTER CONTAINER --- */
+.footer-section {
+    width: 100%;
+    min-height: auto !important;
+    background-color: #000000;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    
+    /* Forces every column to start at the exact same top line */
+    align-items: flex-start; 
+    /* This handles the top spacing for all columns at once */
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-bottom: 50px;
+    box-sizing: border-box;
+    margin-top: 70px;
+}
+
+/* --- COLUMN 1: TERMS --- */
+.terms {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.terms-img {
+    width: 104px;
+    height: 104px;
+    border: 2px solid rgba(245, 166, 35, 0.91);
+    box-sizing: border-box;
+    margin-bottom: 22px; 
+    margin-top: 0; /* Ensures the box starts at the very top */
+}
+
+.terms-big-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: #F5A623;
+    margin: 0 0 22px 0; /* Top margin MUST be 0 for alignment */
+}
+
+.terms-small-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: rgba(245, 166, 35, 0.91);
+    margin: 0 0 22px 0; 
+}
+
+/* --- COLUMN 2: CONTACT --- */
+.footer-links-col {
+    display: flex;
+    flex-direction: column;
+    margin-left: 227px; /* EXACT spacing from Column 1 */
+}
+
+/* --- COLUMN 3: ABOUT US --- */
+.footer-about-col {
+    display: flex;
+    flex-direction: column;
+    margin-left: 104px; /* EXACT spacing from Column 2 */
+}
+
+.footer-about-col a {
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
+/* --- SHARED HEADER STYLE (Used in Col 2 & 3) --- */
+.links-big-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: #F5A623;
+    margin: 0 0 26px 0; /* margin-top: 0 aligns it with the image/other text */
+    line-height: 1;
+}
+
+/* --- INNER TEXT STYLES --- */
+.link-group {
+    margin-bottom: 8px; 
+}
+
+.links-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: #F5A623;
+    margin: 0;
+}
+
+.links-small-text {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 16px;
+    color: #F5A623;
+    margin: 4px 0 0 0;
+    line-height: 1.4;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .newsletter-section {
+        flex-direction: column;
+    }
+    .newsletter-left {
+        padding: 20px 0;
+    }
+    .newsletter-right {
+        border-left: none;
+        border-top: 2px solid var(--dark-color);
+        padding: 30px 20px;
+    }
+    .facilities-grid, .transformations-grid {
+        grid-template-columns: 1fr;
+    }
+}

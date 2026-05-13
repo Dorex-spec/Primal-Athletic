@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primal Athletic</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Epilogue:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="homepage.css">
+    <link rel="stylesheet" href="checkout1.css">
+</head>
+<body>
+    <header class="navbar-bg">
+        <div class="navbar-container">
+            
+            <a href="homepage.html" class="logo-link">
+                <img src="images/Logo.png" alt="Primal Athletic" class="logo">
+            </a>
+
+            <nav class="nav-buttons">
+                <ul>
+                    <li><a href="homepage.html" class="nav-home">Home</a></li>
+                    <li><a href="shop.html" class="nav-shop">Shop</a></li>
+                    <li><a href="Planbooking.html" class="nav-services">Services</a></li>
+                </ul>
+            </nav>
+            <div class="nav-icons">
+    <div class="search-wrapper">
+        <button class="search-trigger">
+            <a class="icon-search" aria-label="Search">🔍</a>
+        </button>
+        <div class="search-bar-dropdown">
+            <input type="text" id="site-search" placeholder="Search Primal Athletic...">
+            <div id="search-results"></div>
+        </div>
+    </div>
+    <a href="chartandcheckout.html" class="icon-cart" aria-label="View Cart">🛒</a>
+    <a href="useraccount.html" class="icon-profile" aria-label="User Profile">👤</a>
+                <a href="aboutus.html" class="about-us-btn">ABOUT US</a>
+            </div>
+        </div>
+    </header>
+    
+    <div class="checkout-page">
+        <h1 class="page-title">CHECKOUT</h1>
+
+        <div class="progress-container">
+            <div class="progress-line"></div>
+
+            <div class="step">
+                <div class="circle active">1</div>
+                <div class="step-label">SHIPPING</div>
+            </div>
+
+            <div class="step">
+                <div class="circle">2</div>
+                <div class="step-label">PAYMENT</div>
+            </div>
+
+            <div class="step">
+                <div class="circle">3</div>
+                <div class="step-label">REVIEW</div>
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+
+            <div class="shipping-section">
+                <h2 class="section-header">SHIPPING INFORMATION</h2>
+
+                <form class="shipping-form">
+                    <div class="form-group full-width">
+                        <label>Email address</label>
+                        <input id="shipEmail" type="email" placeholder="You@example.com">
+                        <div class="field-error" data-error-for="shipEmail" style="display:none; color:#d10000; font-size:0.9rem; margin-top:6px;"></div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group half-width">
+                            <label>First Name</label>
+                            <input id="shipFirstName" type="text">
+                            <div class="field-error" data-error-for="shipFirstName" style="display:none; color:#d10000; font-size:0.9rem; margin-top:6px;"></div>
+                        </div>
+                        <div class="form-group half-width">
+                            <label>Last Name</label>
+                            <input id="shipLastName" type="text">
+                            <div class="field-error" data-error-for="shipLastName" style="display:none; color:#d10000; font-size:0.9rem; margin-top:6px;"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>Address</label>
+                        <input id="shipAddress1" type="text" placeholder="123 Main st.">
+                        <div class="field-error" data-error-for="shipAddress1" style="display:none; color:#d10000; font-size:0.9rem; margin-top:6px;"></div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group half-width">
+                            <label>City</label>
+                            <input id="shipCity" type="text">
+                            <div class="field-error" data-error-for="shipCity" style="display:none; color:#d10000; font-size:0.9rem; margin-top:6px;"></div>
+                        </div>
+                        <div class="form-group half-width">
+                            <label>State</label>
+                            <input id="shipState" type="text">
+                            <div class="field-error" data-error-for="shipState" style="display:none; color:#d10000; font-size:0.9rem; margin-top:6px;"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group half-width">
+                            <label>ZIP Code</label>
+                            <input id="shipZip" type="text">
+                            <div class="field-error" data-error-for="shipZip" style="display:none; color:#d10000; font-size:0.9rem; margin-top:6px;"></div>
+                        </div>
+                        <div class="form-group half-width select-group">
+                            <label>Country</label>
+                            <select id="shipCountry">
+                                <option value="United States">United States</option>
+                            </select>
+                            <div class="field-error" data-error-for="shipCountry" style="display:none; color:#d10000; font-size:0.9rem; margin-top:6px;"></div>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-continue">Continue to Payment</button>
+                </form>
+            </div>
+
+            <div class="order-summary-section">
+                <button class="btn-track">TRACK MY CURRENT ORDER</button>
+
+                <h3 class="summary-header">ORDER SUMMARY</h3>
+
+                <div class="summary-details">
+                    <div class="summary-line">
+                        <span>Subtotal</span>
+                        <span>$119.97</span>
+                    </div>
+                    <div class="summary-line">
+                        <span>Shipping</span>
+                        <span>FREE</span>
+                    </div>
+                    <div class="summary-line">
+                        <span>Tax</span>
+                        <span>$9.60</span>
+                    </div>
+                </div>
+
+                <hr class="summary-divider">
+
+                <div class="summary-total">
+                    <span class="total-label">TOTAL</span>
+                    <span class="total-price">$129.57</span>
+                </div>
+
+                <ul class="guarantees-list">
+                    <li><span>&#10003;</span> Secure SSL Encryption</li>
+                    <li><span>&#10003;</span> 30-Money Back Guarantee</li>
+                    <li><span>&#10003;</span> Ship in 1-2 Business Days</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    
+</body>
+</html>

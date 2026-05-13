@@ -1,0 +1,522 @@
+/* Variables */
+:root {
+    --primary-color: #F6A820; /* The rich yellow/orange */
+    --bg-color: #DBDBDB; /* Light gray background */
+    --border-color: #000000;
+    --border-width: 2px;
+    --font-heading: 'Oswald', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+/* Reset & Global */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    height: 100%;
+    background-color: var(--bg-color);
+    font-family: var(--font-body);
+    color: var(--border-color);
+    overflow: hidden; /* Hide main scrollbar */
+    scroll-behavior: smooth;
+}
+
+/* =========================================
+   HEADER / NAVBAR (Standard Size)
+========================================= */
+
+.navbar-bg {
+    width: 100%;
+    height: 80px; /* Standard navbar height */
+    background-color: #0d0d0d; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    z-index: 9999; 
+    border-bottom: 3px solid #ffffff; /* NEW: Thick white horizontal line separating the navbar and hero */
+}
+
+
+/*search button*/
+/* The container for the icon and the hidden bar */
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%; /* Matches navbar height */
+}
+
+.search-trigger {
+    background-color: transparent !important; /* Removes the white background */
+    border: none;                             /* Removes any default button borders */
+    outline: none;                            /* Removes the glow when clicked */
+    padding: 0;                               /* Ensures no extra spacing creates a "box" look */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+/* If the icon itself has a background (like an <img> tag or a <span>) */
+.search-trigger img, .search-trigger i {
+    background: transparent;
+}
+
+/* The actual bar that appears at the bottom */
+.search-bar-dropdown {
+    position: absolute;
+    top: 100%; /* This places it exactly at the bottom of the navbar */
+    right: 0;
+    width: 0;
+    overflow: hidden;
+    background: #111; /* Matches your dark theme */
+    transition: width 0.3s ease, padding 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid #ff9900; /* Primal orange accent */
+}
+
+/* Trigger expansion on hover of the wrapper */
+.search-wrapper:hover .search-bar-dropdown {
+    width: 300px;
+    padding: 10px;
+}
+
+#site-search {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #444;
+    color: white;
+    padding: 8px;
+    outline: none;
+}
+
+/* Style for results appearing under the input */
+#search-results {
+    background: #1a1a1a;
+    color: white;
+    font-size: 0.9rem;
+}
+
+/* --- Flexbox Container --- */
+.navbar-container {
+    width: 100%;
+    max-width: 1200px; /* REDUCED: This pulls the logo and icons closer to the center! */
+    height: 100%;
+    margin: 0 auto; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0 20px; 
+}
+
+/* --- Left Side: Logo --- */
+.logo-link {
+    width: 55px;  
+    height: 55px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 50%;
+    overflow: hidden; 
+    text-decoration: none;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+/* --- Center: Nav Links --- */
+/* OVERWRITING OLD BUGS: No more position: absolute! */
+.nav-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.nav-buttons ul {
+    display: flex;
+    flex-direction: row; 
+    gap: 40px; 
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-buttons a {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 16px; 
+    font-weight: 400;
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.nav-buttons a:hover { opacity: 0.7; }
+
+/* --- Right Side: Group Container --- */
+/* OVERWRITING OLD BUGS: No more position: absolute! */
+.header-right-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 35px; 
+}
+
+/* --- Right Side: Icons --- */
+.nav-icons {
+    display: flex;
+    flex-direction: row; 
+    gap: 20px; 
+    align-items: center;
+}
+
+.nav-icons span {
+    font-size: 20px; 
+    color: #ffffff;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.nav-icons span:hover { opacity: 0.7; }
+
+/* --- Right Side: About Us Button --- */
+.about-us-btn {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px; 
+    font-weight: 400;
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.about-us-btn:hover { opacity: 0.7; }
+
+/* --- Right Side: Group Container --- */
+/* OVERWRITING OLD BUGS: No more position: absolute! */
+.header-right-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 35px; 
+}
+
+/* --- Right Side: Icons --- */
+.nav-icons {
+    display: flex;
+    flex-direction: row; 
+    gap: 20px; 
+    align-items: center;
+}
+
+.nav-icons span {
+    font-size: 20px; 
+    color: #ffffff;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.nav-icons span:hover { opacity: 0.7; }
+
+/* --- Right Side: About Us Button --- */
+.about-us-btn {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px; 
+    font-weight: 400;
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.about-us-btn:hover { opacity: 0.7; }
+
+/* Scroll Snap Container */
+.scroll-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+/* 100vh Sections */
+.viewport-section {
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Content Constraint */
+.content-wrapper {
+    width: 100%;
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Spacing between cards */
+}
+
+/* Typography Overrides */
+h1, h2, h3, .label, .value, .text-btn, .btn-full, .badge-white, .btn-black, .btn-white {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+}
+
+h1 { font-size: 1.4rem; letter-spacing: 0.5px; }
+h2 { font-size: 1.25rem; font-weight: 500; letter-spacing: 0.5px;}
+h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 2px;}
+
+.label {
+    font-size: 0.75rem;
+    color: #444;
+    display: block;
+    margin-bottom: 4px;
+}
+.value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: block;
+}
+
+p { font-size: 0.9rem; color: #222;}
+
+/* Reusables */
+.bg-primary {
+    background-color: var(--primary-color);
+}
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Card Base Styles */
+.card {
+    border: var(--border-width) solid var(--border-color);
+    background-color: var(--bg-color);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header {
+    border-bottom: var(--border-width) solid var(--border-color);
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.card-header svg {
+    width: 24px;
+    height: 24px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.card-body {
+    padding: 24px;
+}
+
+.inner-card {
+    border: var(--border-width) solid var(--border-color);
+    padding: 16px 20px;
+    margin-bottom: 20px;
+}
+
+/* Dividers */
+.divider {
+    border: none;
+    border-top: var(--border-width) solid var(--border-color);
+    margin: 18px 0;
+}
+
+/* Buttons */
+button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.text-btn {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--border-color);
+}
+.text-btn:hover { text-decoration: underline; }
+
+.btn-full {
+    width: 100%;
+    padding: 14px;
+    border: var(--border-width) solid var(--border-color);
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+}
+.btn-black-full {
+    background-color: var(--border-color);
+    color: #fff;
+    border: none;
+    padding: 16px;
+    font-size: 1.1rem;
+}
+
+/* Section 1 Specifics */
+.header-card {
+    flex-direction: row;
+    padding: 20px;
+    align-items: center;
+    gap: 20px;
+}
+.avatar-box {
+    width: 60px;
+    height: 60px;
+    background-color: var(--border-color);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+}
+.avatar-box svg {
+    width: 50px;
+    height: 50px;
+    color: #999;
+    margin-bottom: -5px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.detail-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.detail-left svg {
+    width: 28px;
+    height: 28px;
+}
+.address-row {
+    align-items: flex-start;
+}
+.address-content .label {
+    margin-bottom: 12px;
+}
+.address-lines {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    font-family: var(--font-body);
+}
+
+/* Section 2 Specifics */
+.payment-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.payment-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.payment-right {
+    display: flex;
+    gap: 10px;
+}
+.badge-white {
+    background-color: #fff;
+    padding: 6px 12px;
+    font-weight: 600;
+    border: none;
+}
+.btn-white {
+    background-color: #fff;
+    padding: 6px 16px;
+    font-weight: 600;
+    border: none;
+}
+.btn-black {
+    background-color: var(--border-color);
+    color: #fff;
+    padding: 6px 16px;
+    font-weight: 600;
+    border: none;
+}
+.payment-info {
+    display: flex;
+    flex-direction: column;
+}
+.card-number {
+    font-weight: 600;
+    font-family: var(--font-heading);
+}
+.card-expiry {
+    font-size: 0.85rem;
+}
+
+.order-card {
+    display: flex;
+    flex-direction: column;
+}
+.uppercase {
+    padding: 4px 10px;
+    font-size: 0.8rem;
+}
+
+/* Section 3 Specifics */
+.settings-card {
+    margin-bottom: 20px;
+}
+.settings-icon-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.settings-icon-info svg {
+    width: 28px;
+    height: 28px;
+}
+
+.session-box {
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.session-email {
+    font-size: 1.3rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .payment-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    .payment-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .viewport-section {
+        height: auto;
+        min-height: 100vh;
+        scroll-snap-align: start;
+        padding: 40px 15px;
+        justify-content: flex-start;
+    }
+    .scroll-container {
+        scroll-snap-type: none; /* Disable strict snap on mobile to avoid cutoffs */
+    }
+}

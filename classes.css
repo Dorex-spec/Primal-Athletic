@@ -1,0 +1,814 @@
+/* --- CLEAN GLOBAL RESET --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    /* Set the requested background color */
+    background-color: #D6D6D6; 
+    
+    /* Force only one scrollbar on the far right */
+    overflow-x: hidden; 
+    overflow-y: scroll; /* Keeps the bar visible so the page doesn't 'jump' */
+    height: 100%;
+}
+
+body {
+    /* Match background and ensure it doesn't create a second scrollbar */
+    background-color: #D6D6D6; 
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    
+    /* padding-top: 80px;  Keep this if your navbar is fixed */
+    padding-top: 144px; /* 80px + 64px */
+    
+    /* CRITICAL: This stops the body from having its own scrollbar */
+    overflow: visible; 
+}
+
+/* =========================================
+   HEADER / NAVBAR (Standard Size)
+========================================= */
+
+.navbar-bg {
+    width: 100%;
+    height: 80px; /* Standard navbar height */
+    background-color: #0d0d0d; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    z-index: 9999; 
+    border-bottom: 3px solid #ffffff; /* NEW: Thick white horizontal line separating the navbar and hero */
+}
+
+
+/*search button*/
+/* The container for the icon and the hidden bar */
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%; /* Matches navbar height */
+}
+
+.search-trigger {
+    background-color: transparent !important; /* Removes the white background */
+    border: none;                             /* Removes any default button borders */
+    outline: none;                            /* Removes the glow when clicked */
+    padding: 0;                               /* Ensures no extra spacing creates a "box" look */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+/* If the icon itself has a background (like an <img> tag or a <span>) */
+.search-trigger img, .search-trigger i {
+    background: transparent;
+}
+
+/* The actual bar that appears at the bottom */
+.search-bar-dropdown {
+    position: absolute;
+    top: 100%; /* This places it exactly at the bottom of the navbar */
+    right: 0;
+    width: 0;
+    overflow: hidden;
+    background: #111; /* Matches your dark theme */
+    transition: width 0.3s ease, padding 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid #ff9900; /* Primal orange accent */
+}
+
+/* Trigger expansion on hover of the wrapper */
+.search-wrapper:hover .search-bar-dropdown {
+    width: 300px;
+    padding: 10px;
+}
+
+#site-search {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #444;
+    color: white;
+    padding: 8px;
+    outline: none;
+}
+
+/* Style for results appearing under the input */
+#search-results {
+    background: #1a1a1a;
+    color: white;
+    font-size: 0.9rem;
+}
+
+/* --- Flexbox Container --- */
+.navbar-container {
+    width: 100%;
+    max-width: 1200px; /* REDUCED: This pulls the logo and icons closer to the center! */
+    height: 100%;
+    margin: 0 auto; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0 20px; 
+}
+
+/* --- Left Side: Logo --- */
+.logo-link {
+    width: 55px;  
+    height: 55px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 50%;
+    overflow: hidden; 
+    text-decoration: none;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+/* --- Center: Nav Links --- */
+/* OVERWRITING OLD BUGS: No more position: absolute! */
+.nav-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.nav-buttons ul {
+    display: flex;
+    flex-direction: row; 
+    gap: 40px; 
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-buttons a {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 16px; 
+    font-weight: 400;
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.nav-buttons a:hover { opacity: 0.7; }
+
+/* --- Right Side: Group Container --- */
+/* OVERWRITING OLD BUGS: No more position: absolute! */
+.header-right-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 35px; 
+}
+
+/* --- Right Side: Icons --- */
+.nav-icons {
+    display: flex;
+    flex-direction: row; 
+    gap: 20px; 
+    align-items: center;
+}
+
+.nav-icons span {
+    font-size: 20px; 
+    color: #ffffff;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.nav-icons span:hover { opacity: 0.7; }
+
+/* --- Right Side: About Us Button --- */
+.about-us-btn {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px; 
+    font-weight: 400;
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.about-us-btn:hover { opacity: 0.7; }
+/* =========================================
+   SECOND NAVBAR 
+========================================= */
+.second-navbar {
+    width: 100%;
+    height: 64px;
+    background-color: rgba(245, 166, 35, 0.91); 
+    backdrop-filter: blur(10px); 
+    -webkit-backdrop-filter: blur(10px); 
+    border-bottom: 3px solid #0D0D0D; 
+    position: fixed;
+    top: 80px; 
+    left: 0;
+    z-index: 9998; 
+    display: flex;
+    justify-content: center; 
+}
+
+
+.second-nav-container {
+    width: 100%;
+    max-width: 1200px;  /* Matches your top navbar and content width */
+    margin: 0 auto;     /* This is the magic that keeps it centered on zoom */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Aligns items to the left of the 1200px limit */
+    gap: 20px;
+    padding-left: 120px;
+}
+
+#lace {
+    padding-right: 230px;
+}
+
+.second-nav-link {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: #0D0D0D; 
+    text-decoration: none;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 1px;
+    transition: color 0.2s ease;
+    /* margin-left: -190px;  <-- DELETE THIS */
+    margin-right: 40px;    /* Use positive margin-right to space them out */
+}
+
+.second-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0; 
+    left: 50%;
+    transform: translateX(-50%); 
+    width: 126px;
+    height: 3px; 
+    background-color: rgba(0, 0, 0, 0.7); 
+    border-radius: 50%; 
+    opacity: 0; 
+    filter: blur(3px); 
+    transition: opacity 0.2s ease;
+}
+
+.second-nav-link:active::after,
+.second-nav-link:focus::after { opacity: 1; }
+.second-nav-link:hover { color: #000000; }
+
+/* =========================================
+   CLASSES SECTION
+========================================= */
+
+.classes-section {
+    width: 100%;
+    /* Creates the exact 55px gap below the second navbar */
+    margin-top: 55px; 
+}
+
+/* Matches the navbar alignment so it aligns perfectly with the logo */
+.content-container {
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
+}
+
+/* --- Page Title --- */
+.page-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    letter-spacing: 0.04em; /* This equals 4% letter spacing */
+    color: #000000;
+    margin: 0; /* Removes default browser margin */
+    padding-bottom: 10px; /* Slight padding before the paragraph */
+    line-height: 1;
+}
+
+/* --- Page Description --- */
+.page-description {
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 300; /* Light weight */
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.41); /* #000000 at 41% opacity */
+    
+    /* Strict dimensions */
+    width: 538px;
+    height: 30px;
+    max-width: 538px;
+    max-height: 30px;
+    
+    /* Prevents any text from overflowing beyond the 238x30 box */
+    overflow: hidden; 
+    margin: 0;
+}
+
+/* =========================================
+   STRENGTH TRAINING SECTION
+========================================= */
+
+.strength-training-section {
+    margin-top: 25px; 
+    display: flex;
+    flex-direction: row; 
+}
+
+/* --- NEW: Image Wrapper Container --- */
+.strength-img-container {
+    position: relative; /* Allows us to absolutely position the badge inside */
+    width: 421px;
+    height: 579px;
+    flex-shrink: 0; 
+}
+
+/* --- Updated Image Styles --- */
+.strength-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    background-color: #cccccc; 
+    display: block; /* Removes tiny extra space below images */
+}
+
+/* --- NEW: Strength Badge --- */
+.strength-badge {
+    position: absolute;
+    top: 20px; /* Pushes it down so it doesn't touch the top border */
+    left: 20px; /* Pushes it right so it doesn't touch the left border */
+    width: 88px;
+    height: 32.5px;
+    background-color: #F5A623;
+    border: 1px solid #000000;
+    
+    /* Center the text perfectly */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Typography */
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15px;
+    color: #000000;
+    letter-spacing: 0.05em; /* Gives the caps a slight, clean spacing */
+    z-index: 2; /* Ensures it sits above the image */
+}
+
+/* --- The Orange Box --- */
+.strength-box {
+    width: 792px;
+    height: 579px;
+    background-color: rgba(245, 166, 35, 0.91); 
+    flex-shrink: 0; 
+    
+    /* NEW: Adds exactly 25px spacing on the inside, pushing content inward */
+    padding: 25px; 
+    
+    /* Flexbox helps keep the text perfectly aligned to the top-left inside the padding */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+/* --- Box Title: Strength Training --- */
+.strength-box-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 0.04em; /* 4% letter spacing */
+    color: #000000;
+    margin: 0; 
+    line-height: 1;
+    text-transform: uppercase; /* Ensures it matches the Bebas Neue aesthetic */
+}
+
+/* --- Box Description --- */
+.strength-box-desc {
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 300; /* Light */
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.41); /* #000000 at 41% opacity */
+    
+    /* 5px spacing below the title */
+    margin: 5px 0 0 0; 
+    
+    /* Strict dimensions */
+    width: 538px;
+    height: 30px;
+    max-width: 538px;
+    max-height: 30px;
+    
+    /* Cuts off any text that overflows the specific dimensions */
+    overflow: hidden; 
+}
+
+/* --- Details Row (Strictly inline) --- */
+.strength-details-row {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px; /* 10px between clock and people */
+    margin-top: 15px; 
+    width: 100%;
+    flex-wrap: nowrap !important; /* Absolutely prevents dropping to a new line */
+}
+
+/* --- Individual Icon + Text Pair --- */
+.detail-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px; 
+    color: rgba(0, 0, 0, 0.41); 
+    white-space: nowrap; /* Prevents text from wrapping */
+}
+
+/* --- Difficulty Badge --- */
+.difficulty-badge {
+    /* Strict Dimensions */
+    width: 80px;
+    height: 17px;
+    
+    /* Colors and Border */
+    background-color: #D9D9D9;
+    border: 1px solid #000000;
+    
+    /* Perfect Centering */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Typography */
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 300; 
+    font-size: 9px;
+    color: #000000;
+    
+    /* Exactly 7px of space from the "Max 15 people" text */
+    margin-left: -3px; 
+    
+    /* Prevents the box from squishing */
+    flex-shrink: 0; 
+}
+
+/* --- SVG Icons --- */
+.detail-icon {
+    width: 18px; /* Sized to proportionally match the 13px text */
+    height: 18px;
+    /* 'currentColor' allows the SVG to automatically inherit the 41% opacity black from .detail-item */
+}
+
+/* --- Detail Text --- */
+.detail-text {
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 300; /* Light */
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.41);
+    margin: 0;
+    line-height: 1;
+}
+
+/* =========================================
+   INSTRUCTOR BOX
+========================================= */
+
+.instructor-box {
+    /* Strict Dimensions */
+    width: 672px;
+    height: 58px;
+    
+    /* Colors and Border */
+    background-color: #D6D6D6;
+    border: 1px solid #000000;
+    
+    /* Spacing */
+    margin-top: 25px; /* Space above the box */
+    padding: 12px 15px; /* Pushes the text away from the top-left corners */
+    
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-shrink: 0;
+}
+
+/* --- Instructor Label --- */
+.instructor-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.04em; /* 4% letter spacing */
+    color: rgba(0, 0, 0, 0.41); /* #000000 at 41% opacity */
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+/* --- Instructor Name --- */
+.instructor-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    color: #0D0D0D;
+    margin-top: 5px; /* Exactly 5 spacing below the label */
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+/* =========================================
+   AVAILABLE TIMES SECTION
+========================================= */
+
+/* Header Text */
+.available-times-header {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.04em; /* 4% letter spacing */
+    color: #000000;
+    
+    /* Exactly 25px above the text, 15px below the text */
+    margin: 25px 0 15px 0; 
+    
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+/* Time Slot Boxes Container */
+.available-times-container {
+    display: flex;
+    flex-direction: column; 
+    gap: 20px; /* Exactly 20px gap between all boxes */
+}
+
+/* Update this existing class */
+.time-slot-box {
+    width: 672px;
+    height: 58px;
+    background-color: #D6D6D6;
+    border: 1px solid #000000;
+    padding: 0 15px; 
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    
+    /* NEW: This pushes the left and right groups to opposite ends */
+    justify-content: space-between; 
+    flex-shrink: 0;
+}
+
+/* Calendar Icon */
+.calendar-icon {
+    width: 28px;
+    height: 28px;
+    color: #000000; 
+}
+
+/* Time Slot Text Container */
+.time-slot-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Day of the Week */
+.slot-day {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    color: #000000; 
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+/* Time Slot Text */
+.slot-time {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px; 
+    color: rgba(0, 0, 0, 0.41); /* 41% opacity matching previous designs */
+    margin-top: 4px; /* Slight gap between day and time */
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+/* =========================================
+   NEW TIME SLOT INTERNAL LAYOUT
+========================================= */
+
+/* Wraps the Icon and Day/Time */
+.slot-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Wraps the Spots Left and Book Button */
+.slot-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px; /* Spacing between the text and the button */
+}
+
+/* "8 spots left" Text */
+.spots-left-text {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.05em; /* 5% letter spacing */
+    color: rgba(0, 0, 0, 0.41); /* #000000 at 41% opacity */
+}
+
+/* "BOOK NOW" Button Box */
+.book-now-btn {
+    /* Strict Dimensions */
+    width: 90px;
+    height: 28px;
+    
+    /* Background (F5A623 at 91%) and Border */
+    background-color: rgba(245, 166, 35, 0.91); 
+    border: 1px solid #000000;
+    
+    /* Perfect Centering for Button Text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Typography */
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    color: #0D0D0D;
+    
+    cursor: pointer; /* Makes it feel like a real clickable button */
+}
+
+/* =========================================
+   STRENGTH BOX HEADER & PRICING
+========================================= */
+
+/* Pushes the title to the left and pricing to the right */
+.strength-header-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+/* Keeps the title and description stacked normally */
+.strength-header-left {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Stacks the price and aligns it to the right edge */
+.strength-header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+    text-align: right;
+}
+
+/* --- $25 Text --- */
+.price-amount {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 0.04em; /* 4% letter spacing */
+    color: #000000;
+    line-height: 1;
+}
+
+/* --- PER CLASS Text --- */
+.price-label {
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 300; /* Light weight */
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.41); /* Black at 41% opacity */
+    margin-top: 5px; /* Exactly 5px spacing below the $25 */
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   CLASS SPACING
+========================================= */
+
+/* Creates an 89px gap above any class section EXCEPT the very first one on the page */
+.class-block + .class-block {
+    margin-top: 89px;
+}
+
+/* This wrapper handles the 1213px width and centering */
+.footer-wrapper {
+    width: 1213px;
+    margin: 173px auto 0 auto; /* 173px gap from the last section */
+}
+
+.footer-line {
+    width: 100%; /* Spans the full 1213px of the wrapper */
+    border: none;
+    height: 1px;
+    background-color: #000000;
+    margin: 0;
+}
+
+.footer-bottom-text-container {
+    margin-top: 61px; /* The 61px gap between the line and text */
+}
+
+.footer-strength-text {
+    text-align: left; /* Aligns text to the left edge of the 1213px width */
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: #000000;
+    letter-spacing: 0.04em; /* 4% letter spacing */
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* Container for the boxes */
+.bottom-boxes-container {
+    margin-top: 61px; /* Gap below the "Strength training" text */
+    display: flex;
+    justify-content: space-between; /* This naturally fits 3 boxes with gaps in 1213px */
+    width: 100%; /* Spans the 1213px footer-wrapper */
+}
+
+/* Individual Box Styling */
+.bottom-box {
+    width: 374px;
+    height: 258px;
+    background-color: #D6D6D6;
+    border: 1px solid #000000;
+    box-sizing: border-box; /* Ensures border is included in dimensions */
+}
+
+/* Specific spacing control */
+.bottom-box + .bottom-box {
+    margin-left: 46px; /* Precise gap between boxes */
+}
+
+.bottom-box {
+    width: 374px;
+    height: 258px;
+    background-color: #D6D6D6;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    /* This creates the "not touching the edges" effect */
+    padding: 20px; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* "TRAINING" Label Styling */
+.box-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 25px;
+    color: #000000;
+    letter-spacing: 0.04em; /* 4% letter spacing */
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+/* "BIG TEXT HERE" Styling */
+.box-main-text {
+    margin-top: 23px; /* Precise gap under the label */
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 300; /* Light weight */
+    font-size: 15px;
+    color: #000000;
+    
+    
+    margin-bottom: 0;
+    line-height: 1.2;
+    margin-bottom: 30px;
+}
+
+.box-body-text {
+    margin-top: 5px;
+    font-family: 'Epilogue';
+    font-weight: 300; /* Light weight */
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.7); /* Black with 70% opacity */
+    line-height: 1.4;
+    margin-bottom: 0;
+}
+
+/*footer*/
+.footer-wrapper {
+    margin-bottom: -30px;
+    margin-top: 100px;
+    padding-bottom: 150px;
+}

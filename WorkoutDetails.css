@@ -1,0 +1,724 @@
+/* Remove default browser margins */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    display: block;
+    overflow-x: hidden;
+}
+
+/* Main desktop background */
+.desktop-container {
+    width: 1440px;
+    height: 3187px;
+    background-color: #1C1C1C;
+    position: relative;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Inner box */
+.inner-box {
+    width: 1193px;
+    height: 3111px;
+    background-color: #D9D9D9;
+    position: absolute;
+    left: 0px; 
+    top: 0px;    
+    overflow: hidden;
+}
+
+/* --- Global Header Section --- */
+.header-box {
+    position: absolute;
+    left: 0px; 
+    top: 0px;    
+    width: 1193px;
+    height: 89px;
+    background-color: #0D0D0D;
+    border-bottom: 5px solid #F5A623;
+    box-sizing: border-box; 
+}
+
+.header-title {
+    position: absolute;
+    left: 42px;  
+    top: 31px;   
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    color: #FFFFFF;
+    line-height: 1;
+}
+
+.close-btn {
+    position: absolute;
+    right: 40px;
+    top: 24px;
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 400;
+    font-size: 48px;
+    color: #FFFFFF;
+    text-decoration: none;
+    line-height: 0.8;
+}
+
+.close-btn:hover {
+    color: #F5A623; 
+    transition: color 0.2s ease-in-out;
+}
+
+/* --- Overview Section --- */
+.overview-header {
+    position: absolute;
+    left: 48px;  /* Standardized Grid Alignment */
+    top: 174px;  
+    display: flex;
+    align-items: center; 
+    gap: 10px; 
+}
+
+.overview-symbol {
+    width: 51px;
+    height: 55px;
+    object-fit: contain; 
+}
+
+.overview-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    color: #0D0D0D;
+    line-height: 1;
+    margin-top: 4px; 
+}
+
+/* 4 Metric Boxes Section */
+.metrics-container {
+    position: absolute;
+    left: 48px;  /* Standardized Grid Alignment */
+    top: 239px;  
+    display: flex;
+    gap: 18px; 
+}
+
+.metric-box {
+    width: 261px;
+    height: 121px;
+    background-color: #D6D6D6;
+    border: 1px solid #000000;
+    box-sizing: border-box; 
+    position: relative; 
+}
+
+.metric-label {
+    position: absolute;
+    left: 23px; 
+    top: 20px;  
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 500; 
+    font-size: 20px;
+    color: #000000;
+    letter-spacing: 0.04em; 
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.metric-value {
+    position: absolute;
+    left: 23px;  
+    top: 60px;   
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    color: #F5A623;
+    letter-spacing: 0.06em; 
+    line-height: 1;
+    text-transform: uppercase; 
+}
+
+/* Description Banner Section */
+.description-banner {
+    position: absolute;
+    left: 48px;  /* Standardized Grid Alignment */
+    top: 389px;  
+    width: 1098px;
+    height: 71px;
+    background-color: #D9D9D9;
+    border: 1px solid #000000;
+    box-sizing: border-box; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+}
+
+.banner-text {
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 500; 
+    font-size: 17px;
+    color: #000000;
+    letter-spacing: 0.04em; 
+    line-height: normal;
+    text-align: center;
+}
+
+/* --- Weekly Schedule Section --- */
+.schedule-header {
+    position: absolute;
+    left: 48px;  /* Standardized Grid Alignment */
+    top: 550px;  
+    display: flex;
+    align-items: center;
+    gap: 12px; 
+}
+
+.schedule-icon {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+.schedule-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    color: #0D0D0D;
+    line-height: 1;
+    text-transform: uppercase;
+    margin-top: 4px; 
+}
+
+.schedule-box {
+    position: absolute;
+    left: 48px;  /* Standardized Grid Alignment */
+    top: 611px;  
+    width: 1098px;
+    height: 71px;
+    background-color: #F5A623;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box; 
+}
+
+/* Weekly Schedule Table Headers */
+.day-label {
+    position: absolute;
+    top: 16px;   
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 500; 
+    font-size: 20px;
+    color: #000000;
+    letter-spacing: 0.04em; 
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.day-1 { left: 15px; } 
+.day-2 { left: 358px; } 
+.day-3 { left: 743px; }
+
+/* Weekly Schedule Separator Lines */
+.separator-line {
+    position: absolute;
+    top: 1px;     
+    width: 2px;   
+    height: 70px; 
+    background-color: #FFFFFF; 
+}
+
+.line-1 { left: 329px; }
+.line-2 { left: 722px; }
+
+/* Weekly Schedule Content Box */
+.schedule-content-box {
+    position: absolute;
+    left: 48px;   /* Standardized Grid Alignment */
+    top: 682px;   
+    width: 1098px;
+    height: 350px;
+    background-color: #D6D6D6;
+    border: 1px solid #000000;
+    box-sizing: border-box;
+}
+
+.days-list {
+    margin-top: 20px;
+    position: absolute;
+    left: 15px;   
+    top: 14px;    
+    display: flex;
+    flex-direction: column; 
+    gap: 24px; 
+}
+
+.day-item {
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 700; 
+    font-size: 20px;
+    color: #000000;
+    letter-spacing: 0.04em; 
+    line-height: 1;
+    text-transform: uppercase; 
+}
+
+.focus-list {
+    position: absolute;
+    margin-top: 20px;
+    left: 358px;  
+    top: 14px;    
+    display: flex;
+    flex-direction: column; 
+    gap: 24px; 
+}
+
+.focus-item {
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 400; 
+    font-size: 20px;
+    color: #000000;
+    letter-spacing: 0.04em; 
+    line-height: 1;
+}
+
+.duration-list {
+    position: absolute;
+    left: 744px;  
+    top: 14px;    
+    margin-top: 20px; 
+    display: flex;
+    flex-direction: column; 
+    gap: 24px; 
+}
+
+.duration-item {
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 700; 
+    font-size: 20px;
+    color: #000000;
+    letter-spacing: 0.04em; 
+    line-height: 1;
+}
+
+/* Weekly Schedule Content Separator Lines */
+.content-separator {
+    position: absolute;
+    top: 0px;       
+    width: 2px;     
+    height: 348px;  
+    background-color: #000000;
+}
+
+.line-3 { left: 329px; }
+.line-4 { left: 722px; }
+
+/* --- Exercise Section --- */
+
+.exercise-header {
+    position: absolute;
+    left: 48px;  /* Standardized Grid Alignment */
+    top: 1100px; /* Adjusted Y position to sit above the box */
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Clean gap between icon and title */
+}
+
+.rotated-icon-wrapper {
+    width: 40px;  
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.exercise-icon {
+    width: 30px; 
+    height: 30px;
+    object-fit: contain;
+    transform: rotate(125.43deg); 
+}
+
+.exercise-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    color: #000000;
+    line-height: 1;
+    text-transform: uppercase;
+    margin-top: 4px; 
+}
+
+/* Exercise Table Header Box */
+.exercise-box {
+    position: absolute;
+    left: 48px;    /* Standardized Grid Alignment */
+    top: 1160px;   /* Set position safely below title */
+    width: 1098px;
+    height: 71px;
+    background-color: #F5A623;
+}
+
+.exercise-label {
+    position: absolute;
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 500; 
+    font-size: 20px;
+    color: #000000;
+    letter-spacing: 0.04em; 
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.ex-label-1 {
+    left: 15px;      
+    top: 27px;       
+}
+
+.ex-label-2 {
+    left: 539px;     
+    top: 27px;       
+}
+
+.ex-label-3 {
+    left: 815px;     
+    top: 27px;       
+}
+
+/* Exercise Content Box */
+.exercise-content-box {
+    position: absolute;
+    left: 48px;    /* Standardized Grid Alignment */
+    top: 1231px;   /* Calculated: 1160px + 71px */
+    width: 1098px;
+    height: 550px;
+    background-color: #D6D6D6;
+    border: 1px solid #000000;
+    box-sizing: border-box; 
+}
+
+.exercise-name-list {
+    position: absolute;
+    left: 15px; 
+    top: 20px;  
+    display: flex;
+    flex-direction: column; 
+    gap: 25px; 
+}
+
+.exercise-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px; 
+}
+
+.exercise-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: #000000;
+    letter-spacing: 0.04em; 
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.exercise-category {
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 300; 
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.41); 
+    line-height: 1;
+}
+
+.row-line {
+    width: 1098px;
+    height: 1px;
+    background-color: #000000;
+    margin-left: -15px; 
+    margin-top: 10px;   
+}
+
+/* --- Video Demonstration Section --- */
+
+.video-header {
+    position: absolute;
+    left: 48px;   /* Standardized Grid Alignment! */
+    top: 1884px;  /* 1231 (box top) + 550 (box height) + 103 (gap) = 1884px */
+    
+    /* Flexbox lines up the triangle and text perfectly */
+    display: flex;
+    align-items: center;
+    gap: 12px; 
+}
+
+.triangle-icon {
+    width: 23px;
+    height: 18.92px;
+    background-color: #0D0D0D;
+    
+    /* This creates a perfect triangle shape out of the background color */
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    
+    /* Rotated exactly as you requested */
+    transform: rotate(90deg); 
+}
+
+.video-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    color: #0D0D0D;
+    line-height: 1;
+    text-transform: uppercase;
+    margin-top: 4px; /* Optical adjustment to align font baseline with the icon */
+}
+
+.video-box {
+    position: absolute;
+    left: 165px;    /* Align with checkout total-price container column */
+    top: 1959px;    /* Keep vertical placement */
+    width: 1028px;  /* Prevent overflow to the right (fits inside 1193px inner-box) */
+    height: 628px;
+    border: 0;
+    box-sizing: border-box;
+
+    overflow: hidden;
+
+    /* Hard clip to stop video-control paint bleeding past the edge */
+    clip-path: inset(0 0 0 0);
+
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    box-shadow: inset 0 0 0 3px #0D0D0D;
+    /* allow absolute positioning of video inside */
+    position: absolute;
+}
+
+/* --- Video Element Styling --- */
+
+.video-box video {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+
+    border: none;   
+    display: block;
+    overflow: hidden;
+
+    object-fit: cover;
+}
+
+/* --- Pricing / Checkout Section --- */
+
+.checkout-section {
+    position: absolute;
+    left: 165px;    
+    top: 2627px;    /* CHANGED: Shrunk the gap to sit much closer to the video box */
+    display: flex;
+    flex-direction: column;
+}
+
+.checkout-line {
+    width: 1060px;
+    height: 3px;
+    background-color: #000000;
+    margin-left: 15px; /* Pushes the line in to perfectly align with your text */
+}
+
+.price-container {
+    margin-top: 24px;  /* Clean breathing room below the horizontal line */
+    margin-left: 15px; /* Pushes the text to exactly 180px, aligning flawlessly with your headers */
+    display: flex;
+    flex-direction: column;
+    gap: 4px; /* Small gap between the 'Total Price' label and the actual price */
+}
+
+.price-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.41); /* Solid black at 41% opacity */
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.price-value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: #000000;
+    letter-spacing: 0.04em; /* 4% letter spacing */
+    line-height: 1;
+    margin-top: 4px; /* Optical adjustment for Bebas Neue font baseline */
+}
+
+/* --- NEW: Rating Group Section --- */
+
+.rating-group {
+    /* Absolute positioning ensures this does not break the price layout */
+    position: absolute;
+    right: 0;    /* CHANGED: This perfectly aligns the right edge to the end of the line */
+    bottom: 5px; /* Keeps the baseline aligned with the $29.99 text */
+    
+    display: flex;
+    align-items: center; 
+    gap: 6px; /* Small gap between the star, rating, and review count */
+}
+
+.star-rating-icon {
+    font-size: 28px; 
+    color: #000000;
+    line-height: 1;
+    margin-top: -3px; /* Optical alignment so the star centers cleanly with the text */
+}
+
+.rating-value {
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 600; /* Semibold weight */
+    font-size: 24px;
+    color: #000000;
+    line-height: 1;
+}
+
+.review-count {
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 300; /* Light weight */
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.41); /* Black with 41% opacity */
+    line-height: 1;
+}
+
+/* --- Action Buttons Section --- */
+
+.action-buttons {
+    position: absolute;
+    left: 180px;
+    top: 2838px;
+    z-index: 100;
+
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    width: 900px;
+}
+
+/* Base styles shared by both buttons */
+.action-buttons button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    
+    font-family: 'Epilogue', sans-serif;
+    font-size: 15px;
+    font-weight: 500; /* Standard readable weight for buttons */
+    color: #000000;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+/* Specific size and color for the First Button */
+.btn-white {
+    width: 290px;
+    height: 67px;
+    background-color: #FFFFFF;
+}
+
+/* Specific size and color for the Second Button */
+.btn-orange {
+    width: 290px;
+    height: 67px;
+    background-color: #F5A623;
+}
+
+/* --- Button Animations (Hover & Click) --- */
+
+/* Adds a smooth fade transition to the colors instead of an instant snap */
+.action-buttons button {
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* --- WHITE BUTTON --- */
+/* Hover State */
+.btn-white:hover {
+    background-color: #F5A623; /* Turns Orange */
+    color: #000000;            /* Text stays Black */
+}
+
+/* Clicked/Active State */
+.btn-white:active {
+    background-color: #D38A18; /* Turns Darker Orange */
+    color: #000000;            /* Text stays Black */
+}
+
+
+/* --- ORANGE BUTTON --- */
+/* Hover State */
+.btn-orange:hover {
+    background-color: #000000; /* Turns Black */
+    color: #F5A623;            /* Text turns Orange */
+}
+
+/* Clicked/Active State */
+.btn-orange:active {
+    background-color: #333333; /* Turns Gray */
+    color: #D38A18;            /* Text turns Darker Orange */
+}
+
+/* --- ENROLL NOW (green) --- */
+.btn-enroll {
+    width: 290px;
+    height: 67px;
+    background-color: #22c55e;
+    border: 2px solid #000000;
+    box-sizing: border-box;
+    color: #000000;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform 0.12s ease, background-color 0.2s ease;
+}
+
+.btn-enroll:hover {
+    background-color: #16a34a;
+}
+
+.btn-enroll:active {
+    transform: translateY(1px);
+}
+
+/* --- Green toast --- */
+.enroll-toast {
+    position: absolute;
+    left: 180px;
+    top: 2910px;
+    z-index: 9999;
+
+    width: 290px;
+    background-color: #22c55e;
+    border: 2px solid #000000;
+    color: #000000;
+
+    padding: 14px 16px;
+    box-sizing: border-box;
+
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    transform: translateY(-10px) scale(0.98);
+    pointer-events: none;
+
+    transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.enroll-toast.show {
+    opacity: 1;
+    transform: translateY(0px) scale(1);
+}
+
+.enroll-toast-inner {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+}

@@ -1,0 +1,615 @@
+/* =========================================
+   Variables & Global Styles
+   ========================================= */
+:root {
+    --bg-main: #DBDBDB;         /* Light grey background */
+    --brand-yellow: #F8A820;    /* Primary brand yellow/orange */
+    --panel-dark: #333333;      /* Dark grey for cards */
+    --panel-black: #222222;     /* Darker grey for right panel */
+    --text-black: #000000;
+    --text-white: #FFFFFF;
+    --text-grey: #A0A0A0;       /* Lighter grey text */
+    --border-color: #000000;
+    --border-width: 3px;
+    
+    --font-heading: 'Oswald', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    min-height: 100vh;
+    background-color: var(--bg-main);
+    font-family: var(--font-body);
+    color: var(--text-black);
+}
+
+/* =========================================
+   Layout Structure
+   ========================================= */
+.viewport-section {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 60px 20px;
+}
+
+.content-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-title {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    color: var(--brand-yellow);
+    letter-spacing: 1px;
+    -webkit-text-stroke: 1.5px var(--border-color);
+    text-shadow: 3px 3px 0 var(--border-color);
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    margin-top: 50px;
+}
+
+.cart-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+/* =========================================
+   HEADER / NAVBAR (Standard Size)
+========================================= */
+
+.navbar-bg {
+    width: 100%;
+    height: 80px; /* Standard navbar height */
+    background-color: #0d0d0d; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    z-index: 9999; 
+    border-bottom: 3px solid #ffffff; /* NEW: Thick white horizontal line separating the navbar and hero */
+}
+
+
+/*search button*/
+/* The container for the icon and the hidden bar */
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 100%; /* Matches navbar height */
+}
+
+.search-trigger {
+    background-color: transparent !important; /* Removes the white background */
+    border: none;                             /* Removes any default button borders */
+    outline: none;                            /* Removes the glow when clicked */
+    padding: 0;                               /* Ensures no extra spacing creates a "box" look */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+/* If the icon itself has a background (like an <img> tag or a <span>) */
+.search-trigger img, .search-trigger i {
+    background: transparent;
+}
+
+/* The actual bar that appears at the bottom */
+.search-bar-dropdown {
+    position: absolute;
+    top: 100%; /* This places it exactly at the bottom of the navbar */
+    right: 0;
+    width: 0;
+    overflow: hidden;
+    background: #111; /* Matches your dark theme */
+    transition: width 0.3s ease, padding 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid #ff9900; /* Primal orange accent */
+}
+
+/* Trigger expansion on hover of the wrapper */
+.search-wrapper:hover .search-bar-dropdown {
+    width: 300px;
+    padding: 10px;
+}
+
+#site-search {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #444;
+    color: white;
+    padding: 8px;
+    outline: none;
+}
+
+/* Style for results appearing under the input */
+#search-results {
+    background: #1a1a1a;
+    color: white;
+    font-size: 0.9rem;
+}
+
+/* --- Flexbox Container --- */
+.navbar-container {
+    width: 100%;
+    max-width: 1200px; /* REDUCED: This pulls the logo and icons closer to the center! */
+    height: 100%;
+    margin: 0 auto; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0 20px; 
+}
+
+/* --- Left Side: Logo --- */
+.logo-link {
+    width: 55px;  
+    height: 55px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 50%;
+    overflow: hidden; 
+    text-decoration: none;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+/* --- Center: Nav Links --- */
+/* OVERWRITING OLD BUGS: No more position: absolute! */
+.nav-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.nav-buttons ul {
+    display: flex;
+    flex-direction: row; 
+    gap: 40px; 
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-buttons a {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 16px; 
+    font-weight: 400;
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.nav-buttons a:hover { opacity: 0.7; }
+
+/* --- Right Side: Group Container --- */
+/* OVERWRITING OLD BUGS: No more position: absolute! */
+.header-right-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 35px; 
+}
+
+/* --- Right Side: Icons --- */
+.nav-icons {
+    display: flex;
+    flex-direction: row; 
+    gap: 20px; 
+    align-items: center;
+}
+
+.nav-icons span {
+    font-size: 20px; 
+    color: #ffffff;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.nav-icons span:hover { opacity: 0.7; }
+
+/* --- Right Side: About Us Button --- */
+.about-us-btn {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px; 
+    font-weight: 400;
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.about-us-btn:hover { opacity: 0.7; }
+
+/* =========================================
+   Left Column: Cart Table
+   ========================================= */
+.cart-items-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.cart-table {
+    border: var(--border-width) solid var(--border-color);
+    background-color: var(--panel-dark);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Table Grid Layout */
+.cart-header, .cart-item {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr 1fr;
+    align-items: center;
+}
+
+.cart-header {
+    background-color: var(--brand-yellow);
+    border-bottom: var(--border-width) solid var(--border-color);
+    padding: 15px 20px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+}
+
+.col-price, .col-quantity, .col-total {
+    text-align: center;
+}
+
+.cart-item {
+    padding: 25px 20px;
+    color: var(--text-white);
+}
+
+.item-separator {
+    border: none;
+    border-top: 2px solid var(--brand-yellow);
+    margin: 0;
+}
+
+/* Product Details Column */
+.item-details {
+    display: flex;
+    gap: 20px;
+}
+
+.item-image-placeholder {
+    width: 140px;
+    height: 100px;
+    background-color: #D3D3D3; /* Light grey block */
+    flex-shrink: 0;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+}
+
+.item-name {
+    color: var(--brand-yellow);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+}
+
+.item-size {
+    font-size: 0.8rem;
+    color: var(--text-white);
+}
+
+.btn-remove {
+    background: none;
+    border: none;
+    color: var(--text-grey);
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-top: 5px;
+}
+
+.btn-remove svg {
+    width: 14px;
+    height: 14px;
+}
+
+.item-val {
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.col-quantity {
+    display: flex;
+    justify-content: center;
+}
+
+/* Quantity Selector Box */
+.quantity-selector {
+    background-color: var(--brand-yellow);
+    color: var(--text-black);
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    gap: 15px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.qty-btn {
+    background: none;
+    border: none;
+    color: var(--text-black);
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+/* Continue Shopping Button */
+.continue-shopping-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.btn-continue-shopping {
+    background-color: var(--brand-yellow);
+    color: var(--text-black);
+    border: var(--border-width) solid var(--border-color);
+    padding: 12px 30px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+  
+}
+
+/* =========================================
+   Right Column: Order Summary
+   ========================================= */
+.order-summary-section {
+    background-color: var(--panel-black);
+    border: var(--border-width) solid var(--border-color);
+    padding: 30px 25px;
+    color: var(--text-white);
+    display: flex;
+    flex-direction: column;
+}
+
+.btn-track-order {
+    background-color: var(--brand-yellow);
+    color: var(--text-black);
+    border: var(--border-width) solid var(--border-color);
+    padding: 15px;
+    width: 100%;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 40px;
+    cursor: pointer;
+}
+
+.summary-title {
+    color: var(--brand-yellow);
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+.summary-rows {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+.summary-divider {
+    border: none;
+    border-top: 2px solid var(--text-white);
+    margin: 25px 0;
+}
+
+.total-row {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.btn-proceed {
+    background-color: var(--brand-yellow);
+    color: var(--text-black);
+    border: none;
+    padding: 16px;
+    width: 100%;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.trust-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: #CCCCCC;
+}
+
+.guarantee {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-white);
+}
+
+.guarantee svg {
+    width: 12px;
+    height: 12px;
+    color: var(--brand-yellow);
+}
+
+/* ========================================== */
+/* FOOTER SECTION                             */
+/* ========================================== */
+
+/* --- MAIN FOOTER CONTAINER --- */
+.footer-section {
+    width: 100%;
+    min-height: auto !important;
+    background-color: #000000;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    
+    /* Forces every column to start at the exact same top line */
+    align-items: flex-start; 
+    /* This handles the top spacing for all columns at once */
+    padding-top: 50px; 
+    padding-left: 50px;
+    padding-bottom: 50px;
+    box-sizing: border-box;
+}
+
+/* --- COLUMN 1: TERMS --- */
+.terms {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.terms-img {
+    width: 104px;
+    height: 104px;
+    border: 2px solid rgba(245, 166, 35, 0.91);
+    box-sizing: border-box;
+    margin-bottom: 22px; 
+    margin-top: 0; /* Ensures the box starts at the very top */
+}
+
+.terms-big-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: #F5A623;
+    margin: 0 0 22px 0; /* Top margin MUST be 0 for alignment */
+}
+
+.terms-small-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: rgba(245, 166, 35, 0.91);
+    margin: 0 0 22px 0; 
+}
+
+/* --- COLUMN 2: CONTACT --- */
+.footer-links-col {
+    display: flex;
+    flex-direction: column;
+    margin-left: 227px; /* EXACT spacing from Column 1 */
+}
+
+/* --- COLUMN 3: ABOUT US --- */
+.footer-about-col {
+    display: flex;
+    flex-direction: column;
+    margin-left: 104px; /* EXACT spacing from Column 2 */
+}
+
+/* --- SHARED HEADER STYLE (Used in Col 2 & 3) --- */
+.links-big-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: #F5A623;
+    margin: 0 0 26px 0; /* margin-top: 0 aligns it with the image/other text */
+    line-height: 1;
+}
+
+/* --- INNER TEXT STYLES --- */
+.link-group {
+    margin-bottom: 8px; 
+}
+
+.links-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: #F5A623;
+    margin: 0;
+}
+
+.links-small-text {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 16px;
+    color: #F5A623;
+    margin: 4px 0 0 0;
+    line-height: 1.4;
+}
+
+/* =========================================
+   Responsive Adjustments
+   ========================================= */
+@media (max-width: 900px) {
+    .cart-layout {
+        grid-template-columns: 1fr;
+    }
+    
+    .cart-header, .cart-item {
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+    }
+    
+    .item-image-placeholder {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 600px) {
+    .cart-header {
+        display: none; /* Hide table headers on small screens */
+    }
+    
+    .cart-item {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .col-price, .col-quantity, .col-total {
+        text-align: left;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .col-price::before { content: "PRICE: "; font-family: var(--font-heading); color: var(--brand-yellow); }
+    .col-quantity::before { content: "QUANTITY: "; font-family: var(--font-heading); color: var(--brand-yellow); }
+    .col-total::before { content: "TOTAL: "; font-family: var(--font-heading); color: var(--brand-yellow); }
+}

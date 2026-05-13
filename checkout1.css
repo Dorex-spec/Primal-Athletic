@@ -1,0 +1,253 @@
+/* 1. IMPORT FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Epilogue:wght@300;400;700&display=swap');
+
+/* 2. GENERAL RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #d1d1d1; /* Light gray background from reference */
+    padding: 40px;
+    font-family: 'Epilogue', sans-serif; /* Body Text Font */
+    color: #333;
+}
+
+.checkout-page {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 3. TYPOGRAPHY & HEADERS */
+.page-title, 
+.section-header, 
+.summary-header, 
+.total-label, 
+.btn-continue, 
+.btn-track, 
+.circle, 
+.step-label {
+    font-family: 'Bebas Neue', cursive; /* Header Font */
+    letter-spacing: 1px;
+}
+
+.page-title {
+    font-size: 5rem;
+    color: #f3a323; /* Signature Orange */
+    -webkit-text-stroke: 1.5px black; /* Outline effect */
+    margin-bottom: 40px;
+    line-height: 1;
+}
+
+/* 4. PROGRESS TRACKER */
+.progress-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 60px;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.progress-line {
+    position: absolute;
+    top: 25px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background-color: #f3a323;
+    z-index: 1;
+}
+
+.step {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    flex: 1;
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    background-color: #f3a323;
+    border: 2px solid black;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.circle.active {
+    background-color: #f3a323;
+    box-shadow: 0 0 10px rgba(243, 163, 35, 0.5);
+}
+
+.step-label {
+    font-size: 1rem;
+    color: black;
+}
+
+/* 5. CONTENT LAYOUT */
+.content-wrapper {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+/* 6. SHIPPING SECTION (LEFT SIDE) */
+.shipping-section {
+    flex: 2;
+    background-color: #4a4a4a; /* Dark gray card */
+    padding: 40px;
+    border-radius: 2px;
+    color: white;
+}
+
+.section-header {
+    color: #f3a323;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+}
+
+.shipping-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.half-width { flex: 1; }
+.full-width { width: 100%; }
+
+label {
+    font-family: 'Epilogue', sans-serif;
+    color: #f3a323;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+input, select {
+    background-color: #d1d1d1;
+    border: none;
+    padding: 12px 15px;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 1rem;
+    border-radius: 2px;
+}
+
+.btn-continue {
+    width: 100%;
+    background-color: #f3a323;
+    color: black;
+    border: 2px solid black;
+    padding: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.2s ease;
+}
+
+.btn-continue:hover {
+    background-color: #e0921a;
+}
+
+/* 7. ORDER SUMMARY (RIGHT SIDE) */
+.order-summary-section {
+    flex: 1;
+    background-color: #f3a323; /* Bright orange card */
+    padding: 30px;
+    border: 2px solid black;
+}
+
+.btn-track {
+    width: 100%;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.summary-header {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    color: black;
+}
+
+.summary-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 1rem;
+}
+
+.summary-divider {
+    border: none;
+    border-top: 2px solid black;
+    margin: 20px 0;
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 25px;
+}
+
+.total-label {
+    font-size: 1.8rem;
+}
+
+.total-price {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2.2rem;
+}
+
+.guarantees-list {
+    list-style: none;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.guarantees-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 5px;
+}
+
+/* 8. RESPONSIVE DESIGN */
+@media (max-width: 900px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+    
+    .progress-container {
+        width: 100%;
+    }
+    
+    .shipping-section, .order-summary-section {
+        width: 100%;
+    }
+}

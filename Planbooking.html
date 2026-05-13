@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Epilogue:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="PlanBooking.css">
+    <title>Primal Athletic - Workout Plans</title>
+</head>
+<body>
+    <header class="navbar-bg">
+        <div class="navbar-container">
+            
+            <a href="homepage.html" class="logo-link">
+                <img src="images/Logo.png" alt="Primal Athletic" class="logo">
+            </a>
+
+            <nav class="nav-buttons">
+                <ul>
+                    <li><a href="homepage.html" class="nav-home">Home</a></li>
+                    <li><a href="shop.html" class="nav-shop">Shop</a></li>
+                    <li><a href="Planbooking.html" class="nav-services">Services</a></li>
+                </ul>
+            </nav>
+            <div class="nav-icons">
+    <div class="search-wrapper">
+        <button class="search-trigger">
+            <a class="icon-search" aria-label="Search">🔍</a>
+        </button>
+        <div class="search-bar-dropdown">
+            <input type="text" id="site-search" placeholder="Search Primal Athletic...">
+            <div id="search-results"></div>
+        </div>
+    </div>
+    <a href="chartandcheckout.html" class="icon-cart" aria-label="View Cart">🛒</a>
+    <a href="useraccount.html" class="icon-profile" aria-label="User Profile">👤</a>
+                <a href="aboutus.html" class="about-us-btn">ABOUT US</a>
+            </div>
+
+        </div>
+    </header> 
+
+    <div class="second-navbar">
+        <nav class="second-nav-container">
+            <a href="Planbooking.html" class="second-nav-link">WORKOUT PLANS</a>
+            <a href="classes.html" class="second-nav-link" id="lace">CLASSES</a>
+        </nav>
+    </div>
+
+    <main class="page-container">
+        
+        <section class="browse-section">
+            <h1 class="section-heading">BROWSE PLANS</h1>
+            <div class="browse-grid">
+                <div class="browse-card" id="byLevelBtn">
+                    <div class="browse-header">
+                        <span class="browse-icon">🎯</span>
+                        <span class="browse-arrow">&gt;</span>
+                    </div>
+                    <h3>BY LEVEL</h3>
+                    <p>Find workouts matched to your experience</p>
+                </div>
+                <div class="browse-card">
+                    <div class="browse-header">
+                        <span class="browse-icon">⚡</span>
+                        <span class="browse-arrow">&gt;</span>
+                    </div>
+                    <div class="your-black-card-class" id="byGoalBtn"></div>
+                    <h3>BY GOAL</h3>
+                    <p>Choose plans based on your fitness objectives</p>
+                </div>
+                <div class="browse-card">
+                    <div class="browse-header">
+                        <span class="browse-icon">🏋️</span>
+                        <span class="browse-arrow">&gt;</span>
+                    </div>
+                    <div class="your-black-card-class" id="byEquipmentBtn"></div>
+                    <h3>BY EQUIPMENT</h3>
+                    <p>Select workouts based on available gear</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="level-filter-container" id="levelFilterContainer">
+            <h3 class="filter-heading">SELECT LEVEL</h3>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">ALL LEVELS</button>
+                <button class="filter-btn" data-filter="beginner">BEGINNER</button>
+                <button class="filter-btn" data-filter="intermediate">INTERMEDIATE</button>
+                <button class="filter-btn" data-filter="advance">ADVANCED</button> 
+            </div>
+        </div>
+
+        <div class="level-filter-container" id="goalFilterContainer">
+    <h3 class="filter-heading">SELECT GOAL</h3>
+    <div class="filter-buttons">
+        <button class="goal-filter-btn active" data-filter="all">ALL GOALS</button>
+        <button class="goal-filter-btn" data-filter="build foundation">BUILD FOUNDATION</button>
+        <button class="goal-filter-btn" data-filter="time efficient">TIME-EFFICIENT</button>
+        <button class="goal-filter-btn" data-filter="weight loss">WEIGHT LOSS</button>
+        <button class="goal-filter-btn" data-filter="increase endurance">INCREASE ENDURANCE</button>
+        <button class="goal-filter-btn" data-filter="transformation">TRANSFORMATION</button>
+    </div>
+</div>
+
+<div class="level-filter-container" id="equipmentFilterContainer">
+    <h3 class="filter-heading">SELECT EQUIPMENT</h3>
+    <div class="filter-buttons">
+        <button class="equipment-filter-btn active" data-filter="all">ALL EQUIPMENT</button>
+        <button class="equipment-filter-btn" data-filter="none required">NO EQUIPMENT</button>
+        <button class="equipment-filter-btn" data-filter="minimal equipment">MINIMAL</button>
+        <button class="equipment-filter-btn" data-filter="dumbbells & bands">DUMBBELLS & BANDS</button>
+        <button class="equipment-filter-btn" data-filter="cardio">CARDIO</button>
+        <button class="equipment-filter-btn" data-filter="full gym">FULL GYM</button>
+    </div>
+</div>
+
+        
+
+        <section class="all-plans-section">
+            <h1 class="section-heading">ALL WORKOUT PLANS</h1>
+            <div class="plans-grid">
+                
+                <div class="plan-card">
+                    <div class="plan-image-placeholder">
+                        <img src="images/Top Home Exercise Tips to Stay Fit Without a Gym.jpg" alt="Quick Start Workout">
+                        <span class="plan-price">$29.99</span>
+                    </div>
+                    <div class="plan-content">
+                        <div class="plan-meta">
+                            <span class="plan-badge">BEGINNER</span>
+                            <span class="plan-rating">★ 4.8 <span class="review-count">(342)</span></span>
+                        </div>
+                        <h2 class="plan-title">7 DAYS QUICK START</h2>
+                        <p class="plan-desc">Perfect for beginners starting their fitness journey. Build fundamentals strength and establish healthy habits.</p>
+                        <div class="plan-details-list">
+                            <p>⏱ 7 Days</p>
+                            <p><strong>Goal:</strong> Build Foundation</p>
+                            <p><strong>Equipment:</strong> None Required</p>
+                            <p><strong>21</strong> Exercises included</p>
+                        </div>
+                    </div>
+                    <button class="view-btn">VIEW DETAILS &gt;</button>
+                </div>
+
+                <div class="plan-card">
+                    <div class="plan-image-placeholder">
+                         <img src="images/4S Hotel Hanswirt _ Beweglichkeit, Kraft und Wohlbefinden.jpg" alt="Quick Start Workout" width="50" height="50">
+                        <span class="plan-price">$39.99</span>
+                    </div>
+                    <div class="plan-content">
+                        <div class="plan-meta">
+                            <span class="plan-badge">INTERMEDIATE</span>
+                            <span class="plan-rating">★ 4.9 <span class="review-count">(521)</span></span>
+                        </div>
+                        <h2 class="plan-title">10 DAYS CHALLENGE</h2>
+                        <p class="plan-desc">Take your fitness to the next level with this intensive 10 day program designed to boost endurance and strength.</p>
+                        <div class="plan-details-list">
+                            <p>⏱ 10 Days</p>
+                            <p><strong>Goal:</strong> Build Foundation</p>
+                            <p><strong>Equipment:</strong> None Required</p>
+                            <p><strong>21</strong> Exercises included</p>
+                        </div>
+                    </div>
+                    <button class="view-btn">VIEW DETAILS &gt;</button>
+                </div>
+
+                <div class="plan-card">
+                    <div class="plan-image-placeholder">
+                        <img src="images/womanlifting.webp" alt="Image">
+                        <span class="plan-price">$49.99</span>
+                    </div>
+                    <div class="plan-content">
+                        <div class="plan-meta">
+                            <span class="plan-badge">ALL LEVELS</span>
+                            <span class="plan-rating">★ 4.8 <span class="review-count">(342)</span></span>
+                        </div>
+                        <h2 class="plan-title">FOR BUSY PROFESSIONALS</h2>
+                        <p class="plan-desc">Maximize results with minimal time investment. 20-30 minute workouts designed for busy schedules.</p>
+                        <div class="plan-details-list">
+                            <p>⏱ 4 Weeks</p>
+                            <p><strong>Goal:</strong> Time Efficient Fitness</p>
+                            <p><strong>Equipment:</strong> Minimal Equipment</p>
+                            <p><strong>42</strong> included</p>
+                        </div>
+                    </div>
+                    <button class="view-btn">VIEW DETAILS &gt;</button>
+                </div>
+
+                <div class="plan-card">
+            <div class="plan-image-placeholder">
+                <img src="images/thirtyD.jpg" alt="30 Days Challenge">
+                <span class="plan-price">$59.99</span>
+            </div>
+            <div class="plan-content">
+                <div class="plan-meta">
+                    <span class="plan-badge">ADVANCE</span>
+                    <span class="plan-rating">★ 4.9 <span class="review-count">(1243)</span></span>
+                </div>
+                <h2 class="plan-title">30 DAYS CHALLENGE</h2>
+                <p class="plan-desc">Transform your body in 30 days with this intensive program. Advance techniques for maximum muscle gain and strength.</p>
+                <div class="plan-details-list">
+                    <p>⏱ 30 Days</p>
+                    <p><strong>Goal:</strong> Complete Transformation</p>
+                    <p><strong>Equipment:</strong> Full Gym Access</p>
+                    <p><strong>90</strong> Exercises included</p>
+                </div>
+            </div>
+            <button class="view-btn">VIEW DETAILS &gt;</button>
+        </div>
+
+         <div class="plan-card">
+            <div class="plan-image-placeholder">
+                <img src="images/fatburn.jpg" alt="Fat Burn Program">
+                <span class="plan-price">$49.99</span>
+            </div>
+            <div class="plan-content">
+                <div class="plan-meta">
+                    <span class="plan-badge">INTERMEDIATE</span>
+                    <span class="plan-rating">★ 4.8 <span class="review-count">(892)</span></span>
+                </div>
+                <h2 class="plan-title">FAT BURN PROGRAM</h2>
+                <p class="plan-desc">Science based fat burning program combining HIIT cardio and strength training for optimal weight loss results.</p>
+                <div class="plan-details-list">
+                    <p>⏱ 8 Weeks</p>
+                    <p><strong>Goal:</strong> Weight Loss</p>
+                    <p><strong>Equipment:</strong> Cardio Equipment</p>
+                    <p><strong>56</strong> Exercises included</p>
+                </div>
+            </div>
+            <button class="view-btn">VIEW DETAILS &gt;</button>
+        </div>
+
+            </div>
+        </section>
+
+        <section class="included-section">
+            <hr class="divider-line">
+            <h2 class="included-heading">WHAT'S INCLUDED IN EVERY PLAN</h2>
+            <div class="included-grid">
+                
+                <div class="included-item">
+                    <div class="included-number">1</div>
+                    <h4 class="included-title">DETAILED OVERVIEW</h4>
+                    <p class="included-desc">Complete breakdown of levels, goals requirement and duration</p>
+                </div>
+
+                <div class="included-item">
+                    <div class="included-number">2</div>
+                    <h4 class="included-title">WEEKLY SCHEDULE</h4>
+                    <p class="included-desc">Day-by-Day workout schedule with rest days strategically planned</p>
+                </div>
+
+                <div class="included-item">
+                    <div class="included-number">3</div>
+                    <h4 class="included-title">EXERCISE LIBRARY</h4>
+                    <p class="included-desc">Comprehensive list of all exercise with sets, reps, and form tips</p>
+                </div>
+
+                <div class="included-item">
+                    <div class="included-number">4</div>
+                    <h4 class="included-title">VIDEO DEMOS</h4>
+                    <p class="included-desc">Professional video guides showing proper forms and techniques</p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+    
+   <script src="js/script.js"></script>
+   <script>
+       (function () {
+         const WORKOUT_PARAM_KEY = "workout";
+         const DETAILS_URL = "workout-details.html";
+
+         const REQUIRED_TITLES = new Set([
+           "7 Days Quick Start",
+           "10 Days Challenge",
+           "For Busy Professionals",
+           "30 Days Challenge",
+           "Fat Burn Program"
+         ]);
+
+         const getCardWorkoutTitle = (cardEl) => {
+           const titleEl = cardEl.querySelector(".plan-title");
+           const raw = titleEl ? titleEl.textContent : "";
+           const normalized = String(raw || "").trim();
+
+           
+           if (REQUIRED_TITLES.has(normalized)) return normalized;
+
+           const lower = normalized.toLowerCase();
+           for (const t of REQUIRED_TITLES) {
+             if (t.toLowerCase() === lower) return t;
+           }
+           return null;
+         };
+
+         const goToDetails = (workoutTitle) => {
+           if (!workoutTitle) return;
+           const params = new URLSearchParams({ [WORKOUT_PARAM_KEY]: workoutTitle });
+           window.location.href = `${DETAILS_URL}?${params.toString()}`;
+         };
+
+         document.addEventListener("DOMContentLoaded", () => {
+           document.querySelectorAll(".plan-card").forEach((cardEl) => {
+             const workoutTitle = getCardWorkoutTitle(cardEl);
+             const btn = cardEl.querySelector(".view-btn");
+             if (!btn) return;
+
+             btn.addEventListener("click", () => {
+               goToDetails(workoutTitle);
+             });
+           });
+         });
+       })();
+   </script>
+
+    <!--Footer-->
+    <section class="footer-section">
+    <div class="terms">
+        <img src="images/Logo.png" alt="Logo" class="terms-img">
+        <h3 class="terms-big-text">PRIMAL ATHLETICS</h3>
+        <p class="terms-small-text">REFUND POLICIES</p>
+        <p class="terms-small-text">PRIVACY POLICIES</p>
+        <p class="terms-small-text">TERM & CONDITIONS</p>
+        <p class="terms-small-text">FAQ</p>
+    </div>
+
+    <div class="footer-links-col">
+        <h3 class="links-big-text">CONTACT US</h3>
+        
+        <div class="link-group">
+            <h4 class="links-title">ADDRESS</h4>
+            <p class="links-small-text">123 fitness Boulevard Suite 100 Los Angeles CA 90001</p>
+        </div>
+
+        <div class="link-group">
+            <h4 class="links-title">EMAIL</h4>
+            <p class="links-small-text">Info@primalathletic.com</p>
+        </div>
+
+        <div class="link-group">
+            <h4 class="links-title">PHONE</h4>
+            <p class="links-small-text">1-800-PRIMAL-1 (1-800-774-6251)</p>
+        </div>
+
+        <div class="link-group">
+            <h4 class="links-title">SOCIAL MEDIA</h4>
+            <p class="links-title">FACEBOOK</p>
+            <p class="links-title">INSTAGRAM</p>
+            <p class="links-title">YOUTUBE</p>
+            <p class="links-title">GOOGLE MAPS</p>
+        </div>
+    </div>
+
+    <div class="footer-about-col">
+        <h3 class="links-big-text">ABOUT US</h3>
+        <a href="aboutus.html"><p class="terms-small-text">OUR STORY</p></a>
+        <a href="aboutus.html"><p class="terms-small-text">MEET THE COACHES</p></a>
+        <a href="aboutus.html"><p class="terms-small-text">FACILITIES TOUR</p></a>
+        <a href="aboutus.html"><p class="terms-small-text">MEMBERS TRANSFORMATIONS</p></a>
+    </div>
+</section>
+
+</body>
+</html>
