@@ -709,7 +709,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    function showChoicePopup() {
+    function showChoicePopup(customTitle = "WELCOME TO PRIMAL", customSubtitle = "") {
         const existing = document.querySelector('.login-overlay');
         if (existing) existing.remove();
 
@@ -718,7 +718,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const box = document.createElement('div');
         box.style.width = "400px";
-        box.style.height = "250px";
         box.style.backgroundColor = "#FFFFFF";
         box.style.border = "2px solid #000000";
         box.style.borderRadius = "10px";
@@ -727,12 +726,17 @@ document.addEventListener('DOMContentLoaded', () => {
         box.style.flexDirection = "column";
         box.style.alignItems = "center";
         box.style.justifyContent = "center";
-        box.style.padding = "20px";
+        box.style.padding = "35px 20px 25px 20px";
+
+        const subtitleHtml = customSubtitle 
+            ? `<p style="margin: 0; margin-bottom: 25px; font-family: 'Epilogue', sans-serif; font-size: 15px; text-align: center; color: #000;">${customSubtitle}</p>` 
+            : `<div style="height: 15px;"></div>`;
 
         box.innerHTML = `
         <div class="login-close-x" id="closeChoice" style="position: absolute; top: 10px; right: 15px; font-size: 24px; color: #D6D6D6; cursor: pointer;">&times;</div>
         
-        <h2 style="margin: 0; margin-bottom: 25px; font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: #000000; letter-spacing: 0.05em;">WELCOME TO PRIMAL</h2>
+        <h2 style="margin: 0; ${customSubtitle ? 'margin-bottom: 10px;' : 'margin-bottom: 5px;'} font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: #000000; letter-spacing: 0.05em; text-align: center;">${customTitle}</h2>
+        ${subtitleHtml}
         
         <button id="choiceLogin" style="width: 320px; height: 50px; margin-bottom: 15px; font-family: 'Bebas Neue', sans-serif; font-size: 20px; color: #000000; background-color: #F5A623; border: 2px solid #000000; border-radius: 10px; cursor: pointer; letter-spacing: 0.06em;">LOG IN</button>
         
@@ -978,4 +982,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setupInteractions();
 
+    // ==========================================
+    // URL PARAMETER CHECK (Gated Access from Shop)
+    // ==========================================
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('auth') === 'required' && !localStorage.getItem('currentUserEmail')) {
+        setTimeout(() => {
+            showChoicePopup("LOGIN REQUIRED", "Please sign in or log in to view the product page.");
+        }, 100);
+    }
 });
