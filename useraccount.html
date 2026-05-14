@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Epilogue:wght@400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styleuseraccount.css">
     <script src="js/script.js" defer></script>
+    <script src="js/useraccount.js" defer></script>
 </head>
 <body>
     <header class="navbar-bg">
@@ -23,18 +24,19 @@
                     <li><a href="Planbooking.html" class="nav-services">Services</a></li>
                 </ul>
             </nav>
+
             <div class="nav-icons">
-    <div class="search-wrapper">
-        <button class="search-trigger">
-            <a class="icon-search" aria-label="Search">🔍</a>
-        </button>
-        <div class="search-bar-dropdown">
-            <input type="text" id="site-search" placeholder="Search Primal Athletic...">
-            <div id="search-results"></div>
-        </div>
-    </div>
-    <a href="chartandcheckout.html" class="icon-cart" aria-label="View Cart">🛒</a>
-    <a href="useraccount.html" class="icon-profile" aria-label="User Profile">👤</a>
+                <div class="search-wrapper">
+                    <button class="search-trigger">
+                        <a class="icon-search" aria-label="Search">🔍</a>
+                    </button>
+                    <div class="search-bar-dropdown">
+                        <input type="text" id="site-search" placeholder="Search Primal Athletic...">
+                        <div id="search-results"></div>
+                    </div>
+                </div>
+                <a href="chartandcheckout.html" class="icon-cart" aria-label="View Cart">🛒</a>
+                <a href="useraccount.html" class="icon-profile" aria-label="User Profile">👤</a>
                 <a href="aboutus.html" class="about-us-btn">ABOUT US</a>
             </div>
 
@@ -143,7 +145,7 @@
                             <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
                             <line x1="1" y1="10" x2="23" y2="10"></line>
                         </svg>
-                        <h2>PAYMENTS METHODS</h2>
+                        <h2>PAYMENT METHODS</h2>
                     </div>
                     <div class="card-body">
                         <div class="inner-card bg-primary payment-card" data-payment-index="0">
@@ -174,41 +176,40 @@
                             </svg>
                             <h2>RECENT ORDERS</h2>
                         </div>
-                        <button class="text-btn">VIEW ALL &rarr;</button>
+                        <a href="#" class="text-btn" style="text-decoration: none;">VIEW ALL &rarr;</a>
                     </div>
                     <div class="card-body">
                         <div id="recent-orders-list" class="recent-orders-list">
-                        <div class="inner-card bg-primary order-card">
-                            <div class="order-top flex-between">
-                                <div class="order-info">
-                                    <h3>#PA-2024-001</h3>
-                                    <p>March 20, 2026</p>
+                            <div class="inner-card bg-primary order-card">
+                                <div class="order-top flex-between">
+                                    <div class="order-info">
+                                        <h3>#PA-2024-001</h3>
+                                        <p>March 20, 2026</p>
+                                    </div>
+                                    <div class="badge-white uppercase">PROCESSING</div>
                                 </div>
-                                <div class="badge-white uppercase">PROCESSING</div>
+                                <hr class="divider">
+                                <div class="order-bottom flex-between">
+                                    <span>2 items</span>
+                                    <a href="#" class="text-btn" style="text-decoration: none;">VIEW ORDER &rarr;</a>
+                                </div>
                             </div>
-                            <hr class="divider">
-                            <div class="order-bottom flex-between">
-                                <span>2 items</span>
-                                <button class="text-btn">VIEW ORDER &rarr;</button>
-                            </div>
-                        </div>
                         
-                        </div>
-                        <div class="inner-card bg-primary order-card">
-                            <div class="order-top flex-between">
-                                <div class="order-info">
-                                    <h3>#PA-2024-002</h3>
-                                    <p>#pa-2024-001</p>
+                            <div class="inner-card bg-primary order-card">
+                                <div class="order-top flex-between">
+                                    <div class="order-info">
+                                        <h3>#PA-2024-002</h3>
+                                        <p>March 15, 2026</p>
+                                    </div>
+                                    <div class="btn-black uppercase">DELIVERED</div>
                                 </div>
-                                <div class="btn-black uppercase">DELIVERED</div>
+                                <hr class="divider">
+                                <div class="order-bottom flex-between">
+                                    <span>2 items</span>
+                                    <a href="#" class="text-btn" style="text-decoration: none;">VIEW ORDER &rarr;</a>
+                                </div>
                             </div>
-                            <hr class="divider">
-                            <div class="order-bottom flex-between">
-                                <span>2 items</span>
-                                <button class="text-btn">VIEW ORDER &rarr;</button>
                         </div>
-                        </div>
-                    </div>
                     </div>
                 </div>
 
@@ -232,7 +233,7 @@
                                 <h3>PASSWORD</h3>
                                 <p>******</p>
                             </div>
-                            <button class="text-btn">CHANGE</button>
+                            <button class="text-btn" data-action="change-password">CHANGE</button>
                         </div>
                         
                         <div class="inner-card bg-primary settings-card flex-between">
@@ -246,7 +247,7 @@
                                     <p>Receive updates about orders and promotions</p>
                                 </div>
                             </div>
-                            <button class="text-btn">MANAGE</button>
+                            <button class="text-btn" data-action="manage-notifications">MANAGE</button>
                         </div>
                     </div>
                 </div>
@@ -263,7 +264,7 @@
                     <div class="card-body">
                         <div class="session-box bg-primary">
                             <p class="label">LOGGED IN AS</p>
-                            <h3 class="session-email" data-session-email>JOHN.DOE@EMAIL.COM</h3>
+                            <h3 class="session-email" data-session-email><span class="logged-in-as-text">JOHN.DOE@EMAIL.COM</span></h3>
                         </div>
                         <button class="btn-full btn-black-full">LOG OUT</button>
                     </div>
@@ -272,9 +273,6 @@
             </div>
         </section>
 
-        <script src="js/useraccount.js" defer></script>
     </main>
-
 </body>
 </html>
-</body>

@@ -1,7 +1,7 @@
 /* Variables */
 :root {
     --primary-color: #F6A820; /* The rich yellow/orange */
-    --bg-color: #DBDBDB; /* Light gray background */
+    --bg-color: #DBDBDB;      /* Light gray background */
     --border-color: #000000;
     --border-width: 2px;
     --font-heading: 'Oswald', sans-serif;
@@ -27,7 +27,6 @@ body, html {
 /* =========================================
    HEADER / NAVBAR (Standard Size)
 ========================================= */
-
 .navbar-bg {
     width: 100%;
     height: 80px; /* Standard navbar height */
@@ -36,74 +35,13 @@ body, html {
     top: 0; 
     left: 0; 
     z-index: 9999; 
-    border-bottom: 3px solid #ffffff; /* NEW: Thick white horizontal line separating the navbar and hero */
+    border-bottom: 3px solid #ffffff; 
 }
 
-
-/*search button*/
-/* The container for the icon and the hidden bar */
-.search-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 100%; /* Matches navbar height */
-}
-
-.search-trigger {
-    background-color: transparent !important; /* Removes the white background */
-    border: none;                             /* Removes any default button borders */
-    outline: none;                            /* Removes the glow when clicked */
-    padding: 0;                               /* Ensures no extra spacing creates a "box" look */
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-}
-
-/* If the icon itself has a background (like an <img> tag or a <span>) */
-.search-trigger img, .search-trigger i {
-    background: transparent;
-}
-
-/* The actual bar that appears at the bottom */
-.search-bar-dropdown {
-    position: absolute;
-    top: 100%; /* This places it exactly at the bottom of the navbar */
-    right: 0;
-    width: 0;
-    overflow: hidden;
-    background: #111; /* Matches your dark theme */
-    transition: width 0.3s ease, padding 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    border-bottom: 2px solid #ff9900; /* Primal orange accent */
-}
-
-/* Trigger expansion on hover of the wrapper */
-.search-wrapper:hover .search-bar-dropdown {
-    width: 300px;
-    padding: 10px;
-}
-
-#site-search {
-    width: 100%;
-    background: transparent;
-    border: 1px solid #444;
-    color: white;
-    padding: 8px;
-    outline: none;
-}
-
-/* Style for results appearing under the input */
-#search-results {
-    background: #1a1a1a;
-    color: white;
-    font-size: 0.9rem;
-}
-
-/* --- Flexbox Container --- */
+/* Flexbox Container */
 .navbar-container {
     width: 100%;
-    max-width: 1200px; /* REDUCED: This pulls the logo and icons closer to the center! */
+    max-width: 1200px;
     height: 100%;
     margin: 0 auto; 
     display: flex;
@@ -112,7 +50,7 @@ body, html {
     padding: 0 20px; 
 }
 
-/* --- Left Side: Logo --- */
+/* Left Side: Logo */
 .logo-link {
     width: 55px;  
     height: 55px; 
@@ -131,8 +69,7 @@ body, html {
     object-fit: cover; 
 }
 
-/* --- Center: Nav Links --- */
-/* OVERWRITING OLD BUGS: No more position: absolute! */
+/* Center: Nav Links */
 .nav-buttons {
     display: flex;
     align-items: center;
@@ -158,8 +95,7 @@ body, html {
 
 .nav-buttons a:hover { opacity: 0.7; }
 
-/* --- Right Side: Group Container --- */
-/* OVERWRITING OLD BUGS: No more position: absolute! */
+/* Right Side: Group Container */
 .header-right-group {
     display: flex;
     flex-direction: row;
@@ -167,7 +103,7 @@ body, html {
     gap: 35px; 
 }
 
-/* --- Right Side: Icons --- */
+/* Right Side: Icons */
 .nav-icons {
     display: flex;
     flex-direction: row; 
@@ -184,7 +120,7 @@ body, html {
 
 .nav-icons span:hover { opacity: 0.7; }
 
-/* --- Right Side: About Us Button --- */
+/* Right Side: About Us Button */
 .about-us-btn {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 26px; 
@@ -196,43 +132,64 @@ body, html {
 
 .about-us-btn:hover { opacity: 0.7; }
 
-/* --- Right Side: Group Container --- */
-/* OVERWRITING OLD BUGS: No more position: absolute! */
-.header-right-group {
+/* Search Elements */
+.search-wrapper {
+    position: relative;
     display: flex;
-    flex-direction: row;
     align-items: center;
-    gap: 35px; 
+    height: 100%; 
 }
 
-/* --- Right Side: Icons --- */
-.nav-icons {
-    display: flex;
-    flex-direction: row; 
-    gap: 20px; 
-    align-items: center;
-}
-
-.nav-icons span {
-    font-size: 20px; 
-    color: #ffffff;
+.search-trigger {
+    background-color: transparent !important;
+    border: none;
+    outline: none;
+    padding: 0;
     cursor: pointer;
-    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
 }
 
-.nav-icons span:hover { opacity: 0.7; }
-
-/* --- Right Side: About Us Button --- */
-.about-us-btn {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 26px; 
-    font-weight: 400;
-    color: #ffffff;
-    text-decoration: none;
-    transition: opacity 0.3s ease;
+.search-trigger img, .search-trigger i {
+    background: transparent;
 }
 
-.about-us-btn:hover { opacity: 0.7; }
+.search-bar-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 0;
+    overflow: hidden;
+    background: #111;
+    transition: width 0.3s ease, padding 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px solid #ff9900;
+}
+
+.search-wrapper:hover .search-bar-dropdown {
+    width: 300px;
+    padding: 10px;
+}
+
+#site-search {
+    width: 100%;
+    background: transparent;
+    border: 1px solid #444;
+    color: white;
+    padding: 8px;
+    outline: none;
+}
+
+#search-results {
+    background: #1a1a1a;
+    color: white;
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   PAGE STRUCTURE & TYPOGRAPHY
+========================================= */
 
 /* Scroll Snap Container */
 .scroll-container {
@@ -259,7 +216,7 @@ body, html {
     max-width: 760px;
     display: flex;
     flex-direction: column;
-    gap: 25px; /* Spacing between cards */
+    gap: 25px;
 }
 
 /* Typography Overrides */
@@ -296,7 +253,10 @@ p { font-size: 0.9rem; color: #222;}
     align-items: center;
 }
 
-/* Card Base Styles */
+/* =========================================
+   CARDS & CONTAINERS
+========================================= */
+
 .card {
     border: var(--border-width) solid var(--border-color);
     background-color: var(--bg-color);
@@ -341,7 +301,10 @@ p { font-size: 0.9rem; color: #222;}
     margin: 18px 0;
 }
 
-/* Buttons */
+/* =========================================
+   BUTTONS
+========================================= */
+
 button {
     cursor: pointer;
     background: none;
@@ -353,6 +316,8 @@ button {
     font-size: 1rem;
     font-weight: 600;
     color: var(--border-color);
+    text-decoration: none; 
+    display: inline-block; 
 }
 .text-btn:hover { text-decoration: underline; }
 
@@ -364,6 +329,7 @@ button {
     font-weight: 600;
     text-align: center;
 }
+
 .btn-black-full {
     background-color: var(--border-color);
     color: #fff;
@@ -371,6 +337,25 @@ button {
     padding: 16px;
     font-size: 1.1rem;
 }
+
+.btn-white {
+    background-color: #fff;
+    padding: 6px 16px;
+    font-weight: 600;
+    border: none;
+}
+
+.btn-black {
+    background-color: var(--border-color);
+    color: #fff;
+    padding: 6px 16px;
+    font-weight: 600;
+    border: none;
+}
+
+/* =========================================
+   SECTION SPECIFIC STYLES
+========================================= */
 
 /* Section 1 Specifics */
 .header-card {
@@ -442,19 +427,6 @@ button {
     font-weight: 600;
     border: none;
 }
-.btn-white {
-    background-color: #fff;
-    padding: 6px 16px;
-    font-weight: 600;
-    border: none;
-}
-.btn-black {
-    background-color: var(--border-color);
-    color: #fff;
-    padding: 6px 16px;
-    font-weight: 600;
-    border: none;
-}
 .payment-info {
     display: flex;
     flex-direction: column;
@@ -496,6 +468,7 @@ button {
 }
 .session-email {
     font-size: 1.3rem;
+    transition: all 0.3s ease;
 }
 
 /* Responsive adjustments */
@@ -517,6 +490,425 @@ button {
         justify-content: flex-start;
     }
     .scroll-container {
-        scroll-snap-type: none; /* Disable strict snap on mobile to avoid cutoffs */
+        scroll-snap-type: none; 
     }
+}
+
+/* =========================================
+   CUSTOM EDIT MODAL (Curved Corners)
+========================================= */
+
+.custom-modal-overlay {
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100vw; 
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    backdrop-filter: blur(4px); 
+}
+
+.custom-modal-box {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px; 
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    font-family: var(--font-body);
+    animation: modalFadeIn 0.3s ease forwards;
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.custom-modal-box h3 {
+    margin-bottom: 20px;
+    font-family: var(--font-heading);
+    color: var(--border-color);
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.custom-modal-input {
+    width: 100%;
+    padding: 12px 16px;
+    margin-bottom: 15px;
+    border: 2px solid var(--bg-color);
+    border-radius: 12px; 
+    font-family: var(--font-body);
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+.custom-modal-input:focus {
+    border-color: var(--primary-color);
+}
+
+.custom-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.custom-modal-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px; 
+    cursor: pointer;
+    font-weight: 700;
+    font-family: var(--font-body);
+    transition: all 0.3s ease;
+}
+
+.custom-modal-btn:hover {
+    opacity: 0.8;
+}
+
+.btn-cancel {
+    background: #e0e0e0;
+    color: #333;
+}
+
+.btn-cancel:hover {
+    background-color: #cccccc;
+}
+
+.btn-save {
+    background: var(--primary-color);
+    color: #000;
+}
+
+.btn-save:hover {
+    background-color: #e59a1c;
+}
+
+/* Profile Picture Hover Glow */
+.avatar-box {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.avatar-box:hover {
+    box-shadow: 0 0 20px 5px #F5A623; /* Glow color */
+}
+
+/* Zoom-in Lightbox Overlay */
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 11000;
+    animation: fadeIn 0.3s ease;
+}
+
+.lightbox-content {
+    max-width: 80%;
+    max-height: 80%;
+    border: 4px solid #F5A623;
+    box-shadow: 0 0 50px rgba(245, 166, 35, 0.5);
+    transform: scale(1);
+    animation: zoomIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* The "X" Close Button */
+.lightbox-close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 50px;
+    font-family: 'Bebas Neue', sans-serif;
+    color: #D6D6D6; /* Default X color */
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.3s ease;
+    user-select: none;
+}
+
+.lightbox-close:hover {
+    color: #F5A623; /* Hover X color */
+}
+
+/* --- Login Popup Styles --- */
+.login-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20000; /* Above everything else */
+}
+
+.login-box {
+    width: 554px;
+    height: 646px;
+    background-color: #FFFFFF;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    padding: 60px; /* Internal spacing */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* "LOG IN" Header */
+.login-header {
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 600; /* Semi-Bold */
+    font-size: 24px;
+    color: #000000;
+    margin-bottom: 10px;
+    text-transform: none; /* Keeps it as "Log In" if preferred, or use uppercase */
+}
+
+/* Secondary Text (Bottom of Header) */
+.login-subtext {
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 300; /* Light */
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: auto; /* Pushes the next items down */
+}
+
+/* Bottom Right Text */
+.login-footer-text {
+    position: absolute;
+    bottom: 40px;
+    right: 60px;
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 400; /* Regular */
+    font-size: 16px;
+    color: #000000;
+}
+
+/* Styling for the Close Button */
+.login-close-x {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    line-height: 1;
+    color: #D6D6D6; /* Initial color */
+    cursor: pointer;
+    font-family: Arial, sans-serif; /* Clean X look */
+    transition: color 0.2s ease, transform 0.2s ease;
+    z-index: 100;
+}
+
+.login-close-x:hover {
+    color: #F5A623; /* Hover color */
+    transform: scale(1.1);
+}
+
+/* Ensure the overlay covers everything */
+.login-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20000;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes zoomIn { from { transform: scale(0.5); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+/* --- FULL LOGIN FORM STYLES --- */
+
+/* Container for form elements to ensure 488px width is respected */
+.form-content-wrapper {
+    width: 488px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 31px;
+}
+
+/* Updated Input Box Styling */
+.login-input-field {
+    width: 488px;
+    height: 55px;
+    background-color: #D9D9D9; /* Light grey background */
+    border: 2px solid #000000;  /* 2px black border */
+    border-radius: 15px;       /* Rounded corners */
+    padding: 0 15px;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 16px;
+    color: #000000;
+    outline: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box; 
+}
+
+/* State when clicked (Focus) */
+.login-input-field:focus {
+    background-color: #D6D6D6; /* Slightly darker grey when clicked */
+    border-color: #F5A623;     /* Orange border */
+    box-shadow: 0 0 10px #F5A623; /* Glowing orange effect */
+}
+
+/* Forgot Password Link */
+.forgot-password-link {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.forgot-password-link:hover {
+    color: #F5A623;
+}
+
+/* Label Refinement */
+.form-label {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 16px;
+    color: #000000;
+    text-align: left;
+}
+
+/* --- THE MAIN LOGIN BOX --- */
+.login-box-full {
+    width: 554px;
+    height: 646px;
+    background-color: #FFFFFF;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    position: relative;
+    
+    /* Centers the content inside */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px; /* Pushes the LOG IN text down from the top */
+    box-sizing: border-box; /* Keeps the box exactly 554x646 even with padding */
+}
+
+/* Ensure the Close 'X' is positioned properly inside this new box */
+.login-close-x {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    color: #D6D6D6;
+    cursor: pointer;
+    z-index: 100;
+    transition: color 0.2s ease;
+}
+
+.login-close-x:hover {
+    color: #F5A623;
+}
+
+/* --- THE SIGN UP BOX --- */
+.signup-box-full {
+    width: 554px;
+    height: 674px; /* Your requested height */
+    background-color: #FFFFFF;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px; /* Adjusted to fit the extra field */
+    box-sizing: border-box;
+}
+
+/* --- SHARED INPUT STYLING --- */
+.login-input-field {
+    width: 488px;
+    height: 55px;
+    background-color: #D9D9D9; /* Default box color */
+    border: 2px solid #000000;  /* Black border */
+    border-radius: 15px;       /* 15px radius */
+    padding: 0 15px;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 16px;
+    color: #000000;
+    outline: none;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+/* State when clicked (Focus) */
+.login-input-field:focus {
+    background-color: #D6D6D6;    /* Darker grey when clicked */
+    border-color: #F5A623;        /* Orange border */
+    box-shadow: 0 0 10px #F5A623;  /* Orange glow */
+}
+
+/* --- THE SIGN UP BOX --- */
+.signup-box-full {
+    width: 554px;
+    height: 674px; /* Exact height requested */
+    background-color: #FFFFFF;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+    box-sizing: border-box;
+}
+
+.login-box-full {
+    width: 554px;
+    height: 646px;
+    background-color: #FFFFFF;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
+    box-sizing: border-box;
+}
+
+/* --- THE RESET PASSWORD BOX --- */
+.reset-box-full {
+    width: 554px;
+    height: 530px; /* Your specific height */
+    background-color: #FFFFFF;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    box-sizing: border-box;
+}
+
+#closeNotify:hover {
+    color: #000000 !important;
 }
