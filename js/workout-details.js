@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Centralized Class Database
+    // 1. Centralized Class Database (All expanded to exactly 7 items to fit the 550px container)
     const classData = {
-        strength: {
+        "strength training": {
             title: "STRENGTH TRAINING",
             level: "INTERMEDIATE",
             duration: "45 MINS",
@@ -13,99 +13,128 @@ document.addEventListener("DOMContentLoaded", () => {
             reviews: "(420 reviews)",
             scheduleFocus: ["Upper Body Push", "Lower Body Power", "Rest", "Core & Stability", "Full Body Lift", "Active Recovery", "Rest"],
             exercises: [
-                { name: "BARBELL SQUATS", category: "Lower Body", sets: "4 SETS", reps: "8-10 REPS" },
-                { name: "DEADLIFTS", category: "Full Body", sets: "3 SETS", reps: "8 REPS" },
-                { name: "BENCH PRESS", category: "Upper Body", sets: "4 SETS", reps: "8-10 REPS" },
-                { name: "WEIGHTED PLANKS", category: "Core", sets: "3 SETS", reps: "60 SECS" },
-                { name: "OVERHEAD PRESS", category: "Upper Body", sets: "3 SETS", reps: "10 REPS" }
+                { name: "BARBELL SQUATS", category: "Lower Body", sets: "4", reps: "8-10" },
+                { name: "DEADLIFTS", category: "Full Body", sets: "3", reps: "8" },
+                { name: "BENCH PRESS", category: "Upper Body", sets: "4", reps: "8-10" },
+                { name: "WEIGHTED PLANKS", category: "Core", sets: "3", reps: "60 SEC" },
+                { name: "OVERHEAD PRESS", category: "Upper Body", sets: "3", reps: "10" },
+                { name: "BICEP CURLS", category: "Upper Body", sets: "3", reps: "12" },
+                { name: "HAMSTRING CURLS", category: "Lower Body", sets: "3", reps: "10" }
             ],
             videoSrc: "videos/strength-demonstration.mp4"
         },
-        cardio: {
+
+        "aerobic power": {
             title: "AEROBIC POWER",
-            level: "ALL LEVELS",
-            duration: "50 MINS",
-            capacity: "MAX 20 PEOPLE",
-            description: "High-intensity aerobic session for stamina, cardiovascular health, and fat burning.",
-            metrics: ["All Levels", "Fat Burn & Stamina", "No Equipment", "50 Mins"],
-            price: "$20.00",
-            rating: "4.7",
-            reviews: "(215 reviews)",
-            scheduleFocus: ["Steady State Cardio", "Interval Sprints", "Active Recovery", "Tempo Run", "Full Body Aerobics", "Endurance Push", "Rest"],
-            exercises: [
-                { name: "JUMPING JACKS", category: "Warm-up", sets: "3 SETS", reps: "60 SECS" },
-                { name: "HIGH KNEES", category: "Cardio", sets: "4 SETS", reps: "45 SECS" },
-                { name: "BURPEES", category: "Full Body", sets: "3 SETS", reps: "15 REPS" },
-                { name: "MOUNTAIN CLIMBERS", category: "Core/Cardio", sets: "4 SETS", reps: "60 SECS" },
-                { name: "JUMP ROPE", category: "Cardio", sets: "5 SETS", reps: "2 MINS" }
-            ],
-            videoSrc: "videos/cardio-demonstration.mp4"
-        },
-        flexibility: {
-            title: "FLEXIBILITY & BALANCE",
             level: "BEGINNER",
-            duration: "60 MINS",
-            capacity: "MAX 12 PEOPLE",
-            description: "Enhance mobility, core balance, and posture through dynamic stretching and yoga flows.",
-            metrics: ["Beginner", "Mobility & Posture", "Yoga Mat", "60 Mins"],
-            price: "$22.00",
+            duration: "1 HOUR",
+            capacity: "MAX 30 PEOPLE",
+            description: "A 1-hour high-energy aerobic session designed to boost your cardiovascular endurance and burn calories with Trainer Alia.",
+            metrics: ["Beginner", "Cardio Endurance", "None Required", "1 Hour"],
+            price: "$20.00",
             rating: "4.8",
-            reviews: "(150 reviews)",
-            scheduleFocus: ["Full Body Flow", "Core & Balance", "Rest", "Hip Mobility", "Spinal Health", "Dynamic Stretching", "Rest"],
-            exercises: [
-                { name: "DOWNWARD DOG", category: "Full Body", sets: "3 SETS", reps: "30 SECS" },
-                { name: "CAT-COW", category: "Core/Back", sets: "3 SETS", reps: "10 REPS" },
-                { name: "WARRIOR POSE", category: "Balance", sets: "3 SETS", reps: "45 SECS" },
-                { name: "CHILD'S POSE", category: "Recovery", sets: "2 SETS", reps: "60 SECS" },
-                { name: "TREE POSE", category: "Balance", sets: "3 SETS", reps: "30 SECS" }
+            reviews: "(215 reviews)",
+            scheduleFocus: [
+                "Light Cardio Warmup",
+                "High Intensity Aerobics",
+                "Active Recovery",
+                "Endurance Circuits",
+                "Cardio Core",
+                "Full Body Aerobics",
+                "Rest"
             ],
-            videoSrc: "videos/flexibility-demonstration.mp4"
+            exercises: [
+                { name: "JUMPING JACKS", category: "Warm Up", sets: "3", reps: "60 SEC" },
+                { name: "HIGH KNEES", category: "Cardio", sets: "4", reps: "45 SEC" },
+                { name: "BURPEES", category: "Full Body", sets: "3", reps: "15" },
+                { name: "MOUNTAIN CLIMBERS", category: "Core/Cardio", sets: "4", reps: "60 SEC" },
+                { name: "JUMP SQUATS", category: "Lower Body", sets: "3", reps: "20" },
+                { name: "SKATER HOPS", category: "Cardio", sets: "3", reps: "45 SEC" },
+                { name: "SHUTTLE RUNS", category: "Cardio", sets: "4", reps: "30 SEC" }
+            ],
+            videoSrc: "/videos/aerobic-demonstration.mp4"
         },
-        hiit: {
+
+        "flexibility and balance": {
+            title: "FLEXIBILITY & MOBILITY",
+            level: "ALL LEVELS",
+            duration: "45 MINS",
+            capacity: "MAX 25 PEOPLE",
+            description: "A restorative 45-minute session focused on deep stretching, improving your range of motion, and releasing muscle tension to help you recover faster.",
+            metrics: ["All Levels", "Recovery & Mobility", "Yoga Mat", "45 Mins"],
+            price: "$15.00",
+            rating: "4.9",
+            reviews: "(189 reviews)",
+            scheduleFocus: [
+                "Dynamic Warmup",
+                "Lower Body Stretches",
+                "Upper Body Openers",
+                "Spinal Mobility",
+                "Deep Tissue Release",
+                "Full Body Flow",
+                "Rest & Breathe"
+            ],
+            exercises: [
+                { name: "CAT-COW STRETCH", category: "Spine", sets: "3", reps: "60 SEC" },
+                { name: "DOWNWARD DOG", category: "Full Body", sets: "3", reps: "45 SEC" },
+                { name: "PIGEON POSE", category: "Lower Body", sets: "3", reps: "60 SEC" },
+                { name: "CHILD'S POSE", category: "Recovery", sets: "3", reps: "90 SEC" },
+                { name: "SEATED FORWARD FOLD", category: "Hamstrings", sets: "3", reps: "60 SEC" },
+                { name: "COBRA POSE", category: "Spine/Core", sets: "3", reps: "45 SEC" },
+                { name: "DYNAMIC MOBILITY FLOW", category: "Mobility", sets: "3", reps: "5 EACH" }
+            ],
+            videoSrc: "/videos/flexibility-demonstration.mp4"
+        },
+
+        "hiit boot camp": {
             title: "HIIT BOOTCAMP",
             level: "ADVANCED",
-            duration: "30 MINS",
-            capacity: "MAX 18 PEOPLE",
-            description: "Intense interval training designed for maximum calorie burn and cardiovascular endurance.",
-            metrics: ["Advanced", "Max Calorie Burn", "Kettlebells", "30 Mins"],
-            price: "$28.00",
+            duration: "45 MINS",
+            capacity: "MAX 20 PEOPLE",
+            description: "A high-intensity bootcamp designed to push your physical limits, burn maximum calories, and build explosive power through fast-paced intervals.",
+            metrics: ["Advanced", "Fat Loss & Power", "Minimal Equipment", "45 Mins"],
+            price: "$15.00",
             rating: "4.9",
-            reviews: "(530 reviews)",
-            scheduleFocus: ["Lower Body HIIT", "Upper Body Burn", "Active Recovery", "Core Crusher", "Full Body Power", "Cardio Blast", "Rest"],
-            exercises: [
-                { name: "KETTLEBELL SWINGS", category: "Full Body", sets: "4 SETS", reps: "20 REPS" },
-                { name: "BATTLE ROPES", category: "Upper Body", sets: "4 SETS", reps: "30 SECS" },
-                { name: "SQUAT JUMPS", category: "Lower Body", sets: "4 SETS", reps: "15 REPS" },
-                { name: "MED BALL SLAMS", category: "Full Body", sets: "4 SETS", reps: "20 REPS" },
-                { name: "SPRINTS", category: "Cardio", sets: "5 SETS", reps: "100 METERS" }
+            reviews: "(312 reviews)",
+            scheduleFocus: [
+                "Full Body HIIT",
+                "Core & Cardio",
+                "Active Recovery",
+                "Lower Body Power",
+                "Upper Body Burn",
+                "Endurance Push",
+                "Rest"
             ],
-            videoSrc: "videos/hiit-demonstration.mp4"
+            exercises: [
+                { name: "KETTLEBELL SWINGS", category: "Full Body", sets: "4", reps: "45 SEC" },
+                { name: "BOX JUMPS", category: "Lower Body", sets: "4", reps: "30 SEC" },
+                { name: "BURPEES", category: "Full Body", sets: "4", reps: "45 SEC" },
+                { name: "BATTLE ROPES", category: "Upper/Core", sets: "4", reps: "30 SEC" },
+                { name: "SPRINT INTERVALS", category: "Cardio", sets: "5", reps: "30 SEC" },
+                { name: "MEDICINE BALL SLAMS", category: "Full Body", sets: "4", reps: "15" },
+                { name: "THRUSTERS", category: "Full Body", sets: "4", reps: "45 SEC" }
+            ],
+            videoSrc: "/videos/hiit-bootcamp.mp4"
         }
     };
 
-    // 2. Read the URL Parameter
+    // 2. Read and Normalize URL Parameter
     const urlParams = new URLSearchParams(window.location.search);
-    const classKey = urlParams.get('class'); 
-    const data = classData[classKey] || classData['strength']; 
+    const rawClassKey = urlParams.get('class') || '';
+    const classKey = rawClassKey.toLowerCase().trim();
+    
+    // Fall back safely to strength training if key isn't matched
+    const data = classData[classKey] || classData['strength training'];
 
-    // 3. Populate Overview Yellow Text Elements
-    const dynTitle = document.getElementById('dyn-overview-title');
-    const dynLevel = document.getElementById('dyn-overview-level');
-    const dynDuration = document.getElementById('dyn-overview-duration');
-    const dynCapacity = document.getElementById('dyn-overview-capacity');
-    const dynText = document.getElementById('dyn-overview-text');
+    // 3. Populate Description Banner
+    const descriptionBanner = document.querySelector('.banner-text');
+    if (descriptionBanner) descriptionBanner.textContent = data.description;
 
-    if (dynTitle) dynTitle.textContent = data.title;
-    if (dynLevel) dynLevel.textContent = data.level;
-    if (dynDuration) dynDuration.textContent = data.duration;
-    if (dynCapacity) dynCapacity.textContent = data.capacity;
-    if (dynText) dynText.textContent = data.description;
-
-    // 4. Populate Header Title
+    // 4. Populate Main Header Title
     const headerTitle = document.querySelector('.header-title');
     if (headerTitle) headerTitle.textContent = data.title;
 
-    // 5. Populate Metrics
+    // 5. Populate Metrics Overview Boxes
     const metricValues = document.querySelectorAll('.metric-value');
     if (metricValues.length >= 4) {
         metricValues[0].textContent = data.metrics[0];
@@ -114,27 +143,20 @@ document.addEventListener("DOMContentLoaded", () => {
         metricValues[3].textContent = data.metrics[3];
     }
 
-    // 6. Populate Schedule Focus
+    // 6. Populate Weekly Schedule Focus Column
     const focusItems = document.querySelectorAll('.focus-item');
     focusItems.forEach((item, index) => {
         if (data.scheduleFocus[index]) item.textContent = data.scheduleFocus[index];
     });
 
-    // 7. Populate Dynamic Exercise List
+    // 7. Populate Dynamic Exercise Rows
     const exerciseListContainer = document.querySelector('.exercise-name-list');
     if (exerciseListContainer) {
-        exerciseListContainer.innerHTML = '';
-        data.exercises.forEach((ex, index) => {
+        exerciseListContainer.innerHTML = ''; 
+        
+        data.exercises.forEach((ex) => {
             const itemDiv = document.createElement('div');
             itemDiv.className = 'exercise-item';
-            
-            // --- LEFT SIDE: Wraps Number + Text together ---
-            const leftGroup = document.createElement('div');
-            leftGroup.className = 'exercise-left-group';
-
-            const numberDiv = document.createElement('div');
-            numberDiv.className = 'exercise-number';
-            numberDiv.textContent = `${index + 1}.`; // Orange number
 
             const infoDiv = document.createElement('div');
             infoDiv.className = 'exercise-info';
@@ -142,38 +164,34 @@ document.addEventListener("DOMContentLoaded", () => {
             const nameDiv = document.createElement('div');
             nameDiv.className = 'exercise-name';
             nameDiv.textContent = ex.name;
-            
+
             const catDiv = document.createElement('div');
             catDiv.className = 'exercise-category';
             catDiv.textContent = ex.category;
-            
-            // Stack Name and Category inside infoDiv
+
             infoDiv.appendChild(nameDiv);
             infoDiv.appendChild(catDiv);
 
-            // Put Number and infoDiv side-by-side in leftGroup
-            leftGroup.appendChild(numberDiv);
-            leftGroup.appendChild(infoDiv);
+            // Sets Column Element
+            const setsDiv = document.createElement('div');
+            setsDiv.className = 'stat-sets';
+            setsDiv.textContent = ex.sets;
 
-            // --- RIGHT SIDE: Sets & Reps ---
-            const statsDiv = document.createElement('div');
-            statsDiv.className = 'exercise-stats';
-            statsDiv.textContent = `${ex.sets}  |  ${ex.reps}`;
-            
-            // --- BOTTOM LINE ---
-            const rowLine = document.createElement('div');
-            rowLine.className = 'row-line';
-            
-            // Assemble the full row
-            itemDiv.appendChild(leftGroup);
-            itemDiv.appendChild(statsDiv);
-            itemDiv.appendChild(rowLine);
-            
+            // Reps Column Element
+            const repsDiv = document.createElement('div');
+            repsDiv.className = 'stat-reps';
+            repsDiv.textContent = ex.reps;
+
+            // Assemble row nodes
+            itemDiv.appendChild(infoDiv);
+            itemDiv.appendChild(setsDiv);
+            itemDiv.appendChild(repsDiv);
+
             exerciseListContainer.appendChild(itemDiv);
         });
     }
 
-    // 8. Video Source Handling
+    // 8. Video Player Target Handling
     const videoElement = document.querySelector('.video-box video');
     const videoSource = document.querySelector('.video-box video source');
     if (videoSource && videoElement && data.videoSrc) {
@@ -181,7 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
         videoElement.load();
     }
 
-    // 9. Price and Review values
+    // 9. Pricing and Reviews Updates
     const priceValue = document.querySelector('.price-value');
     if (priceValue) priceValue.textContent = data.price;
 
