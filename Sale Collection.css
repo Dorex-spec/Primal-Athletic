@@ -1,0 +1,358 @@
+/* --- Global Resets & Body Container --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #0d0d0d; 
+    overscroll-behavior: none; 
+    overflow-x: hidden; 
+}
+
+body {
+    background-color: #ffffff; 
+    width: 100%;
+    position: relative;
+    padding-top: 80px; /* Standard navbar height */
+    overflow-x: hidden; 
+}
+
+/* =========================================
+   HEADER / NAVBAR (Standard Size)
+========================================= */
+
+.navbar-bg {
+    width: 100%;
+    height: 80px; /* Standard navbar height */
+    background-color: #0d0d0d; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    z-index: 9999; 
+    border-bottom: 3px solid #ffffff; /* NEW: Thick white horizontal line separating the navbar and hero */
+}
+
+/* --- Flexbox Container --- */
+.navbar-container {
+    width: 100%;
+    max-width: 1200px; /* REDUCED: This pulls the logo and icons closer to the center! */
+    height: 100%;
+    margin: 0 auto; 
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0 20px; 
+}
+
+/* --- Left Side: Logo --- */
+.logo-link {
+    width: 50px;  
+    height: 50px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 50%;
+    overflow: hidden; 
+    text-decoration: none;
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+/* --- Center: Nav Links --- */
+/* OVERWRITING OLD BUGS: No more position: absolute! */
+.nav-buttons {
+    display: flex;
+    align-items: center;
+}
+
+.nav-buttons ul {
+    display: flex;
+    flex-direction: row; 
+    gap: 40px; 
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-buttons a {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 16px; 
+    font-weight: 400;
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.nav-buttons a:hover { opacity: 0.7; }
+
+/* --- Right Side: Group Container --- */
+/* OVERWRITING OLD BUGS: No more position: absolute! */
+.header-right-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 35px; 
+}
+
+/* --- Right Side: Icons --- */
+.nav-icons {
+    display: flex;
+    flex-direction: row; 
+    gap: 20px; 
+    align-items: center;
+}
+
+.nav-icons span {
+    font-size: 20px; 
+    color: #ffffff;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.nav-icons span:hover { opacity: 0.7; }
+
+/* --- Right Side: About Us Button --- */
+.about-us-btn {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px; 
+    font-weight: 400;
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.about-us-btn:hover { opacity: 0.7; }
+
+/* =========================================
+   SALE SECTION LAYOUT
+========================================= */
+.sale-section {
+    width: 100%;
+    height: 900px;
+    background-color: #D6D6D6; /* Same gray background */
+    padding-top: 40px; 
+    padding-bottom: 100px; 
+}
+
+/* --- Breadcrumbs --- */
+.breadcrumb {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 14px;
+    color: #000000;
+    margin-bottom: 30px;
+}
+
+.breadcrumb a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+
+.product-card {
+    width: 262px;
+    background-color: #FFFFFF;
+    border: 3px solid #0D0D0D; /* Thick black border around the whole box */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-sizing: border-box; /* Ensures the border doesn't stretch the box width */
+}
+
+/* The outer section wrapper */
+.sale-section {
+    width: 100%;
+    height: 1069px;
+    padding: 60px 0; /* Gives space above and below the section */
+}
+
+/* The Image inside the box */
+.product-img {
+    width: 100%; /* FIX: Using 100% keeps it perfectly trapped inside the card borders! */
+    height: 190px;
+    object-fit: cover;
+    /* FIX: Removed the unwanted border-bottom */
+}
+
+/* The inner container to keep things centered */
+.sale-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header spacing */
+.sale-header {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+/* The Container holding the boxes */
+.sale-products {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 38px; /* The exact 38px gap */
+    width: 100%;
+}
+
+/* =========================================
+   SALE BADGE
+========================================= */
+
+.badge-sale {
+    position: absolute;
+    top: 10px;  
+    left: 10px; 
+    width: 65px;
+    height: 26px;
+    background-color: #F5A623;
+    border: 1px solid #000000;
+    
+    /* Centers the text perfectly inside the box */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+/* =========================================
+   PRODUCT CARD TYPOGRAPHY
+========================================= */
+
+/* "PROTIEN POWDERS" part */
+.product-category {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.04em;
+    color: rgba(65, 65, 65, 0.53); /* #414141 at 53% opacity */
+    text-transform: uppercase;
+}
+
+/* "PLANT-BASED PROTEIN BLEND" part */
+.product-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.04em;
+    color: #0D0D0D;
+    text-transform: uppercase;
+}
+
+/* "(198)" text next to the stars */
+.review-count {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 13px;
+    color: rgba(65, 65, 65, 0.41); /* #414141 at 41% opacity */
+}
+
+/* "$44.99" crossed out price at the bottom */
+.old-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15px;
+    letter-spacing: 0.04em;
+    color: rgba(0, 0, 0, 0.38); /* #000000 at 38% opacity */
+    text-decoration: line-through; /* This adds the strike-through line */
+}
+
+/* ========================================== */
+/* FOOTER SECTION                             */
+/* ========================================== */
+
+/* --- MAIN FOOTER CONTAINER --- */
+.footer-section {
+    width: 100%;
+    min-height: 646px;
+    background-color: #000000;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row; 
+    
+    /* Forces every column to start at the exact same top line */
+    align-items: flex-start; 
+    
+    /* This handles the top spacing for all columns at once */
+    padding-top: 50px; 
+    padding-left: 50px;
+    box-sizing: border-box;
+}
+
+/* --- COLUMN 1: TERMS --- */
+.terms {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.terms-img {
+    width: 104px;
+    height: 104px;
+    border: 2px solid rgba(245, 166, 35, 0.91);
+    box-sizing: border-box;
+    margin-bottom: 22px; 
+    margin-top: 0; /* Ensures the box starts at the very top */
+}
+
+.terms-big-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: #F5A623;
+    margin: 0 0 22px 0; /* Top margin MUST be 0 for alignment */
+}
+
+.terms-small-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: rgba(245, 166, 35, 0.91);
+    margin: 0 0 22px 0; 
+}
+
+/* --- COLUMN 2: CONTACT --- */
+.footer-links-col {
+    display: flex;
+    flex-direction: column;
+    margin-left: 227px; /* EXACT spacing from Column 1 */
+}
+
+/* --- COLUMN 3: ABOUT US --- */
+.footer-about-col {
+    display: flex;
+    flex-direction: column;
+    margin-left: 104px; /* EXACT spacing from Column 2 */
+}
+
+/* --- SHARED HEADER STYLE (Used in Col 2 & 3) --- */
+.links-big-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: #F5A623;
+    margin: 0 0 26px 0; /* margin-top: 0 aligns it with the image/other text */
+    line-height: 1;
+}
+
+/* --- INNER TEXT STYLES --- */
+.link-group {
+    margin-bottom: 8px; 
+}
+
+.links-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: #F5A623;
+    margin: 0;
+}
+
+.links-small-text {
+    font-family: 'Epilogue', sans-serif;
+    font-size: 16px;
+    color: #F5A623;
+    margin: 4px 0 0 0;
+    line-height: 1.4;
+}

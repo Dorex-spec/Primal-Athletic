@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Centralized Class Database (Now with Sets & Reps)
+    // 1. Centralized Class Database
     const classData = {
         strength: {
             title: "STRENGTH TRAINING",
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const classKey = urlParams.get('class'); 
     const data = classData[classKey] || classData['strength']; 
 
-    // 3. Populate Dynamic Overview Yellow Text Elements
+    // 3. Populate Overview Yellow Text Elements
     const dynTitle = document.getElementById('dyn-overview-title');
     const dynLevel = document.getElementById('dyn-overview-level');
     const dynDuration = document.getElementById('dyn-overview-duration');
@@ -101,11 +101,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (dynCapacity) dynCapacity.textContent = data.capacity;
     if (dynText) dynText.textContent = data.description;
 
-    // 4. Populate Header
+    // 4. Populate Header Title
     const headerTitle = document.querySelector('.header-title');
     if (headerTitle) headerTitle.textContent = data.title;
 
-    // 5. Populate Metrics Boxes
+    // 5. Populate Metrics
     const metricValues = document.querySelectorAll('.metric-value');
     if (metricValues.length >= 4) {
         metricValues[0].textContent = data.metrics[0];
@@ -114,13 +114,13 @@ document.addEventListener("DOMContentLoaded", () => {
         metricValues[3].textContent = data.metrics[3];
     }
 
-    // 6. Populate Schedule Focus Items
+    // 6. Populate Schedule Focus
     const focusItems = document.querySelectorAll('.focus-item');
     focusItems.forEach((item, index) => {
         if (data.scheduleFocus[index]) item.textContent = data.scheduleFocus[index];
     });
 
-    // 7. Populate Dynamic Exercise List (Now with Numbers, Sets & Reps)
+    // 7. Populate Dynamic Exercise List
     const exerciseListContainer = document.querySelector('.exercise-name-list');
     if (exerciseListContainer) {
         exerciseListContainer.innerHTML = '';
@@ -128,40 +128,47 @@ document.addEventListener("DOMContentLoaded", () => {
             const itemDiv = document.createElement('div');
             itemDiv.className = 'exercise-item';
             
-            // Left block container (Name + Category)
+            // --- LEFT SIDE: Wraps Number + Text together ---
+            const leftGroup = document.createElement('div');
+            leftGroup.className = 'exercise-left-group';
+
+            const numberDiv = document.createElement('div');
+            numberDiv.className = 'exercise-number';
+            numberDiv.textContent = `${index + 1}.`; // Orange number
+
             const infoDiv = document.createElement('div');
             infoDiv.className = 'exercise-info';
 
             const nameDiv = document.createElement('div');
             nameDiv.className = 'exercise-name';
-            
-            // Create the orange number span (e.g., "1. ")
-            const numberSpan = document.createElement('span');
-            numberSpan.className = 'exercise-number';
-            numberSpan.textContent = `${index + 1}. `;
-            
-            // Add the number, then the exercise name to the name div
-            nameDiv.appendChild(numberSpan);
-            nameDiv.appendChild(document.createTextNode(ex.name));
+            nameDiv.textContent = ex.name;
             
             const catDiv = document.createElement('div');
             catDiv.className = 'exercise-category';
             catDiv.textContent = ex.category;
             
+            // Stack Name and Category inside infoDiv
             infoDiv.appendChild(nameDiv);
             infoDiv.appendChild(catDiv);
 
-            // Right block container (Sets & Reps)
+            // Put Number and infoDiv side-by-side in leftGroup
+            leftGroup.appendChild(numberDiv);
+            leftGroup.appendChild(infoDiv);
+
+            // --- RIGHT SIDE: Sets & Reps ---
             const statsDiv = document.createElement('div');
             statsDiv.className = 'exercise-stats';
             statsDiv.textContent = `${ex.sets}  |  ${ex.reps}`;
             
+            // --- BOTTOM LINE ---
             const rowLine = document.createElement('div');
             rowLine.className = 'row-line';
             
-            itemDiv.appendChild(infoDiv);
+            // Assemble the full row
+            itemDiv.appendChild(leftGroup);
             itemDiv.appendChild(statsDiv);
             itemDiv.appendChild(rowLine);
+            
             exerciseListContainer.appendChild(itemDiv);
         });
     }

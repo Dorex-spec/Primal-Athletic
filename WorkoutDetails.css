@@ -388,6 +388,46 @@ body {
     box-sizing: border-box; 
 }
 
+.exercise-name-list {
+    position: absolute;
+    left: 15px; 
+    top: 20px;  
+    display: flex;
+    flex-direction: column; 
+    gap: 25px; 
+}
+
+.exercise-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px; 
+}
+
+.exercise-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: #000000;
+    letter-spacing: 0.04em; 
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.exercise-category {
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 300; 
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.41); 
+    line-height: 1;
+}
+
+.row-line {
+    width: 1098px;
+    height: 1px;
+    background-color: #000000;
+    margin-left: -15px; 
+    margin-top: 10px;   
+}
+
 /* --- Video Demonstration Section --- */
 
 .video-header {
@@ -595,154 +635,4 @@ body {
 .btn-orange:active {
     background-color: #333333; /* Turns Gray */
     color: #D38A18;            /* Text turns Darker Orange */
-}
-
-/* Styling for dynamic yellow highlights in the overview text */
-.yellow-highlight {
-    color: #F5A623;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 19px;
-    letter-spacing: 0.05em;
-    display: inline-block;
-    margin: 0 3px;
-}
-
-/* ==============================================
-   CLEAN EXERCISE LIST STYLING
-============================================== */
-
-.exercise-name-list {
-    position: absolute;
-    left: 0px;  /* CHANGED: This makes it touch the left wall */
-    top: 20px;  
-    width: 100%; /* CHANGED: This makes it stretch all the way to the right wall */
-    display: flex;
-    flex-direction: column; 
-    gap: 22px; 
-}
-
-.exercise-item {
-    position: relative; 
-    display: flex;
-    justify-content: flex-start; 
-    align-items: center; 
-    width: 100%;
-    
-    height: auto; /* THE FIX: This forces the box to stretch and fit the text! */
-    
-    padding-left: 20px;  
-    padding-right: 20px; 
-    padding-bottom: 12px; 
-    border-bottom: 2px solid #000000; 
-    box-sizing: border-box;
-}
-
-/* NEW: Removes the border from the very last item at the bottom */
-.exercise-item:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-}
-
-/* FAILSAFE: This completely hides any leftover manual 'row-line' 
-   divs in your HTML that are causing that misaligned extra line! */
-.row-line {
-    display: none !important;
-}
-
-/* The mini box grouping the Name and Category */
-.exercise-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left;
-    transform: translateY(-4px); 
-    gap: 4px; 
-}
-
-.exercise-name {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 24px;
-    color: #000000;
-    line-height: 1;
-    letter-spacing: 0.05em;
-    margin: 0;
-}
-
-.exercise-category {
-    font-family: 'Epilogue', sans-serif;
-    font-size: 14px;
-    color: #888888;
-    font-weight: 600;
-    text-transform: uppercase;
-    line-height: 1;
-    margin: 0;
-}
-
-/* ==============================================
-   VERTICAL COLUMN SEPARATORS (EXERCISE LIST)
-============================================== */
-
-/* White lines for the Orange Header */
-.ex-separator-line {
-    position: absolute;
-    top: 0;
-    width: 2px;
-    height: 71px; /* Matches the exact height of the orange box */
-    background-color: #FFFFFF; 
-}
-
-/* Black lines for the Gray Content Box */
-.ex-content-line {
-    position: absolute;
-    top: 0;
-    width: 2px;
-    height: 100%; /* Stretches from the very top to the very bottom */
-    background-color: #000000;
-    z-index: 10; /* Ensures the lines sit clearly on top of the rows */
-}
-
-/* Position exactly before the "SETS" column */
-.ex-line-1, 
-.ex-line-3 { 
-    left: 510px; 
-} 
-
-/* Position exactly before the "REPS" column */
-.ex-line-2, 
-.ex-line-4 { 
-    left: 780px; 
-}
-
-/* ==============================================
-   SETS & REPS STATS (CORRECTED SINGLE LINE)
-============================================== */
-
-.stat-sets, .stat-reps {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%); /* Centers it vertically */
-    
-    font-family: 'Epilogue', sans-serif;
-    font-size: 20px; /* Sized perfectly so long text doesn't break */
-    font-weight: 700;
-    color: 000000;
-    text-transform: uppercase;
-    
-    /* This centers the text exactly in the middle of the gap */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-/* SETS COLUMN */
-.stat-sets {
-    left: 510px; 
-    width: 270px; /* The exact gap between the lines */
-}
-
-/* REPS COLUMN */
-.stat-reps {
-    left: 780px; 
-    width: calc(100% - 780px); /* Fills the rest of the row */
 }

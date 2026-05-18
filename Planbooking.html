@@ -17,7 +17,7 @@
 
             <nav class="nav-buttons">
                 <ul>
-                    <li><a href="homepage.html" class="nav-home">Home</a></li>
+                    <li><a href="index.html" class="nav-home">Home</a></li>
                     <li><a href="shop.html" class="nav-shop">Shop</a></li>
                     <li><a href="Planbooking.html" class="nav-services">Services</a></li>
                 </ul>
@@ -50,46 +50,44 @@
     <main class="page-container">
         
         <section class="browse-section">
-            <h1 class="section-heading">BROWSE PLANS</h1>
-            <div class="browse-grid">
-                <div class="browse-card" id="byLevelBtn">
-                    <div class="browse-header">
-                        <span class="browse-icon">🎯</span>
-                        <span class="browse-arrow">&gt;</span>
-                    </div>
-                    <h3>BY LEVEL</h3>
-                    <p>Find workouts matched to your experience</p>
-                </div>
-                <div class="browse-card">
-                    <div class="browse-header">
-                        <span class="browse-icon">⚡</span>
-                        <span class="browse-arrow">&gt;</span>
-                    </div>
-                    <div class="your-black-card-class" id="byGoalBtn"></div>
-                    <h3>BY GOAL</h3>
-                    <p>Choose plans based on your fitness objectives</p>
-                </div>
-                <div class="browse-card">
-                    <div class="browse-header">
-                        <span class="browse-icon">🏋️</span>
-                        <span class="browse-arrow">&gt;</span>
-                    </div>
-                    <div class="your-black-card-class" id="byEquipmentBtn"></div>
-                    <h3>BY EQUIPMENT</h3>
-                    <p>Select workouts based on available gear</p>
-                </div>
+    <h1 class="section-heading">BROWSE PLANS</h1>
+    <div class="browse-grid">
+        <div class="browse-card" id="byLevelBtn">
+            <div class="browse-header">
+                <span class="browse-icon">🎯</span>
+                <span class="browse-arrow">&gt;</span>
             </div>
-        </section>
+            <h3>BY LEVEL</h3>
+            <p>Find workouts matched to your experience</p>
+        </div>
+        <div class="browse-card" id="byGoalBtn">
+            <div class="browse-header">
+                <span class="browse-icon">⚡</span>
+                <span class="browse-arrow">&gt;</span>
+            </div>
+            <h3>BY GOAL</h3>
+            <p>Choose plans based on your fitness objectives</p>
+        </div>
+        <div class="browse-card" id="byEquipmentBtn">
+            <div class="browse-header">
+                <span class="browse-icon">🏋️</span>
+                <span class="browse-arrow">&gt;</span>
+            </div>
+            <h3>BY EQUIPMENT</h3>
+            <p>Select workouts based on available gear</p>
+        </div>
+    </div>
+</section>
 
         <div class="level-filter-container" id="levelFilterContainer">
-            <h3 class="filter-heading">SELECT LEVEL</h3>
-            <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">ALL LEVELS</button>
-                <button class="filter-btn" data-filter="beginner">BEGINNER</button>
-                <button class="filter-btn" data-filter="intermediate">INTERMEDIATE</button>
-                <button class="filter-btn" data-filter="advance">ADVANCED</button> 
-            </div>
-        </div>
+    <h3 class="filter-heading">SELECT LEVEL</h3>
+    <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">ALL LEVELS</button>
+        <button class="filter-btn" data-filter="beginner">BEGINNER</button>
+        <button class="filter-btn" data-filter="intermediate">INTERMEDIATE</button>
+        <button class="filter-btn" data-filter="advance">ADVANCED</button> 
+    </div>
+</div>
 
         <div class="level-filter-container" id="goalFilterContainer">
     <h3 class="filter-heading">SELECT GOAL</h3>
@@ -140,7 +138,7 @@
                             <p><strong>21</strong> Exercises included</p>
                         </div>
                     </div>
-                    <button class="view-btn">VIEW DETAILS &gt;</button>
+                    <button type="button" class="view-btn">VIEW DETAILS</button>
                 </div>
 
                 <div class="plan-card">
@@ -162,7 +160,7 @@
                             <p><strong>21</strong> Exercises included</p>
                         </div>
                     </div>
-                    <button class="view-btn">VIEW DETAILS &gt;</button>
+                    <button type="button" class="view-btn">VIEW DETAILS</button>
                 </div>
 
                 <div class="plan-card">
@@ -184,7 +182,7 @@
                             <p><strong>42</strong> included</p>
                         </div>
                     </div>
-                    <button class="view-btn">VIEW DETAILS &gt;</button>
+                    <button type="button" class="view-btn">VIEW DETAILS</button>
                 </div>
 
                 <div class="plan-card">
@@ -206,7 +204,7 @@
                     <p><strong>90</strong> Exercises included</p>
                 </div>
             </div>
-            <button class="view-btn">VIEW DETAILS &gt;</button>
+            <button type="button" class="view-btn">VIEW DETAILS</button>
         </div>
 
          <div class="plan-card">
@@ -228,7 +226,7 @@
                     <p><strong>56</strong> Exercises included</p>
                 </div>
             </div>
-            <button class="view-btn">VIEW DETAILS &gt;</button>
+            <button type="button" class="view-btn">VIEW DETAILS</button>
         </div>
 
             </div>
@@ -268,7 +266,7 @@
 
     </main>
     
-   <script src="js/script.js"></script>
+   
    <script>
        (function () {
          const WORKOUT_PARAM_KEY = "workout";
@@ -363,6 +361,25 @@
         <a href="aboutus.html"><p class="terms-small-text">MEMBERS TRANSFORMATIONS</p></a>
     </div>
 </section>
+
+<div id="workoutModal" class="modal-overlay">
+    <div class="modal-card">
+        <span class="modal-close-btn">&times;</span>
+        <div class="modal-header-image" id="modalImageContainer">
+            <span class="modal-price-badge" id="modalPrice">$0.00</span>
+        </div>
+        <div class="modal-body">
+            <span class="modal-badge" id="modalBadge">LEVEL</span>
+            <h2 class="modal-title" id="modalTitle">Workout Plan Title</h2>
+            <hr class="modal-divider">
+            <div class="modal-details-content" id="modalDetails">
+                </div>
+            <button class="modal-action-btn">BOOK THIS PLAN NOW</button>
+        </div>
+    </div>
+</div>
+
+<script src="js/script.js"></script>
 
 </body>
 </html>

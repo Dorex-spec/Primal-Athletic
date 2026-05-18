@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workout Details</title>
+  <link rel="stylesheet" href="WorkoutDetails.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Epilogue:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="desktop-container">
+    <div class="inner-box">
+      <div class="overview-header">
+        <img src="/pictures/Target icon.png" alt="Target Symbol" class="overview-symbol">
+        <div class="overview-title">OVERVIEW</div>
+      </div>
+
+      <!-- Class title (dynamic) -->
+      <div class="description-banner" id="workoutTitleBanner" style="top: 285px;">
+        <div class="banner-text">
+          <strong data-workout-title>WORKOUT</strong>
+        </div>
+      </div>
+
+      <!-- Summary fields (dynamic) -->
+      <div>
+        <div style="display:flex; gap:18px; flex-wrap: wrap;">
+          <div class="metric-box" style="width:261px;">
+            <div class="metric-label">DURATION</div>
+            <div class="metric-value" data-workout-duration>—</div>
+          </div>
+
+          <div class="metric-box" style="width:261px;">
+            <div class="metric-label">DIFFICULTY</div>
+            <div class="metric-value" data-workout-difficulty>—</div>
+          </div>
+
+          <div class="metric-box" style="width:261px;">
+            <div class="metric-label">BENEFITS</div>
+            <div class="metric-value" data-workout-benefits>—</div>
+          </div>
+
+          <div class="metric-box" style="width:261px;">
+            <div class="metric-label">DESCRIPTION</div>
+            <div class="metric-value" style="font-size:18px; line-height:1.1; white-space:normal; overflow:hidden; text-transform:none; font-family:'Epilogue', sans-serif; font-weight:500;"
+              data-workout-description>—</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Keep the rest of the existing layout below as-is (visual mock) -->
+      <div class="schedule-header">
+        <img src="/pictures/Calendar icon.png" alt="Calendar Icon" class="schedule-icon">
+        <div class="schedule-title">weekly schedule</div>
+      </div>
+
+      <div class="schedule-box">
+        <div class="day-label day-1">DAY</div>
+        <div class="day-label day-2">FOCUS</div>
+        <div class="day-label day-3">DURATION</div>
+
+        <div class="separator-line line-1"></div>
+        <div class="separator-line line-2"></div>
+      </div>
+
+      <div class="schedule-content-box">
+        <div class="days-list">
+          <div class="day-item">MONDAY</div>
+          <div class="day-item">TUESDAY</div>
+          <div class="day-item">WEDNESDAY</div>
+          <div class="day-item">THURSDAY</div>
+          <div class="day-item">FRIDAY</div>
+          <div class="day-item">SATURDAY</div>
+          <div class="day-item">SUNDAY</div>
+        </div>
+
+        <div class="focus-list">
+          <div class="focus-item">Upper Body Basics</div>
+          <div class="focus-item">Lower Body Foundation</div>
+          <div class="focus-item">Rest Day</div>
+          <div class="focus-item">Core Strengthening</div>
+          <div class="focus-item">Full Body Workout</div>
+          <div class="focus-item">Cardio and Mobility</div>
+          <div class="focus-item">Active Recovery</div>
+        </div>
+
+        <div class="duration-list">
+          <div class="duration-item">25 mins</div>
+          <div class="duration-item">25 mins</div>
+          <div class="duration-item">-</div>
+          <div class="duration-item">20 mins</div>
+          <div class="duration-item">30 mins</div>
+          <div class="duration-item">20 mins</div>
+          <div class="duration-item">15 mins</div>
+        </div>
+
+        <div class="content-separator line-3"></div>
+        <div class="content-separator line-4"></div>
+      </div>
+
+      <div class="exercise-header">
+        <div class="rotated-icon-wrapper">
+          <img src="/pictures/image-removebg-preview.png" alt="Dumbbell Icon" class="exercise-icon">
+        </div>
+        <div class="exercise-title">EXERCISE LIST</div>
+      </div>
+
+      <div class="exercise-box">
+        <div class="exercise-label ex-label-1">EXERCISE</div>
+        <div class="exercise-label ex-label-2">SETS</div>
+        <div class="exercise-label ex-label-3">REPS</div>
+      </div>
+
+      <div class="exercise-content-box">
+        <div class="exercise-name-list">
+          <div class="exercise-item">
+            <div class="exercise-name">PUSH-UPS</div>
+            <div class="exercise-category">Upper Body</div>
+            <div class="row-line"></div>
+          </div>
+          <div class="exercise-item">
+            <div class="exercise-name">BODYWEIGHT SQUATS</div>
+            <div class="exercise-category">Lower Body</div>
+            <div class="row-line"></div>
+          </div>
+          <div class="exercise-item">
+            <div class="exercise-name">PLANK HOLD</div>
+            <div class="exercise-category">Core</div>
+            <div class="row-line"></div>
+          </div>
+          <div class="exercise-item">
+            <div class="exercise-name">LUNGES</div>
+            <div class="exercise-category">Lower Body</div>
+            <div class="row-line"></div>
+          </div>
+          <div class="exercise-item">
+            <div class="exercise-name">MOUNTAIN CLIMBERS</div>
+            <div class="exercise-category">Cardio</div>
+            <div class="row-line"></div>
+          </div>
+          <div class="exercise-item">
+            <div class="exercise-name">GLUTE BRIDGES</div>
+            <div class="exercise-category">Lower Body</div>
+            <div class="row-line"></div>
+          </div>
+          <div class="exercise-item">
+            <div class="exercise-name">ARM CIRCLES</div>
+            <div class="exercise-category">Warm-up</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="video-header">
+        <div class="triangle-icon"></div>
+        <div class="video-title">VIDEO DEMONSTRATION</div>
+      </div>
+
+      <div class="header-box">
+        <div class="header-title">7 Days quick start</div>
+        <a href="classes.html" class="close-btn">x</a>
+      </div>
+
+      <div class="video-box">
+        <video controls>
+          <source src="/videos/workout-demonstration.mp4" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="checkout-section">
+        <div class="checkout-line"></div>
+
+        <div class="price-container">
+          <div class="price-label">TOTAL PRICE</div>
+          <div class="price-value" data-workout-price>$29.99</div>
+        </div>
+
+        <div class="rating-group">
+          <div class="star-rating-icon">★</div>
+          <div class="rating-value">4.8</div>
+          <div class="review-count">(342 reviews)</div>
+        </div>
+      </div>
+
+      <div class="action-buttons">
+        <button class="btn-white" type="button" id="backBtn">BACK</button>
+        <button class="btn-orange" type="button" id="purchaseBtn">PURCHASE PLAN</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/workout-details.js"></script>
+</body>
+</html>

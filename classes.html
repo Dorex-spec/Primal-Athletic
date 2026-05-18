@@ -7,14 +7,13 @@
     <link rel="stylesheet" href="classes.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Epilogue:wght@400&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="global-navbar-footer.css">
+        <link rel="stylesheet" href="global-navbar-footer.css">
     <title>Document</title>
 </head>
-
 <body>
-    <header class="navbar-bg">
+  <header class="navbar-bg">
         <div class="navbar-container">
-
+            
             <a href="index.html" class="logo-link">
                 <img src="images/Logo.png" alt="Primal Athletic" class="logo">
             </a>
@@ -27,17 +26,17 @@
                 </ul>
             </nav>
             <div class="nav-icons">
-                <div class="search-wrapper">
-                    <button class="search-trigger">
-                        <a class="icon-search" aria-label="Search">🔍</a>
-                    </button>
-                    <div class="search-bar-dropdown">
-                        <input type="text" id="site-search" placeholder="Search Primal Athletic...">
-                        <div id="search-results"></div>
-                    </div>
-                </div>
-                <a href="chartandcheckout.html" class="icon-cart" aria-label="View Cart">🛒</a>
-                <a href="useraccount.html" class="icon-profile" aria-label="User Profile">👤</a>
+    <div class="search-wrapper">
+        <button class="search-trigger">
+            <a class="icon-search" aria-label="Search">🔍</a>
+        </button>
+        <div class="search-bar-dropdown">
+            <input type="text" id="site-search" placeholder="Search Primal Athletic...">
+            <div id="search-results"></div>
+        </div>
+    </div>
+    <a href="chartandcheckout.html" class="icon-cart" aria-label="View Cart">🛒</a>
+    <a href="useraccount.html" class="icon-profile" aria-label="User Profile">👤</a>
                 <a href="aboutus.html" class="about-us-btn">ABOUT US</a>
             </div>
 
@@ -539,24 +538,21 @@
                 <div class="bottom-boxes-container">
                     <div class="bottom-box">
                         <span class="box-label">TRAINING</span>
-                        <p class="box-main-text">Build muscle mass and increase overall strength through resistance
-                            training and progressive overload techniques.</p>
+                        <p class="box-main-text">Build muscle mass and increase overall strength through resistance training and progressive overload techniques.</p>
                         <p class="box-body-text">* Compound movements</p>
                         <p class="box-body-text">* Progressive overload</p>
                         <p class="box-body-text">* Muscle hypertrophy focus</p>
                     </div>
                     <div class="bottom-box">
                         <span class="box-label">TRAINING</span>
-                        <p class="box-main-text">Improve cardiovascular health and endurance with high-energy cardio
-                            workouts and interval training.</p>
+                        <p class="box-main-text">Improve cardiovascular health and endurance with high-energy cardio workouts and interval training.</p>
                         <p class="box-body-text">* Heart rate training</p>
                         <p class="box-body-text">* Calorie burning focus</p>
                         <p class="box-body-text">* Endurance building</p>
                     </div>
                     <div class="bottom-box">
                         <span class="box-label">TRAINING</span>
-                        <p class="box-main-text">Enhance mobility, flexibility, and stability through guided stretching
-                            and balance exercises.</p>
+                        <p class="box-main-text">Enhance mobility, flexibility, and stability through guided stretching and balance exercises.</p>
                         <p class="box-body-text">* Range of motion improvement</p>
                         <p class="box-body-text">* Injury prevention</p>
                         <p class="box-body-text">* Mind-body connection</p>
@@ -568,63 +564,55 @@
     </main>
 
     <script>
-        (() => {
+        (function () {
             const CLASS_PARAM_KEY = "class";
 
-            // Normalizes the card titles so they match your dataset keys
-            const normalizeClassTitle = (text) => {
-                if (!text) return "";
-                return text.trim().toLowerCase()
-                    .replace(/[\s\-_]+/g, " ")
-                    .replace("training", "")
-                    .replace("power", "")
-                    .replace("bootcamp", "")
-                    .replace("balance", "")
-                    .trim();
+            // Map whatever is shown in the card to the exact required URL param values.
+            const normalizeClassTitle = (raw) => {
+                const t = String(raw || "").toLowerCase();
+
+                if (t.includes("strength")) return "Strength Training";
+                if (t.includes("aerobic") || t.includes("earobic")) return "Aerobic Power";
+                if (t.includes("flexibility")) return "Flexibility and Balance";
+                if (t.includes("hiit")) return "HIIT Boot Camp";
+
+                return null;
             };
 
-            // Grabs the title text from the card
             const getCardClassTitle = (cardEl) => {
                 const titleEl = cardEl.querySelector("h2.strength-box-title");
                 const raw = titleEl ? titleEl.textContent : "";
                 return normalizeClassTitle(raw);
             };
 
-            // Redirects to the details page using a clean, relative path
             const goToWorkoutDetails = (classTitle) => {
                 if (!classTitle) return;
                 const params = new URLSearchParams({ [CLASS_PARAM_KEY]: classTitle });
-
-                // FIXED: Changed to your exact relative file name without leading slashes
-                window.location.href = `Work out detaileds.html?${params.toString()}`;
+                window.location.href = `workout-details.html?${params.toString()}`;
             };
 
-            // Attach click listeners to the cards while isolating the button
+            // Attach click to entire class card area + "BOOK NOW" elements.
             document.querySelectorAll(".class-block").forEach((cardEl) => {
                 const classTitle = getCardClassTitle(cardEl);
 
-                // 1. Make the whole card clickable
+                // Whole card click
                 cardEl.style.cursor = "pointer";
                 cardEl.addEventListener("click", (e) => {
-                    // Safety check: if they clicked the book button, ignore it here
-                    if (e.target.closest('.book-now-btn')) return;
-
+                    // If a user clicks inside a non-interactive control, we still redirect.
                     goToWorkoutDetails(classTitle);
                 });
 
-                // 2. Isolate the "BOOK NOW" button completely
+                // "BOOK NOW" click (stop propagation so it doesn’t double-trigger)
                 cardEl.querySelectorAll(".book-now-btn").forEach((btn) => {
                     btn.addEventListener("click", (e) => {
-                        e.stopPropagation(); // Stops the card click handler from running
-
-                        // Relative path to your booking page
-                        window.location.href = "Planbooking.html";
+                        e.stopPropagation();
+                        goToWorkoutDetails(classTitle);
                     });
                 });
             });
         })();
     </script>
-
+        
 </body>
 
 </html>
