@@ -34,7 +34,7 @@ if (subscribeBtn && emailInput) {
 }
 
 // ==========================================
-// 3. BROWSE PLANS: ALL FILTERS
+// 3. BROWSE PLANS: ALL FILTERS & REDIRECTIONS
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
     
@@ -148,41 +148,83 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    // ==========================================
+    // D. VIEW DETAILS REDIRECTION (NEWLY ADDED)
+    // ==========================================
+    const DETAILS_URL = "Work out detaileds.html";
+    const REQUIRED_TITLES = new Set([
+        "7 Days Quick Start",
+        "10 Days Challenge",
+        "For Busy Professionals",
+        "30 Days Challenge",
+        "Fat Burn Program"
+    ]);
+
+    planCards.forEach(cardEl => {
+        const titleEl = cardEl.querySelector(".plan-title");
+        const rawTitle = titleEl ? titleEl.textContent.trim() : "";
+        
+        // Find matching name for URL formatting
+        let matchedTitle = null;
+        if (REQUIRED_TITLES.has(rawTitle)) {
+            matchedTitle = rawTitle;
+        } else {
+            const lower = rawTitle.toLowerCase();
+            for (const t of REQUIRED_TITLES) {
+                if (t.toLowerCase() === lower) {
+                    matchedTitle = t;
+                    break;
+                }
+            }
+        }
+
+        const btn = cardEl.querySelector(".view-btn");
+        if (btn && matchedTitle) {
+            btn.addEventListener("click", () => {
+                const params = new URLSearchParams({ workout: matchedTitle });
+                window.location.href = `${DETAILS_URL}?${params.toString()}`;
+            });
+        }
+    });
 });
 
+// ==========================================
+// 4. SITE SEARCH FUNCTIONALITY
+// ==========================================
 const searchInput = document.getElementById('site-search');
 const resultsBox = document.getElementById('search-results');
 
-// Add your site data here
 const siteContent = [
     { title: "Home", link: "homepage.html", tags: "gym primal main" },
-    { title: "Shop", title: "shop", link: "shop.html", tags: "weights gear clothes" },
-    { title: "Services", title: "services", link: "Planbooking.html", tags: "training personal coach" },
-    { title: "About Us", title: "about us", link: "aboutus.html", tags: "story team history" },
-    { title: "Account Settings", title: "account settings", link: "useraccount.html", tags: "personal details" },
-    { title: "Classes", title: "classes", link: "classes.html", tags: "browse plans" },
-    { title: "Workout Plans", title: "workout plans", link: "Planbooking.html", tags: "workout plans" }
+    { title: "Shop", link: "shop.html", tags: "weights gear clothes" },
+    { title: "Services", link: "Planbooking.html", tags: "training personal coach" },
+    { title: "About Us", link: "aboutus.html", tags: "story team history" },
+    { title: "Account Settings", link: "useraccount.html", tags: "personal details" },
+    { title: "Classes", link: "classes.html", tags: "browse plans" },
+    { title: "Workout Plans", link: "Planbooking.html", tags: "workout plans" }
 ];
 
-searchInput.addEventListener('input', () => {
-    let query = searchInput.value.toLowerCase();
-    resultsBox.innerHTML = ""; // Clear previous results
+if (searchInput && resultsBox) {
+    searchInput.addEventListener('input', () => {
+        let query = searchInput.value.toLowerCase();
+        resultsBox.innerHTML = ""; // Clear previous results
 
-    if (query.length > 1) {
-        let matches = siteContent.filter(item => 
-            item.title.toLowerCase().includes(query) || 
-            item.tags.toLowerCase().includes(query)
-        );
+        if (query.length > 1) {
+            let matches = siteContent.filter(item => 
+                item.title.toLowerCase().includes(query) || 
+                item.tags.toLowerCase().includes(query)
+            );
 
-        matches.forEach(match => {
-            let resultLink = document.createElement('a');
-            resultLink.href = match.link;
-            resultLink.textContent = match.title;
-            resultLink.style.display = "block";
-            resultLink.style.padding = "5px";
-            resultLink.style.color = "#ff9900";
-            resultsBox.appendChild(resultLink);
-        });
-    }
-});
-
+            matches.forEach(match => {
+                let resultLink = document.createElement('a');
+                resultLink.href = match.link;
+                resultLink.textContent = match.title;
+                resultLink.style.display = "block";
+                resultLink.style.padding = "5px";
+                resultLink.style.color = "#ff9900";
+                resultsBox.appendChild(resultLink);
+            });
+        }
+    });
+}
