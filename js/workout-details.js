@@ -294,4 +294,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const reviewCount = document.querySelector('.review-count');
     if (reviewCount) reviewCount.textContent = data.reviews;
+
+    // ===================================================
+    // 10. DYNAMIC BACK / CLOSE NAVIGATION (NEW FIX)
+    // ===================================================
+    const closeBtn = document.querySelector('.close-btn');
+    const backBtn = document.querySelector('.btn-white');
+    
+    // Choose destination based on URL tracking parameter
+    let returnUrl = 'Planbooking.html'; // Default fallback
+    if (urlParams.has('class')) {
+        returnUrl = 'classes.html';
+    } else if (urlParams.has('workout')) {
+        returnUrl = 'Planbooking.html';
+    }
+
+    // Fix the top right 'x' button
+    if (closeBtn) {
+        closeBtn.href = returnUrl;
+    }
+
+    // Fix the bottom 'BACK' action button
+    if (backBtn) {
+        backBtn.removeAttribute('onclick'); // Clear old hardcoded hash link
+        backBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.location.href = returnUrl;
+        });
+    }
 });

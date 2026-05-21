@@ -189,23 +189,30 @@ const products = {
 };
 
 
-if (document.querySelector(".product-card")) {
-  document.querySelectorAll(".product-card").forEach((card) => {
-    card.style.cursor = "pointer";
-
+// Wrap the click binder in DOMContentLoaded so it waits for the HTML cards to load first
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".product-card");
   
+  cards.forEach((card) => {
+    card.style.cursor = "pointer"; // Makes it look clickable (changes mouse to a hand)
+
     if (card.dataset.boundClick === "true") return;
     card.dataset.boundClick = "true";
 
+    // When the user clicks ANYWHERE inside this card...
     card.addEventListener("click", () => {
       const slug = card.getAttribute("data-slug");
-      if (!slug) return;
+      
+      if (!slug) {
+        console.error("Missing data-slug on this card!");
+        return;
+      }
 
-     
+      // ...send them to the details page with the correct product ID!
       window.location.href = `Product.Details.html?id=${encodeURIComponent(slug)}`;
     });
   });
-}
+});
 
 // 3. PRODUCT DETAILS LOGIC
 document.addEventListener("DOMContentLoaded", () => {
