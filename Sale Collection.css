@@ -166,6 +166,11 @@ body {
     flex-direction: column;
     position: relative;
     box-sizing: border-box; /* Ensures the border doesn't stretch the box width */
+    transition: transform 0.2s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px); 
 }
 
 /* The outer section wrapper */
@@ -238,7 +243,7 @@ body {
 }
 
 /* "PLANT-BASED PROTEIN BLEND" part */
-.product-title {
+.product-name {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 18px;
     letter-spacing: 0.04em;

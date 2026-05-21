@@ -217,11 +217,17 @@ body {
     border: 3px solid #0D0D0D;
     display: flex;
     flex-direction: column;
+    transition: transform 0.2s ease;
+}
+
+/* ADD THIS WHOLE BLOCK RIGHT BELOW .product-card */
+.product-card:hover {
+    transform: translateY(-5px); 
 }
 
 /* The Image inside the box */
 .product-img {
-    width: 260px;
+    width: 100%;
     height: 190px;
     object-fit: cover; /* This keeps the image from stretching weirdly inside the new dimensions! */
 }

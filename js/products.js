@@ -242,7 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Breadcrumbs
   if (breadcrumbs) {
-    breadcrumbs.innerHTML = `Home > ${product.category} > ${product.sub} > ${product.name}`;
+    breadcrumbs.innerHTML = `<a href="index.html" style="text-decoration: none; color: inherit; cursor: pointer;">Home</a> > ${product.category} > ${product.sub} > ${product.name}`;
   }
 
   // Price (details page uses .product-details markup but CSS has no .product-price by default)
