@@ -281,11 +281,15 @@ h1, h2, h3, h4 {
 }
 
 
-.image-placeholder.solid-gray {
-    background-color: #d9d9d9;
-    height: 250px;
+.coach-img {
+    background-color: transparent; /* Makes the empty space match your orange card background */
+    height: 350px; /* Increased from 250px so the full-body photos aren't too small */
     width: 100%;
     margin-bottom: 15px;
+    
+    /* The Fix: Shows the entire image without cropping or zooming */
+    object-fit: contain; 
+    object-position: center; /* Centers the image perfectly */
 }
 
 
@@ -300,6 +304,35 @@ h1, h2, h3, h4 {
     font-weight: 500;
 }
 
+
+/* --- NEW COACHES GRID CONTAINER --- */
+.coaches-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Creates a clean 2-column layout */
+    gap: 20px;                      /* Space between the cards */
+    margin-top: 20px;
+}
+
+/* --- UPDATED COACH CARD --- */
+.coach-card {
+    background-color: var(--primary-color);
+    padding: 15px;             /* Slimmer padding so the yellow isn't too thick */
+    border-radius: 12px;       /* Adds clean, modern rounded corners */
+    text-align: center;        /* Centers all the text perfectly */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- NEW COACH IMAGE STYLE --- */
+.coach-img {
+    width: 100%;
+    height: 320px;             /* Ideal portrait height for framing faces */
+    object-fit: cover;         /* Fills the card space crisply without stretching */
+    object-position: center 15%; /* Perfect crop level to focus right on your faces */
+    border-radius: 8px;        /* Clean edges for the photo inside the card */
+    margin-bottom: 12px;
+}
 
 
 
